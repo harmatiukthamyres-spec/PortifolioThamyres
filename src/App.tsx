@@ -187,18 +187,11 @@ function App() {
         </div>
 
         <section className="about paper-section" id="sobre">
-          <div className="section-kicker">01 · SOBRE</div>
-          <div className="about-intro">
-            <h2>Presença que comunica.<br /><em>Conteúdo que convence.</em></h2>
-            <p>
-              Sou Thamyres Harmatiuk, criadora de conteúdo UGC especializada em beleza e lifestyle. Crio vídeos que unem estética editorial, linguagem natural e demonstração clara para transformar benefícios de produto em desejo e decisão de compra.
-            </p>
-          </div>
-
           <div className="about-media-grid">
             <div className="profile-panel">
-              <p className="profile-copy">
-                Meu cabelo loiro natural, minha pele clara e meus olhos verdes azulados formam uma assinatura visual forte para haircare, skincare e maquiagem.
+              <h2 className="about-title">Sobre mim</h2>
+              <p className="about-bio">
+                Sou Thamyres Harmatiuk, criadora de conteúdo UGC especializada em beleza e lifestyle. Crio vídeos que unem estética editorial, linguagem natural e demonstração clara para transformar benefícios de produto em desejo e decisão de compra.
               </p>
               <dl className="profile-facts">
                 {profileFacts.map(([label, value]) => (
@@ -215,12 +208,6 @@ function App() {
               <span className="play-disc"><Play fill="currentColor" size={17} /></span>
               <span className="media-label"><strong>VÍDEO DE APRESENTAÇÃO</strong><small>FORMATO 9:16 · 30 A 60 SEGUNDOS</small></span>
             </button>
-
-            <div className="about-photo image-placeholder tone-3" role="img" aria-label="Espaço reservado para fotografia em close de Thamyres">
-              <span className="image-index">03</span>
-              <span className="placeholder-cross" aria-hidden="true" />
-              <span className="media-label"><strong>INSERIR FOTOGRAFIA REAL</strong><small>CLOSE · PELE · CABELO · OLHOS</small></span>
-            </div>
           </div>
         </section>
 
