@@ -6,11 +6,11 @@ import {
   ArrowUpRight,
   AtSign,
   Mail,
-  MessageCircle,
   Play,
   Volume2,
   X,
 } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa6'
 
 type PortfolioVideo = {
   id: string
@@ -127,9 +127,6 @@ function App() {
   return (
     <div className="site-shell">
       <header className="topbar">
-        <a className="brand" href="#inicio" aria-label="Ir para o início">
-          Thamyres Harmatiuk
-        </a>
         <nav className="desktop-nav" aria-label="Navegação principal">
           <a href="#portfolio">Portfólio</a>
           <a href="#metricas">Métricas</a>
@@ -141,13 +138,9 @@ function App() {
             <Mail size={16} />
             <span>E-mail</span>
           </a>
-          <a
-            className="header-whatsapp"
-            href="https://wa.me/5511988242425"
-            target="_blank"
-            rel="noreferrer"
-          >
-            WhatsApp <ArrowUpRight size={15} />
+          <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
+            <FaWhatsapp size={17} />
+            <span>WhatsApp</span>
           </a>
         </div>
       </header>
@@ -156,20 +149,18 @@ function App() {
         <section className="hero dark-section" id="inicio">
           <div className="hero-copy">
             <h1>
-              Beleza que prende <em>o olhar.</em>
-              <br />
-              Conteúdo que move a escolha.
+              Thamyres Harmatiuk
             </h1>
             <div className="hero-bottom">
               <p>
                 UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.
               </p>
               <div className="hero-ctas">
-                <a className="button button-light" href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
-                  Falar no WhatsApp <ArrowUpRight size={16} />
+                <a className="hero-contact-link" href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
+                  <FaWhatsapp size={17} /> Falar no WhatsApp
                 </a>
-                <a className="text-link" href="mailto:contato@thamyresharmatiuk.com">
-                  Enviar e-mail <ArrowRight size={15} />
+                <a className="hero-contact-link" href="mailto:contato@thamyresharmatiuk.com">
+                  <Mail size={17} /> Enviar e-mail
                 </a>
               </div>
             </div>
@@ -410,7 +401,7 @@ function App() {
       </main>
 
       <div className="mobile-contact-dock" aria-label="Contato rápido">
-        <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer"><MessageCircle size={18} /> WhatsApp</a>
+        <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer"><FaWhatsapp size={18} /> WhatsApp</a>
         <a href="mailto:contato@thamyresharmatiuk.com"><Mail size={18} /> E-mail</a>
       </div>
 
