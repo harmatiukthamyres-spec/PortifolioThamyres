@@ -79,21 +79,20 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .specialty-strip i { width: 4px; height: 4px; background: currentColor; border-radius: 50%; opacity: 0.55; }
 
 .about, .photos, .services, .profile-coverage { padding: 4.5rem 2.2vw; }
+.about { padding-top: 2rem; padding-bottom: 2rem; }
 .section-kicker { font-size: 0.62rem; letter-spacing: 0.14em; font-weight: 600; }
-.about-intro { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 6vw; margin: 2.7rem 0 3.3rem; align-items: end; }
-.about-intro h2, .section-heading h2, .coverage-copy h2, .contact h2 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; font-size: clamp(3.2rem, 6.1vw, 7.2rem); line-height: 0.88; letter-spacing: -0.055em; margin: 0; }
-.about-intro p { margin: 0; line-height: 1.58; max-width: 55ch; font-size: 0.92rem; }
-.about-media-grid { display: grid; grid-template-columns: minmax(250px, 0.82fr) minmax(220px, 0.72fr) minmax(340px, 1.2fr); gap: 12px; align-items: stretch; }
-.profile-panel { border: 1px solid var(--line-light); padding: 1.4rem; display: flex; flex-direction: column; }
-.profile-copy { margin: 0 0 2rem; font-family: 'Bodoni Moda', Georgia, serif; font-size: 1.35rem; line-height: 1.2; }
-.profile-facts { margin: auto 0 0; }
+.section-heading h2, .coverage-copy h2, .contact h2 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; font-size: clamp(3.2rem, 6.1vw, 7.2rem); line-height: 0.88; letter-spacing: -0.055em; margin: 0; }
+.about-media-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 360px); gap: 14px; align-items: stretch; }
+.profile-panel { border: 1px solid var(--line-light); padding: 1.2rem; display: flex; flex-direction: column; }
+.about-title { margin: 0 0 1rem; font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(1.7rem, 2.6vw, 2.5rem); font-weight: 400; line-height: 1; }
+.about-bio { margin: 0 0 1.5rem; max-width: 58ch; font-size: 0.82rem; line-height: 1.5; }
+.profile-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; margin: auto 0 0; }
 .profile-facts div { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 1rem; border-top: 1px solid var(--line-light); padding: 0.52rem 0; }
 .profile-facts dt, .profile-facts dd { margin: 0; font-size: 0.57rem; letter-spacing: 0.09em; }
 .profile-facts dd { text-align: right; font-weight: 600; }
-.video-intro { border: 0; padding: 0; cursor: pointer; min-height: 520px; color: var(--paper); }
+.video-intro { border: 0; padding: 0; cursor: pointer; width: 100%; min-height: 0; aspect-ratio: 9 / 16; color: var(--paper); }
 .play-disc, .reel-play { position: absolute; z-index: 3; display: grid; place-items: center; border: 1px solid rgba(255,255,255,0.72); border-radius: 50%; background: rgba(10,10,10,0.12); }
 .play-disc { width: 58px; height: 58px; left: 50%; top: 50%; transform: translate(-50%, -50%); }
-.about-photo { min-height: 520px; color: var(--paper); }
 
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 3rem; }
 .section-heading .section-kicker { display: block; margin-bottom: 1.25rem; }
@@ -204,9 +203,8 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .hero-bottom { grid-template-columns: 1fr; }
   .hero-ctas { justify-self: start; }
   .portrait-placeholder { min-height: 570px; }
-  .about-media-grid { grid-template-columns: 1fr 1fr; }
-  .profile-panel { grid-column: 1 / -1; }
-  .video-intro, .about-photo { min-height: 580px; }
+  .about-media-grid { grid-template-columns: minmax(0, 1fr) minmax(260px, 320px); }
+  .video-intro { min-height: 0; }
   .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 12px; }
   .category-header { min-height: 112px; }
   .reel-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -227,12 +225,12 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .placeholder-label { flex-direction: column; align-items: flex-start; }
   .specialty-strip { overflow-x: auto; justify-content: flex-start; padding: 0 16px; min-height: 58px; }
   .about, .photos, .services, .profile-coverage, .portfolio, .metrics, .process, .contact { padding: 3.5rem 16px; }
-  .about-intro, .about-media-grid { display: flex; flex-direction: column; }
-  .about-intro { margin: 2rem 0; gap: 1.6rem; align-items: start; }
-  .about-intro h2, .section-heading h2, .coverage-copy h2 { font-size: clamp(3rem, 14vw, 4.7rem); }
+  .about { padding-top: 1rem; padding-bottom: 1rem; }
+  .about-media-grid { display: flex; flex-direction: column; }
+  .section-heading h2, .coverage-copy h2 { font-size: clamp(3rem, 14vw, 4.7rem); }
   .profile-panel { order: 1; width: 100%; }
   .video-intro { order: 2; width: 100%; min-height: auto; aspect-ratio: 9 / 16; }
-  .about-photo { order: 3; width: 100%; min-height: 500px; }
+  .profile-facts { grid-template-columns: 1fr; }
   .profile-facts div { grid-template-columns: 0.8fr 1.2fr; }
   .section-heading { flex-direction: column; align-items: start; gap: 1.4rem; }
   .portfolio-heading { padding-bottom: 1.6rem; }
