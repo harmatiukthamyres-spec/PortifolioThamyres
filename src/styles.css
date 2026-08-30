@@ -52,15 +52,15 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .header-actions { grid-column: 3; justify-self: end; display: flex; align-items: center; gap: 1.25rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; }
 .header-actions a { display: flex; align-items: center; gap: 0.45rem; }
 
-.hero { min-height: 100svh; padding: 112px 2.2vw 28px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr); gap: 2vw; position: relative; }
-.hero-copy { display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }
-.hero h1 { font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(2.8rem, 4.2vw, 5rem); line-height: 1; letter-spacing: -0.045em; font-weight: 400; margin: 0 0 3rem; max-width: none; white-space: nowrap; }
-.hero h1 em { color: var(--gray); }
-.hero-bottom { border-top: 1px solid var(--line-dark); padding-top: 1.3rem; display: grid; grid-template-columns: minmax(220px, 0.7fr) 1fr; align-items: end; gap: 2rem; }
-.hero-bottom p { margin: 0; max-width: 35ch; font-size: 0.92rem; line-height: 1.45; color: #c9c9c6; }
-.hero-ctas { justify-self: end; display: flex; align-items: center; gap: 1rem; }
+.hero { padding: 64px 2.2vw 0; }
+.hero-media { position: relative; display: grid; grid-template-columns: 1.22fr 1fr; height: clamp(360px, 42vw, 650px); overflow: hidden; }
+.hero-image { height: 100%; color: var(--paper); }
+.hero-image-secondary { border-left: 1px solid var(--line-dark); }
+.hero-identity { position: absolute; z-index: 4; left: 24px; bottom: 18px; }
+.hero-identity h1 { width: max-content; max-width: calc(100vw - 80px); margin: 0; padding: 0.38rem 0.7rem; background: var(--ink); color: var(--paper); font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(2rem, 2.8vw, 3.4rem); line-height: 1; letter-spacing: -0.04em; font-weight: 400; white-space: nowrap; }
+.hero-identity p { max-width: 36ch; margin: 0; padding: 0.7rem 0.75rem; background: var(--ink); color: #d2d2cf; font-size: 0.72rem; line-height: 1.45; }
+.hero-contact-bar { min-height: 58px; display: flex; align-items: center; justify-content: center; gap: 2.4rem; }
 .hero-contact-link { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 42px; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.68rem; }
-.scroll-cue { position: absolute; left: 2.2vw; bottom: 22px; display: none; align-items: center; gap: 0.4rem; font-size: 0.58rem; letter-spacing: 0.12em; }
 
 .image-placeholder { position: relative; overflow: hidden; background: #2b2b2b; }
 .image-placeholder::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 60% 30%, rgba(255,255,255,0.16), transparent 32%), linear-gradient(145deg, rgba(255,255,255,0.06), transparent 55%); }
@@ -73,20 +73,19 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .placeholder-label, .media-label { position: absolute; z-index: 3; left: 16px; right: 16px; bottom: 16px; display: flex; justify-content: space-between; align-items: end; gap: 1rem; color: var(--white); }
 .placeholder-label strong, .media-label strong { font-size: 0.64rem; letter-spacing: 0.12em; }
 .placeholder-label span, .media-label small { font-size: 0.52rem; letter-spacing: 0.1em; opacity: 0.7; }
-.portrait-placeholder { color: var(--paper); min-height: 650px; }
 
 .specialty-strip { min-height: 66px; background: var(--paper); border-bottom: 1px solid var(--line-light); color: var(--ink); display: flex; align-items: center; justify-content: space-around; gap: 1.3rem; padding: 0 2.2vw; font-size: clamp(0.72rem, 1vw, 1rem); letter-spacing: 0.16em; white-space: nowrap; }
 .specialty-strip i { width: 4px; height: 4px; background: currentColor; border-radius: 50%; opacity: 0.55; }
 
 .about, .photos, .services, .profile-coverage { padding: 4.5rem 2.2vw; }
-.about { padding-top: 2rem; padding-bottom: 2rem; }
+.about { padding-top: 1.5rem; padding-bottom: 1.5rem; }
 .section-kicker { font-size: 0.62rem; letter-spacing: 0.14em; font-weight: 600; }
 .section-heading h2, .coverage-copy h2, .contact h2 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; font-size: clamp(3.2rem, 6.1vw, 7.2rem); line-height: 0.88; letter-spacing: -0.055em; margin: 0; }
-.about-media-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 360px); gap: 14px; align-items: stretch; }
-.profile-panel { border: 1px solid var(--line-light); padding: 1.2rem; display: flex; flex-direction: column; }
+.about-media-grid { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(260px, 320px); gap: 24px; align-items: stretch; width: min(100%, 900px); }
+.profile-panel { padding: 0 1rem 0 0; display: flex; flex-direction: column; }
 .about-title { margin: 0 0 1rem; font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(1.7rem, 2.6vw, 2.5rem); font-weight: 400; line-height: 1; }
-.about-bio { margin: 0 0 1.5rem; max-width: 58ch; font-size: 0.82rem; line-height: 1.5; }
-.profile-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; margin: auto 0 0; }
+.about-bio { margin: 0 0 1.3rem; max-width: 40ch; font-size: 0.78rem; line-height: 1.5; }
+.profile-facts { display: grid; grid-template-columns: 1fr; margin: auto 0 0; }
 .profile-facts div { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 1rem; border-top: 1px solid var(--line-light); padding: 0.52rem 0; }
 .profile-facts dt, .profile-facts dd { margin: 0; font-size: 0.57rem; letter-spacing: 0.09em; }
 .profile-facts dd { text-align: right; font-weight: 600; }
@@ -198,11 +197,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .topbar { grid-template-columns: 1fr auto; }
   .desktop-nav { display: none; }
   .header-actions { grid-column: 2; }
-  .hero { grid-template-columns: 1fr 0.8fr; }
-  .hero h1 { font-size: clamp(4rem, 8vw, 6.5rem); }
-  .hero-bottom { grid-template-columns: 1fr; }
-  .hero-ctas { justify-self: start; }
-  .portrait-placeholder { min-height: 570px; }
+  .hero-media { height: clamp(360px, 52vw, 560px); }
   .about-media-grid { grid-template-columns: minmax(0, 1fr) minmax(260px, 320px); }
   .video-intro { min-height: 0; }
   .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 12px; }
@@ -214,14 +209,15 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 
 @media (max-width: 720px) {
   body { padding-bottom: 62px; }
-  .topbar { height: 56px; padding: 0 16px; }
-  .header-actions { display: none; }
-  .hero { min-height: auto; padding: 86px 16px 16px; display: flex; flex-direction: column; }
-  .hero h1 { font-size: clamp(1.85rem, 9.5vw, 3rem); margin: 0 0 2.4rem; line-height: 1; }
-  .hero-bottom { order: 3; margin-top: 1.2rem; }
-  .hero-ctas { flex-wrap: wrap; }
-  .hero-portrait { order: 2; min-height: 540px; }
-  .scroll-cue { display: none; }
+  .topbar { display: none; }
+  .hero { padding: 0 16px; }
+  .hero-media { grid-template-columns: 1fr; height: min(128vw, 520px); min-height: 430px; }
+  .hero-image-secondary { display: none; }
+  .hero-identity { left: 12px; right: 12px; bottom: 12px; }
+  .hero-identity h1 { max-width: 100%; font-size: clamp(1.85rem, 9vw, 2.6rem); }
+  .hero-identity p { max-width: 32ch; font-size: 0.68rem; }
+  .hero-contact-bar { min-height: 56px; justify-content: space-between; gap: 0.75rem; }
+  .hero-contact-link { font-size: 0.55rem; }
   .placeholder-label { flex-direction: column; align-items: flex-start; }
   .specialty-strip { overflow-x: auto; justify-content: flex-start; padding: 0 16px; min-height: 58px; }
   .about, .photos, .services, .profile-coverage, .portfolio, .metrics, .process, .contact { padding: 3.5rem 16px; }
@@ -234,7 +230,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .profile-facts div { grid-template-columns: 0.8fr 1.2fr; }
   .section-heading { flex-direction: column; align-items: start; gap: 1.4rem; }
   .portfolio-heading { padding-bottom: 1.6rem; }
-  .category-jump { display: flex; gap: 0.5rem; overflow-x: auto; padding: 1rem 0; position: sticky; top: 56px; z-index: 8; background: var(--ink); scrollbar-width: none; }
+  .category-jump { display: flex; gap: 0.5rem; overflow-x: auto; padding: 1rem 0; position: sticky; top: 0; z-index: 8; background: var(--ink); scrollbar-width: none; }
   .category-jump::-webkit-scrollbar { display: none; }
   .category-jump a { border: 1px solid var(--line-dark); padding: 0.55rem 0.7rem; font-size: 0.52rem; letter-spacing: 0.09em; white-space: nowrap; }
   .portfolio-grid { display: flex; flex-direction: column; gap: 3rem; margin-top: 0.5rem; }
