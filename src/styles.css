@@ -55,9 +55,8 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .header-whatsapp { border: 1px solid rgba(255, 255, 255, 0.32); padding: 0.6rem 0.85rem; }
 
 .hero { min-height: 100svh; padding: 112px 2.2vw 28px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr); gap: 2vw; position: relative; }
-.hero-copy { display: flex; flex-direction: column; min-width: 0; }
-.eyebrow-row { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.64rem; letter-spacing: 0.14em; padding-bottom: 1.2rem; border-bottom: 1px solid var(--line-dark); }
-.hero h1 { font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(4.2rem, 7.2vw, 8.8rem); line-height: 0.85; letter-spacing: -0.065em; font-weight: 400; margin: auto 0 3rem; max-width: 13ch; }
+.hero-copy { display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }
+.hero h1 { font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(4.2rem, 7.2vw, 8.8rem); line-height: 0.85; letter-spacing: -0.065em; font-weight: 400; margin: 0 0 3rem; max-width: 13ch; }
 .hero h1 em { color: var(--gray); }
 .hero-bottom { border-top: 1px solid var(--line-dark); padding-top: 1.3rem; display: grid; grid-template-columns: minmax(220px, 0.7fr) 1fr; align-items: end; gap: 2rem; }
 .hero-bottom p { margin: 0; max-width: 35ch; font-size: 0.92rem; line-height: 1.45; color: #c9c9c6; }
@@ -224,8 +223,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .brand { font-size: 1rem; }
   .header-actions { display: none; }
   .hero { min-height: auto; padding: 86px 16px 16px; display: flex; flex-direction: column; }
-  .eyebrow-row { font-size: 0.51rem; }
-  .hero h1 { font-size: clamp(3.5rem, 17vw, 5.4rem); margin: 4.5rem 0 2.4rem; line-height: 0.88; }
+  .hero h1 { font-size: clamp(3.5rem, 17vw, 5.4rem); margin: 0 0 2.4rem; line-height: 0.88; }
   .hero-bottom { order: 3; margin-top: 1.2rem; }
   .hero-ctas { flex-wrap: wrap; }
   .hero-portrait { order: 2; min-height: 540px; }
