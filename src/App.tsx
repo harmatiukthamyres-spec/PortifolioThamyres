@@ -147,44 +147,28 @@ function App() {
 
       <main>
         <section className="hero dark-section" id="inicio">
-          <div className="hero-copy">
-            <h1>
-              Thamyres Harmatiuk
-            </h1>
-            <div className="hero-bottom">
-              <p>
-                UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.
-              </p>
-              <div className="hero-ctas">
-                <a className="hero-contact-link" href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
-                  <FaWhatsapp size={17} /> Falar no WhatsApp
-                </a>
-                <a className="hero-contact-link" href="mailto:contato@thamyresharmatiuk.com">
-                  <Mail size={17} /> Enviar e-mail
-                </a>
-              </div>
+          <div className="hero-media" role="img" aria-label="Espaços reservados para fotografias reais de Thamyres">
+            <div className="hero-image hero-image-primary image-placeholder">
+              <span className="image-index">01</span>
+              <span className="placeholder-cross" aria-hidden="true" />
+            </div>
+            <div className="hero-image hero-image-secondary image-placeholder">
+              <span className="placeholder-cross" aria-hidden="true" />
+            </div>
+            <div className="hero-identity">
+              <h1>Thamyres Harmatiuk</h1>
+              <p>UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.</p>
             </div>
           </div>
-          <div className="hero-portrait image-placeholder portrait-placeholder" role="img" aria-label="Espaço reservado para retrato real de Thamyres">
-            <span className="image-index">01</span>
-            <span className="placeholder-cross" aria-hidden="true" />
-            <div className="placeholder-label">
-              <strong>INSERIR RETRATO REAL</strong>
-              <span>PRETO E BRANCO · CLOSE EDITORIAL</span>
-            </div>
+          <div className="hero-contact-bar">
+            <a className="hero-contact-link" href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
+              <FaWhatsapp size={17} /> Falar no WhatsApp
+            </a>
+            <a className="hero-contact-link" href="mailto:contato@thamyresharmatiuk.com">
+              <Mail size={17} /> Enviar e-mail
+            </a>
           </div>
-          <a className="scroll-cue" href="#sobre" aria-label="Rolar para a seção sobre">
-            SCROLL <ArrowDown size={15} />
-          </a>
         </section>
-
-        <div className="specialty-strip" aria-label="Especialidades">
-          <span>HAIRCARE</span><i />
-          <span>SKINCARE</span><i />
-          <span>BODYCARE</span><i />
-          <span>BEAUTY</span><i />
-          <span>LIFESTYLE</span>
-        </div>
 
         <section className="about paper-section" id="sobre">
           <div className="about-media-grid">
@@ -210,6 +194,14 @@ function App() {
             </button>
           </div>
         </section>
+
+        <div className="specialty-strip" aria-label="Especialidades">
+          <span>HAIRCARE</span><i />
+          <span>SKINCARE</span><i />
+          <span>BODYCARE</span><i />
+          <span>BEAUTY</span><i />
+          <span>LIFESTYLE</span>
+        </div>
 
         <section className="portfolio dark-section" id="portfolio">
           <div className="portfolio-heading section-heading">
