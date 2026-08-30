@@ -155,10 +155,6 @@ function App() {
       <main>
         <section className="hero dark-section" id="inicio">
           <div className="hero-copy">
-            <div className="eyebrow-row">
-              <span>UGC CREATOR · BEAUTY & LIFESTYLE</span>
-              <span>BRASIL · 2026</span>
-            </div>
             <h1>
               Beleza que prende <em>o olhar.</em>
               <br />
