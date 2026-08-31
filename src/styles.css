@@ -82,10 +82,10 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .photos { padding-top: 2.75rem; padding-bottom: 2.75rem; }
 .section-kicker { font-size: 0.62rem; letter-spacing: 0.14em; font-weight: 600; }
 .section-heading h2, .coverage-copy h2, .contact h2 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; font-size: var(--section-title-size); line-height: 0.88; letter-spacing: -0.055em; margin: 0; }
-.about-media-grid { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(260px, 320px); gap: 24px; align-items: stretch; width: min(100%, 900px); }
+.about-media-grid { display: grid; grid-template-columns: minmax(0, 56ch) clamp(280px, 22vw, 420px); gap: clamp(4rem, 9vw, 10rem); align-items: stretch; width: 100%; max-width: 1400px; }
 .profile-panel { padding: 0 1rem 0 0; display: flex; flex-direction: column; }
 .about-title { margin: 0 0 1rem; font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(1.7rem, 2.6vw, 2.5rem); font-weight: 400; line-height: 1; }
-.about-bio { margin: 0 0 1.3rem; max-width: 40ch; font-size: 0.78rem; line-height: 1.5; }
+.about-bio { margin: 0 0 1.3rem; max-width: 56ch; font-size: 0.78rem; line-height: 1.5; }
 .profile-facts { display: grid; grid-template-columns: 1fr; margin: auto 0 0; }
 .profile-facts div { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 1rem; border-top: 1px solid var(--line-light); padding: 0.52rem 0; }
 .profile-facts dt, .profile-facts dd { margin: 0; font-size: 0.57rem; letter-spacing: 0.09em; }
@@ -200,7 +200,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .desktop-nav { display: none; }
   .header-actions { grid-column: 2; }
   .hero-media { height: clamp(360px, 52vw, 560px); }
-  .about-media-grid { grid-template-columns: minmax(0, 1fr) minmax(260px, 320px); }
+  .about-media-grid { grid-template-columns: minmax(0, 1fr) minmax(240px, 300px); gap: clamp(2rem, 6vw, 4rem); max-width: 900px; }
   .video-intro { min-height: 0; }
   .portfolio-grid { gap: 2rem; }
   .reel-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -225,7 +225,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .portfolio { padding-top: 2.25rem; padding-bottom: 2.25rem; }
   .about { padding-top: 2.25rem; padding-bottom: 2.25rem; }
   .photos { padding-top: 2.25rem; padding-bottom: 2.25rem; }
-  .about-media-grid { display: flex; flex-direction: column; }
+  .about-media-grid { display: flex; flex-direction: column; gap: 1.5rem; }
   .section-heading h2, .coverage-copy h2 { font-size: var(--section-title-size); }
   .profile-panel { order: 1; width: 100%; }
   .video-intro { order: 2; width: 100%; min-height: auto; aspect-ratio: 9 / 16; }
