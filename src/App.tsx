@@ -244,7 +244,7 @@ function App() {
         }
 
         .bases-block {
-          margin-top: 1.4rem;
+          margin-top: 0;
           padding-top: 1rem;
           border-top: 1px solid var(--line-light);
         }
@@ -267,6 +267,11 @@ function App() {
 
         .price-table {
           border-top: 0;
+        }
+
+        .service-list > div:last-child,
+        .price-row.extras-row {
+          border-bottom: 0;
         }
 
         .contact {
@@ -574,13 +579,6 @@ function App() {
                 </span>
               ))}
             </div>
-
-            <div className="bases-block">
-              <span className="section-kicker">BASES E DISPONIBILIDADE</span>
-              <p className="service-info">
-                Resido em Alphaville, SP e Curitiba, PR. Disponibilidade para viagens.
-              </p>
-            </div>
           </div>
 
           <div className="services-grid">
@@ -604,11 +602,18 @@ function App() {
                 </div>
               ))}
 
-              <div className="price-row">
+              <div className="price-row extras-row">
                 <span />
                 <strong>EXTRAS E DIREITOS</strong>
                 <small>FOTOS, BRUTOS, GANCHOS E MÍDIA</small>
                 <b>SOB CONSULTA</b>
+              </div>
+
+              <div className="bases-block">
+                <span className="section-kicker">BASES E DISPONIBILIDADE</span>
+                <p className="service-info">
+                  Resido em Alphaville, SP e Curitiba, PR. Disponibilidade para viagens.
+                </p>
               </div>
             </div>
           </div>
