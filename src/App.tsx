@@ -77,22 +77,22 @@ const profileFacts = [
 
 const services = [
   'Vídeos UGC orgânicos',
-  'Anúncios UGC para conversão',
-  'Roteiro, gravação e edição',
-  'Demonstração de produto e textura',
-  'Tutoriais e comparativos',
+  'Vídeos UGC para anúncios',
+  'Unboxing e ASMR',
+  'Demonstração de produto',
+  'Tutoriais e modo de uso',
   'Antes e depois',
   'Vídeos narrados',
-  'Lifestyle e rotinas',
-  'Unboxing e ASMR',
-  'Fotografias de produto e lifestyle',
+  'Reviews e depoimentos',
+  'Fotografia de produto e lifestyle',
 ]
 
 const prices = [
-  ['01', '1 VÍDEO UGC EDITADO', 'ATÉ 60 SEGUNDOS', 'A PARTIR DE R$ 450'],
-  ['02', 'PACOTE COM 3 VÍDEOS', 'PLANEJAMENTO INTEGRADO', 'A PARTIR DE R$ 1.200'],
-  ['03', 'PACOTE COM 5 VÍDEOS', 'BANCO DE CONTEÚDO', 'A PARTIR DE R$ 1.850'],
-  ['04', 'EXTRAS E DIREITOS', 'FOTOS, BRUTOS, GANCHOS E MÍDIA', 'SOB CONSULTA'],
+  { number: '01', name: 'ESSENCIAL', detail: '1 VÍDEO UGC', unit: '', price: 'R$ 250' },
+  { number: '02', name: 'DUO', detail: '2 VÍDEOS UGC', unit: 'R$ 230 POR VÍDEO', price: 'R$ 460' },
+  { number: '03', name: 'CAMPANHA', detail: '3 VÍDEOS UGC', unit: 'R$ 210 POR VÍDEO', price: 'R$ 630' },
+  { number: '04', name: 'CONTENT PACK', detail: '5 VÍDEOS UGC + 2 FOTOS', unit: '', price: 'R$ 1.050' },
+  { number: '05', name: 'CONTRATO MENSAL', detail: 'UGC + REDES SOCIAIS', unit: '', price: 'SOB CONSULTA' },
 ]
 
 const process = ['Briefing', 'Estratégia e roteiro', 'Gravação', 'Edição e revisão', 'Entrega']
@@ -261,10 +261,30 @@ function App() {
         <section className="services paper-section" id="servicos">
           <div className="section-heading services-heading">
             <div>
-              <span className="section-kicker">05 · SERVIÇOS E INVESTIMENTO</span>
+              <span className="section-kicker">SERVIÇOS E INVESTIMENTO</span>
               <h2>Do conceito à <em>entrega</em></h2>
             </div>
-            <p>Produção pensada para conteúdo orgânico, campanhas, anúncios e páginas de produto.</p>
+          </div>
+
+          <div style={{ marginBottom: '2.4rem' }}>
+            <p className="price-note" style={{ margin: '0 0 1.5rem' }}>
+              O orçamento final considera complexidade, locação, quantidade, prazo e período de uso. O escopo base inclui roteiro, gravação, edição, legenda e uma rodada de ajustes.
+            </p>
+
+            <span className="section-kicker" style={{ display: 'block', marginBottom: '1rem' }}>PROCESSO</span>
+            <ol className="process-list" style={{ borderTop: '1px solid var(--line-light)' }}>
+              {process.map((item, index) => (
+                <li key={item} style={{ borderBottom: '1px solid var(--line-light)' }}>
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <strong>{item}</strong>
+                  <ArrowDown size={18} />
+                </li>
+              ))}
+            </ol>
+
+            <p className="price-note" style={{ margin: '1rem 0 0' }}>
+              Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
+            </p>
           </div>
 
           <div className="services-grid">
@@ -273,32 +293,26 @@ function App() {
                 <div key={service}><span>{String(index + 1).padStart(2, '0')}</span><p>{service}</p></div>
               ))}
             </div>
+
             <div className="price-table">
-              {prices.map(([number, name, detail, price]) => (
+              <span className="section-kicker" style={{ display: 'block', padding: '0.9rem 0' }}>PACOTES UGC</span>
+              {prices.map(({ number, name, detail, unit, price }) => (
                 <div className="price-row" key={number}>
                   <span>{number}</span>
                   <strong>{name}</strong>
-                  <small>{detail}</small>
+                  <small>{detail}{unit && <><br />{unit}</>}</small>
                   <b>{price}</b>
                 </div>
               ))}
-              <p className="price-note">
-                O orçamento final considera complexidade, locação, quantidade, prazo e período de uso. O escopo base inclui roteiro, gravação, edição, legenda e uma rodada de ajustes simples.
-              </p>
+
+              <div className="price-row">
+                <span />
+                <strong>EXTRAS E DIREITOS</strong>
+                <small>FOTOS, BRUTOS, GANCHOS E MÍDIA</small>
+                <b>SOB CONSULTA</b>
+              </div>
             </div>
           </div>
-        </section>
-
-        <section className="process dark-section" id="processo">
-          <div className="section-heading">
-            <div><span className="section-kicker">06 · PROCESSO</span><h2>Clareza em <em>cada etapa</em></h2></div>
-            <p>Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.</p>
-          </div>
-          <ol className="process-list">
-            {process.map((item, index) => (
-              <li key={item}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item}</strong><ArrowDown size={18} /></li>
-            ))}
-          </ol>
         </section>
 
         <section className="profile-coverage paper-section" id="atuacao">
