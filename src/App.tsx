@@ -181,31 +181,6 @@ function App() {
           <span>LIFESTYLE</span>
         </div>
 
-        <section className="about paper-section" id="sobre">
-          <div className="about-media-grid">
-            <div className="profile-panel">
-              <h2 className="about-title">Sobre mim</h2>
-              <p className="about-bio">
-                Sou Thamyres Harmatiuk, criadora de conteúdo UGC especializada em beleza e lifestyle. Crio vídeos que unem estética editorial, linguagem natural e demonstração clara para transformar benefícios de produto em desejo e decisão de compra.
-              </p>
-              <dl className="profile-facts">
-                {profileFacts.map(([label, value]) => (
-                  <div key={label}>
-                    <dt>{label}</dt>
-                    <dd>{value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-
-            <button className="video-intro image-placeholder tone-1" type="button" aria-label="Adicionar vídeo de apresentação">
-              <span className="image-index">02</span>
-              <span className="play-disc"><Play fill="currentColor" size={17} /></span>
-              <span className="media-label"><strong>VÍDEO DE APRESENTAÇÃO</strong><small>FORMATO 9:16 · 30 A 60 SEGUNDOS</small></span>
-            </button>
-          </div>
-        </section>
-
         <section className="portfolio dark-section" id="portfolio">
           <div className="portfolio-heading section-heading">
             <div>
@@ -297,6 +272,31 @@ function App() {
                 <h3>{label}</h3>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="about paper-section" id="sobre">
+          <div className="about-media-grid">
+            <div className="profile-panel">
+              <h2 className="about-title">Sobre mim</h2>
+              <p className="about-bio">
+                Sou Thamyres Harmatiuk, criadora de conteúdo UGC especializada em beleza e lifestyle. Crio vídeos que unem estética editorial, linguagem natural e demonstração clara para transformar benefícios de produto em desejo e decisão de compra.
+              </p>
+              <dl className="profile-facts">
+                {profileFacts.map(([label, value]) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            <button className="video-intro image-placeholder tone-1" type="button" aria-label="Adicionar vídeo de apresentação">
+              <span className="image-index">02</span>
+              <span className="play-disc"><Play fill="currentColor" size={17} /></span>
+              <span className="media-label"><strong>VÍDEO DE APRESENTAÇÃO</strong><small>FORMATO 9:16 · 30 A 60 SEGUNDOS</small></span>
+            </button>
           </div>
         </section>
 
