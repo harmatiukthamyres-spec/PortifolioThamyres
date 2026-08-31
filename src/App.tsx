@@ -164,7 +164,7 @@ function App() {
         <section className="portfolio paper-section" id="portfolio">
           <div className="portfolio-heading section-heading">
             <div>
-              <span className="section-kicker">PORTFÓLIO EM VÍDEO</span>
+              <span className="section-kicker">PORTFÓLIO</span>
               <h2>Trabalhos <em>selecionados</em></h2>
             </div>
           </div>
@@ -196,22 +196,19 @@ function App() {
               </article>
             ))}
           </div>
-        </section>
 
-        <section className="photos paper-section" id="fotografias">
-          <div className="section-heading photo-heading">
-            <h2>Fotografias</h2>
-          </div>
-          <div className="photo-track">
-            {['HAIRCARE', 'SKINCARE', 'BEAUTY'].map((category, index) => (
-              <article className="photo-item" key={category}>
-                <h3>{category}</h3>
-                <div className={`photo-card image-placeholder tone-${index + 1}`} role="img" aria-label={`Espaço reservado para fotografia de ${category.toLowerCase()}`}>
-                  <span className="placeholder-cross" aria-hidden="true" />
-                  <span className="media-label"><strong>INSERIR FOTOGRAFIA</strong><small>PROPORÇÃO 4:5</small></span>
-                </div>
-              </article>
-            ))}
+          <div className="portfolio-photos" id="fotografias" aria-label="Fotografias selecionadas">
+            <div className="photo-track">
+              {['HAIRCARE', 'SKINCARE', 'BEAUTY'].map((category, index) => (
+                <article className="photo-item" key={category}>
+                  <h3>{category}</h3>
+                  <div className={`photo-card image-placeholder tone-${index + 1}`} role="img" aria-label={`Espaço reservado para fotografia de ${category.toLowerCase()}`}>
+                    <span className="placeholder-cross" aria-hidden="true" />
+                    <span className="media-label"><strong>INSERIR FOTOGRAFIA</strong><small>PROPORÇÃO 4:5</small></span>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
