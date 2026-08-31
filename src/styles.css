@@ -104,6 +104,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .portfolio-grid { display: flex; flex-direction: column; gap: 2.25rem; margin-top: 0.85rem; }
 .category-column { min-width: 0; scroll-margin-top: 74px; }
 .category-header { border-top: 1px solid var(--line-light); padding: 0.65rem 0 0.75rem; }
+.category-column:first-child .category-header { border-top: 0; }
 .category-header h3 { margin: 0; font-size: 0.72rem; letter-spacing: 0.15em; }
 .reel-stack { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
 .reel-card { border: 0; padding: 0; aspect-ratio: 9 / 16; position: relative; overflow: hidden; text-align: left; cursor: pointer; color: var(--white); background: #282828; transition: filter 220ms ease, transform 220ms ease; }
