@@ -6,11 +6,11 @@ import {
   ArrowUpRight,
   AtSign,
   Mail,
-  MessageCircle,
   Play,
   Volume2,
   X,
 } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa6'
 
 type PortfolioVideo = {
   id: string
@@ -127,9 +127,6 @@ function App() {
   return (
     <div className="site-shell">
       <header className="topbar">
-        <a className="brand" href="#inicio" aria-label="Ir para o início">
-          Thamyres Harmatiuk
-        </a>
         <nav className="desktop-nav" aria-label="Navegação principal">
           <a href="#portfolio">Portfólio</a>
           <a href="#metricas">Métricas</a>
@@ -141,77 +138,44 @@ function App() {
             <Mail size={16} />
             <span>E-mail</span>
           </a>
-          <a
-            className="header-whatsapp"
-            href="https://wa.me/5511988242425"
-            target="_blank"
-            rel="noreferrer"
-          >
-            WhatsApp <ArrowUpRight size={15} />
+          <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
+            <FaWhatsapp size={17} />
+            <span>WhatsApp</span>
           </a>
         </div>
       </header>
 
       <main>
         <section className="hero dark-section" id="inicio">
-          <div className="hero-copy">
-            <div className="eyebrow-row">
-              <span>UGC CREATOR · BEAUTY & LIFESTYLE</span>
-              <span>BRASIL · 2026</span>
+          <div className="hero-media" role="img" aria-label="Espaços reservados para fotografias reais de Thamyres">
+            <div className="hero-image hero-image-primary image-placeholder">
+              <span className="image-index">01</span>
+              <span className="placeholder-cross" aria-hidden="true" />
             </div>
-            <h1>
-              Beleza que prende <em>o olhar.</em>
-              <br />
-              Conteúdo que move a escolha.
-            </h1>
-            <div className="hero-bottom">
-              <p>
-                UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.
-              </p>
-              <div className="hero-ctas">
-                <a className="button button-light" href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
-                  Falar no WhatsApp <ArrowUpRight size={16} />
-                </a>
-                <a className="text-link" href="mailto:contato@thamyresharmatiuk.com">
-                  Enviar e-mail <ArrowRight size={15} />
-                </a>
-              </div>
+            <div className="hero-image hero-image-secondary image-placeholder">
+              <span className="placeholder-cross" aria-hidden="true" />
+            </div>
+            <div className="hero-identity">
+              <h1>Thamyres Harmatiuk</h1>
+              <p>UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.</p>
             </div>
           </div>
-          <div className="hero-portrait image-placeholder portrait-placeholder" role="img" aria-label="Espaço reservado para retrato real de Thamyres">
-            <span className="image-index">01</span>
-            <span className="placeholder-cross" aria-hidden="true" />
-            <div className="placeholder-label">
-              <strong>INSERIR RETRATO REAL</strong>
-              <span>PRETO E BRANCO · CLOSE EDITORIAL</span>
-            </div>
+          <div className="hero-contact-bar">
+            <a className="hero-contact-link" href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
+              <FaWhatsapp size={17} /> Falar no WhatsApp
+            </a>
+            <a className="hero-contact-link" href="mailto:contato@thamyresharmatiuk.com">
+              <Mail size={17} /> Enviar e-mail
+            </a>
           </div>
-          <a className="scroll-cue" href="#sobre" aria-label="Rolar para a seção sobre">
-            SCROLL <ArrowDown size={15} />
-          </a>
         </section>
 
-        <div className="specialty-strip" aria-label="Especialidades">
-          <span>HAIRCARE</span><i />
-          <span>SKINCARE</span><i />
-          <span>BODYCARE</span><i />
-          <span>BEAUTY</span><i />
-          <span>LIFESTYLE</span>
-        </div>
-
         <section className="about paper-section" id="sobre">
-          <div className="section-kicker">01 · SOBRE</div>
-          <div className="about-intro">
-            <h2>Presença que comunica.<br /><em>Conteúdo que convence.</em></h2>
-            <p>
-              Sou Thamyres Harmatiuk, criadora de conteúdo UGC especializada em beleza e lifestyle. Crio vídeos que unem estética editorial, linguagem natural e demonstração clara para transformar benefícios de produto em desejo e decisão de compra.
-            </p>
-          </div>
-
           <div className="about-media-grid">
             <div className="profile-panel">
-              <p className="profile-copy">
-                Meu cabelo loiro natural, minha pele clara e meus olhos verdes azulados formam uma assinatura visual forte para haircare, skincare e maquiagem.
+              <h2 className="about-title">Sobre mim</h2>
+              <p className="about-bio">
+                Sou Thamyres Harmatiuk, criadora de conteúdo UGC especializada em beleza e lifestyle. Crio vídeos que unem estética editorial, linguagem natural e demonstração clara para transformar benefícios de produto em desejo e decisão de compra.
               </p>
               <dl className="profile-facts">
                 {profileFacts.map(([label, value]) => (
@@ -228,14 +192,16 @@ function App() {
               <span className="play-disc"><Play fill="currentColor" size={17} /></span>
               <span className="media-label"><strong>VÍDEO DE APRESENTAÇÃO</strong><small>FORMATO 9:16 · 30 A 60 SEGUNDOS</small></span>
             </button>
-
-            <div className="about-photo image-placeholder tone-3" role="img" aria-label="Espaço reservado para fotografia em close de Thamyres">
-              <span className="image-index">03</span>
-              <span className="placeholder-cross" aria-hidden="true" />
-              <span className="media-label"><strong>INSERIR FOTOGRAFIA REAL</strong><small>CLOSE · PELE · CABELO · OLHOS</small></span>
-            </div>
           </div>
         </section>
+
+        <div className="specialty-strip" aria-label="Especialidades">
+          <span>HAIRCARE</span><i />
+          <span>SKINCARE</span><i />
+          <span>BODYCARE</span><i />
+          <span>BEAUTY</span><i />
+          <span>LIFESTYLE</span>
+        </div>
 
         <section className="portfolio dark-section" id="portfolio">
           <div className="portfolio-heading section-heading">
@@ -414,7 +380,7 @@ function App() {
       </main>
 
       <div className="mobile-contact-dock" aria-label="Contato rápido">
-        <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer"><MessageCircle size={18} /> WhatsApp</a>
+        <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer"><FaWhatsapp size={18} /> WhatsApp</a>
         <a href="mailto:contato@thamyresharmatiuk.com"><Mail size={18} /> E-mail</a>
       </div>
 
