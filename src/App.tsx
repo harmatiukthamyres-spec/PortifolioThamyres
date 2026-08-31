@@ -115,6 +115,137 @@ function App() {
 
   return (
     <div className="site-shell">
+      <style>{`
+        :root {
+          --ink: #000000;
+          --graphite: #000000;
+          --paper: #FFFFFF;
+          --gray: #000000;
+          --white: #FFFFFF;
+          --line-dark: rgba(255, 255, 255, 0.22);
+          --line-light: rgba(0, 0, 0, 0.22);
+        }
+
+        html,
+        body,
+        .site-shell {
+          background: #000000;
+        }
+
+        .paper-section {
+          background: #FFFFFF;
+          color: #000000;
+        }
+
+        .dark-section,
+        .graphite-section,
+        .topbar,
+        .specialty-strip {
+          background: #000000;
+          color: #FFFFFF;
+        }
+
+        .hero-media,
+        .image-placeholder,
+        .reel-card,
+        .metric-placeholder,
+        .tone-0,
+        .tone-1,
+        .tone-2,
+        .tone-3,
+        .tone-4 {
+          background-color: #000000;
+        }
+
+        .reel-meta small,
+        .contact-copy {
+          color: #FFFFFF;
+        }
+
+        .contact {
+          min-height: auto;
+          padding-top: 3rem;
+          padding-bottom: 2rem;
+        }
+
+        .contact h2 {
+          margin: 0 0 2.4rem;
+        }
+
+        .contact-links {
+          margin: 0 0 1rem;
+          border-top: 1px solid var(--line-dark);
+        }
+
+        .contact-links a {
+          grid-template-columns: minmax(180px, 0.45fr) 1fr;
+          gap: 1.5rem;
+          min-height: 64px;
+          padding: 0;
+        }
+
+        .contact-links span,
+        .contact-links strong {
+          font-family: 'Inter Tight', Arial, sans-serif;
+          font-size: 0.68rem;
+          line-height: 1.3;
+          letter-spacing: 0.1em;
+          font-weight: 500;
+        }
+
+        .contact-links strong {
+          text-align: left;
+          overflow-wrap: anywhere;
+        }
+
+        .contact-links a:hover {
+          padding-left: 0;
+          background: transparent;
+          opacity: 0.72;
+        }
+
+        .social-row {
+          border-bottom: 1px solid var(--line-dark);
+          padding: 1.1rem 0;
+        }
+
+        .contact footer {
+          margin-top: 1.75rem;
+        }
+
+        @media (max-width: 720px) {
+          .contact {
+            padding-top: 2.25rem;
+          }
+
+          .contact h2 {
+            margin: 0 0 2rem;
+          }
+
+          .contact-links a {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.35rem;
+            min-height: 72px;
+            padding: 0.85rem 0;
+          }
+
+          .contact-links strong {
+            grid-column: 1;
+            font-size: 0.68rem;
+          }
+
+          .social-row {
+            gap: 0.65rem;
+            padding: 1rem 0;
+          }
+
+          .contact footer {
+            margin-top: 1.5rem;
+          }
+        }
+      `}</style>
+
       <header className="topbar">
         <nav className="desktop-nav" aria-label="Navegação principal">
           <a href="#portfolio">Portfólio</a>
@@ -326,15 +457,15 @@ function App() {
           <h2>Vamos criar algo<br /><em>excepcional juntos?</em></h2>
           <div className="contact-links">
             <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
-              <span>WHATSAPP COMERCIAL</span><strong>(11) 98824 2425</strong><ArrowUpRight />
+              <span>WHATSAPP COMERCIAL</span><strong>(11) 98824 2425</strong>
             </a>
             <a href="mailto:contato@thamyresharmatiuk.com">
-              <span>E-MAIL PROFISSIONAL</span><strong>contato@thamyresharmatiuk.com</strong><ArrowUpRight />
+              <span>E-MAIL PROFISSIONAL</span><strong>contato@thamyresharmatiuk.com</strong>
             </a>
           </div>
           <div className="social-row">
             <a href="https://www.instagram.com/thamyresharmatiuk" target="_blank" rel="noreferrer"><AtSign size={17} /> Instagram · @thamyresharmatiuk</a>
-            <span>TikTok · PERFIL A INSERIR</span>
+            <span>TikTok · Thamyres Harmatiuk</span>
           </div>
           <footer>
             <span>© {new Date().getFullYear()} THAMYRES HARMATIUK</span>
