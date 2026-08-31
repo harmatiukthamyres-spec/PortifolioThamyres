@@ -14,7 +14,6 @@ import { FaWhatsapp } from 'react-icons/fa6'
 
 type PortfolioVideo = {
   id: string
-  number: string
   category: string
   format: string
   duration: string
@@ -23,7 +22,6 @@ type PortfolioVideo = {
 
 type Category = {
   name: string
-  description: string
   videos: PortfolioVideo[]
 }
 
@@ -57,10 +55,8 @@ const categoryBlueprints = [
 
 const categories: Category[] = categoryBlueprints.map((category, categoryIndex) => ({
   name: category.name,
-  description: category.description,
   videos: category.formats.map((format, videoIndex) => ({
     id: `${category.name.toLowerCase()}-${videoIndex + 1}`,
-    number: String(videoIndex + 1).padStart(2, '0'),
     category: category.name,
     format,
     duration: ['00:30', '00:45', '00:35', '00:60'][videoIndex],
@@ -168,32 +164,20 @@ function App() {
             <span>SKINCARE</span>
             <span>BODYCARE</span>
             <span>BEAUTY</span>
-            <span>LIFESTYLE</span>
+            <span>ADS</span>
           </div>
         </section>
 
         <section className="portfolio paper-section" id="portfolio">
           <div className="portfolio-heading section-heading">
-            <div>
-              <span className="section-kicker">02 · PORTFÓLIO EM VÍDEO</span>
-              <h2>Trabalhos <em>selecionados</em></h2>
-            </div>
-            <p>20 Reels organizados para uma leitura rápida por categoria, objetivo e linguagem.</p>
+            <h2>Portfólio em vídeo</h2>
           </div>
 
-          <nav className="category-jump" aria-label="Ir para categoria">
-            {categories.map((category) => (
-              <a key={category.name} href={`#${category.name.toLowerCase()}`}>{category.name}</a>
-            ))}
-          </nav>
-
           <div className="portfolio-grid">
-            {categories.map((category, categoryIndex) => (
+            {categories.map((category) => (
               <article className="category-column" id={category.name.toLowerCase()} key={category.name}>
                 <header className="category-header">
-                  <span>{String(categoryIndex + 1).padStart(2, '0')}</span>
                   <h3>{category.name}</h3>
-                  <p>{category.description}</p>
                 </header>
                 <div className="reel-stack">
                   {category.videos.map((video) => (
@@ -204,7 +188,6 @@ function App() {
                       onClick={() => setActiveVideo(video)}
                       aria-label={`Abrir ${video.format} de ${video.category}`}
                     >
-                      <span className="reel-number">{video.number}</span>
                       <span className="reel-visual"><span className="placeholder-cross" /></span>
                       <span className="reel-play"><Play fill="currentColor" size={14} /></span>
                       <span className="reel-meta">
@@ -214,7 +197,6 @@ function App() {
                     </button>
                   ))}
                 </div>
-                <div className="mobile-reel-count">01 / 04 · DESLIZE</div>
               </article>
             ))}
           </div>
