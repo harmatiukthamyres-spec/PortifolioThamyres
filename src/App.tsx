@@ -174,12 +174,24 @@ function App() {
           margin: 0;
         }
 
+        .metrics-handle {
+          align-self: flex-end;
+          margin: 0 0 0.55rem;
+          font-size: 0.65rem;
+          letter-spacing: 0.08em;
+          text-transform: none;
+        }
+
+        .metrics-handle:hover {
+          opacity: 0.7;
+        }
+
         .services-heading {
           padding-bottom: 0;
         }
 
         .services-intro {
-          max-width: 78ch;
+          max-width: 90ch;
           margin: 2rem 0 2.4rem;
           color: #000000;
           font-size: 0.82rem;
@@ -193,29 +205,34 @@ function App() {
 
         .process-block .section-kicker {
           display: block;
-          margin-bottom: 0.65rem;
+          margin-bottom: 0.8rem;
         }
 
-        .process-list {
-          border-top: 1px solid var(--line-light) !important;
-        }
-
-        .process-list li {
-          display: grid;
-          grid-template-columns: 42px 1fr;
+        .process-flow {
+          display: flex;
+          flex-wrap: wrap;
           align-items: center;
-          min-height: 42px;
-          border-bottom: 1px solid var(--line-light) !important;
+          gap: 0.55rem;
+          padding: 0.85rem 0;
+          border-top: 1px solid var(--line-light);
+          border-bottom: 1px solid var(--line-light);
+          color: #000000;
+          font-family: 'Inter Tight', Arial, sans-serif;
+          font-size: 0.72rem;
+          line-height: 1.3;
+          letter-spacing: 0.035em;
         }
 
-        .process-list span,
-        .process-list strong {
-          font-family: 'Inter Tight', Arial, sans-serif;
-          font-size: 0.7rem;
-          line-height: 1.2;
-          letter-spacing: 0.06em;
-          font-weight: 500;
-          color: #000000;
+        .process-step {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.55rem;
+          white-space: nowrap;
+        }
+
+        .process-separator {
+          font-weight: 400;
+          opacity: 0.55;
         }
 
         .service-info {
@@ -257,6 +274,7 @@ function App() {
           padding-top: 3rem;
           padding-bottom: 2rem;
         }
+
         .contact h2 {
           margin: 0 0 2.4rem;
         }
@@ -334,19 +352,23 @@ function App() {
             padding: 1.35rem 0;
           }
 
+          .metrics-handle {
+            align-self: flex-start;
+            margin: -0.8rem 0 0;
+          }
+
           .services-intro {
             margin: 1.4rem 0 1.8rem;
             font-size: 0.8rem;
           }
 
-          .process-list li {
-            grid-template-columns: 34px 1fr;
-            min-height: 38px;
+          .process-flow {
+            gap: 0.45rem;
+            font-size: 0.68rem;
           }
 
-          .process-list span,
-          .process-list strong {
-            font-size: 0.66rem;
+          .process-step {
+            gap: 0.45rem;
           }
 
           .service-info {
@@ -487,6 +509,9 @@ function App() {
               <span className="section-kicker">MÉTRICAS</span>
               <h2>Dados da <em>audiência</em></h2>
             </div>
+            <a className="metrics-handle" href="https://www.instagram.com/thamyresharmatiuk" target="_blank" rel="noreferrer">
+              @thamyresharmatiuk
+            </a>
           </div>
           <div className="metrics-grid">
             {[
@@ -536,23 +561,19 @@ function App() {
           </div>
 
           <p className="services-intro">
-            O orçamento final considera complexidade, locação, quantidade, prazo e período de uso. O escopo base inclui roteiro, gravação, edição, legenda e uma rodada de ajustes.
+            O orçamento final considera complexidade, locação, quantidade, prazo e período de uso. O escopo base inclui roteiro, gravação, edição, legenda e uma rodada de ajustes. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
           </p>
 
           <div className="process-block">
             <span className="section-kicker">PROCESSO</span>
-            <ol className="process-list">
+            <div className="process-flow" aria-label="Etapas do processo">
               {process.map((item, index) => (
-                <li key={item}>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <strong>{item}</strong>
-                </li>
+                <span className="process-step" key={item}>
+                  <span>{item}</span>
+                  {index < process.length - 1 && <span className="process-separator" aria-hidden="true">&gt;</span>}
+                </span>
               ))}
-            </ol>
-
-            <p className="service-info">
-              Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
-            </p>
+            </div>
 
             <div className="bases-block">
               <span className="section-kicker">BASES E DISPONIBILIDADE</span>
