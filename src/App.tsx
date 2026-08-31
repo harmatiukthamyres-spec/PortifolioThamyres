@@ -323,12 +323,7 @@ function App() {
         </section>
 
         <section className="contact dark-section" id="contato">
-          <div className="contact-top">
-            <span className="section-kicker">CONTATO</span>
-            <p>PORTUGUÊS · BRASIL · UGC CREATOR</p>
-          </div>
           <h2>Vamos criar algo<br /><em>excepcional juntos?</em></h2>
-          <p className="contact-copy">Se sua marca procura conteúdo de beleza com estética, clareza e intenção comercial, fale comigo para receber uma proposta personalizada.</p>
           <div className="contact-links">
             <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
               <span>WHATSAPP COMERCIAL</span><strong>(11) 98824 2425</strong><ArrowUpRight />
