@@ -203,11 +203,14 @@ function App() {
             <h2>Fotografias</h2>
           </div>
           <div className="photo-track">
-            {[1, 2, 3].map((photo) => (
-              <div className={`photo-card image-placeholder tone-${photo}`} key={photo} role="img" aria-label="Espaço reservado para fotografia real">
-                <span className="placeholder-cross" aria-hidden="true" />
-                <span className="media-label"><strong>INSERIR FOTOGRAFIA</strong><small>PROPORÇÃO 4:5</small></span>
-              </div>
+            {['HAIRCARE', 'SKINCARE', 'BEAUTY'].map((category, index) => (
+              <article className="photo-item" key={category}>
+                <h3>{category}</h3>
+                <div className={`photo-card image-placeholder tone-${index + 1}`} role="img" aria-label={`Espaço reservado para fotografia de ${category.toLowerCase()}`}>
+                  <span className="placeholder-cross" aria-hidden="true" />
+                  <span className="media-label"><strong>INSERIR FOTOGRAFIA</strong><small>PROPORÇÃO 4:5</small></span>
+                </div>
+              </article>
             ))}
           </div>
         </section>
