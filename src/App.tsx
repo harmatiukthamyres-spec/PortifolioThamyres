@@ -198,7 +198,7 @@ function App() {
           </div>
         </section>
 
-        <section className="photos dark-section" id="fotografias">
+        <section className="photos paper-section" id="fotografias">
           <div className="section-heading photo-heading">
             <h2>Fotografias</h2>
           </div>
@@ -212,22 +212,21 @@ function App() {
           </div>
         </section>
 
-        <section className="metrics paper-section" id="metricas">
+        <section className="metrics dark-section" id="metricas">
           <div className="metrics-title section-heading">
             <div>
-              <span className="section-kicker">04 · MÉTRICAS</span>
+              <span className="section-kicker">MÉTRICAS</span>
               <h2>Dados que <em>contextualizam</em> a audiência</h2>
             </div>
             <p>Dados atualizados conforme os Insights das plataformas.</p>
           </div>
           <div className="metrics-grid">
             {[
-              ['01', 'ALCANCE', 'INSERIR PRINT DO ALCANCE'],
-              ['02', 'PÚBLICO', 'INSERIR PRINT DO PÚBLICO'],
-              ['03', 'DESEMPENHO', 'INSERIR DADOS DE DESEMPENHO'],
-            ].map(([number, label, placeholder]) => (
-              <article className="metric-document" key={number}>
-                <div className="metric-doc-head"><span>{number}</span><span>INSTAGRAM INSIGHTS</span></div>
+              ['ALCANCE', 'INSERIR PRINT DO ALCANCE'],
+              ['PÚBLICO', 'INSERIR PRINT DO PÚBLICO'],
+              ['DESEMPENHO', 'INSERIR DADOS DE DESEMPENHO'],
+            ].map(([label, placeholder]) => (
+              <article className="metric-document" key={label}>
                 <div className="metric-placeholder"><span className="placeholder-cross" /><strong>{placeholder}</strong></div>
                 <h3>{label}</h3>
               </article>
