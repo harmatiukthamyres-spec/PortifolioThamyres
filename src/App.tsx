@@ -216,9 +216,8 @@ function App() {
           <div className="metrics-title section-heading">
             <div>
               <span className="section-kicker">MÉTRICAS</span>
-              <h2>Dados da audiência</h2>
+              <h2>Dados da <em>audiência</em></h2>
             </div>
-            <p>Dados atualizados conforme os Insights das plataformas.</p>
           </div>
           <div className="metrics-grid">
             {[
