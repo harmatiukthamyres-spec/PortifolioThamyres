@@ -1,8 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   ArrowDown,
-  ArrowLeft,
-  ArrowRight,
   ArrowUpRight,
   AtSign,
   Mail,
@@ -99,13 +97,8 @@ const prices = [
 
 const process = ['Briefing', 'Estratégia e roteiro', 'Gravação', 'Edição e revisão', 'Entrega']
 
-function scrollCarousel(ref: React.RefObject<HTMLDivElement | null>, direction: number) {
-  ref.current?.scrollBy({ left: ref.current.clientWidth * 0.86 * direction, behavior: 'smooth' })
-}
-
 function App() {
   const [activeVideo, setActiveVideo] = useState<PortfolioVideo | null>(null)
-  const photoRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!activeVideo) return
@@ -207,22 +200,13 @@ function App() {
 
         <section className="photos dark-section" id="fotografias">
           <div className="section-heading photo-heading">
-            <div>
-              <span className="section-kicker">03 · FOTOGRAFIAS</span>
-              <h2>Imagem com <em>intenção</em></h2>
-            </div>
-            <div className="carousel-actions">
-              <span>01 / 04</span>
-              <button type="button" onClick={() => scrollCarousel(photoRef, -1)} aria-label="Fotografia anterior"><ArrowLeft size={18} /></button>
-              <button type="button" onClick={() => scrollCarousel(photoRef, 1)} aria-label="Próxima fotografia"><ArrowRight size={18} /></button>
-            </div>
+            <h2>Fotografias</h2>
           </div>
-          <div className="photo-track" ref={photoRef}>
-            {[1, 2, 3, 4].map((number) => (
-              <div className={`photo-card image-placeholder tone-${number}`} key={number} role="img" aria-label={`Espaço reservado para fotografia real ${number}`}>
-                <span className="image-index">0{number}</span>
+          <div className="photo-track">
+            {[1, 2, 3].map((photo) => (
+              <div className={`photo-card image-placeholder tone-${photo}`} key={photo} role="img" aria-label="Espaço reservado para fotografia real">
                 <span className="placeholder-cross" aria-hidden="true" />
-                <span className="media-label"><strong>INSERIR FOTOGRAFIA {String(number).padStart(2, '0')}</strong><small>PROPORÇÃO 4:5</small></span>
+                <span className="media-label"><strong>INSERIR FOTOGRAFIA</strong><small>PROPORÇÃO 4:5</small></span>
               </div>
             ))}
           </div>
