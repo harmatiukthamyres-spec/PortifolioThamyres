@@ -72,8 +72,8 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .placeholder-label strong, .media-label strong { font-size: 0.64rem; letter-spacing: 0.12em; }
 .placeholder-label span, .media-label small { font-size: 0.52rem; letter-spacing: 0.1em; opacity: 0.7; }
 
-.specialty-strip { min-height: 58px; background: #000; border-bottom: 1px solid rgba(255,255,255,0.18); color: #fff; display: flex; align-items: center; justify-content: space-around; gap: 1.3rem; padding: 0 2.2vw; font-size: clamp(0.72rem, 1vw, 1rem); letter-spacing: 0.16em; white-space: nowrap; }
-.specialty-strip i { width: 4px; height: 4px; background: currentColor; border-radius: 50%; opacity: 0.55; }
+.specialty-strip { min-height: 44px; background: #000; color: #fff; display: flex; align-items: center; padding: 0 2.2vw; font-size: clamp(0.58rem, 0.72vw, 0.7rem); letter-spacing: 0.18em; white-space: nowrap; }
+.specialty-strip span { flex: 1; text-align: center; }
 
 .about, .photos, .services, .profile-coverage { padding: 4.5rem 2.2vw; }
 .about { padding-top: 1.5rem; padding-bottom: 1.5rem; }
@@ -216,7 +216,8 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .hero-identity h1 { max-width: 100%; font-size: clamp(1.85rem, 9vw, 2.6rem); }
   .hero-identity p { max-width: 32ch; font-size: 0.68rem; }
   .placeholder-label { flex-direction: column; align-items: flex-start; }
-  .specialty-strip { overflow-x: auto; justify-content: flex-start; padding: 0 16px; min-height: 58px; }
+  .specialty-strip { overflow-x: auto; gap: 2rem; padding: 0 16px; min-height: 42px; }
+  .specialty-strip span { flex: 0 0 auto; }
   .about, .photos, .services, .profile-coverage, .portfolio, .metrics, .process, .contact { padding: 3.5rem 16px; }
   .about { padding-top: 1rem; padding-bottom: 1rem; }
   .about-media-grid { display: flex; flex-direction: column; }
