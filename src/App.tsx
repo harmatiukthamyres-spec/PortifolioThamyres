@@ -147,11 +147,17 @@ function App() {
 
       <main>
         <section className="hero dark-section" id="inicio">
-          <div className="hero-media" role="img" aria-label="Espaço reservado para uma fotografia real de Thamyres">
-            <div className="hero-image image-placeholder">
-              <span className="image-index">01</span>
-              <span className="placeholder-cross" aria-hidden="true" />
-            </div>
+          <div className="hero-media">
+            <picture className="hero-picture">
+              <source media="(max-width: 720px)" srcSet="/images/hero-thamyres-mobile.webp" />
+              <img
+                src="/images/hero-thamyres-desktop.webp"
+                alt="Thamyres Harmatiuk segurando um produto de beleza diante do mar"
+                fetchPriority="high"
+                decoding="async"
+              />
+            </picture>
+            <span className="image-index">01</span>
             <div className="hero-identity">
               <h1>Thamyres Harmatiuk</h1>
               <p>UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.</p>
