@@ -181,7 +181,7 @@ function App() {
           <span>LIFESTYLE</span>
         </div>
 
-        <section className="portfolio dark-section" id="portfolio">
+        <section className="portfolio paper-section" id="portfolio">
           <div className="portfolio-heading section-heading">
             <div>
               <span className="section-kicker">02 · PORTFÓLIO EM VÍDEO</span>
@@ -229,7 +229,7 @@ function App() {
           </div>
         </section>
 
-        <section className="photos paper-section" id="fotografias">
+        <section className="photos dark-section" id="fotografias">
           <div className="section-heading photo-heading">
             <div>
               <span className="section-kicker">03 · FOTOGRAFIAS</span>
@@ -252,7 +252,7 @@ function App() {
           </div>
         </section>
 
-        <section className="metrics graphite-section" id="metricas">
+        <section className="metrics paper-section" id="metricas">
           <div className="metrics-title section-heading">
             <div>
               <span className="section-kicker">04 · MÉTRICAS</span>
@@ -275,7 +275,7 @@ function App() {
           </div>
         </section>
 
-        <section className="about paper-section" id="sobre">
+        <section className="about dark-section" id="sobre">
           <div className="about-media-grid">
             <div className="profile-panel">
               <h2 className="about-title">Sobre mim</h2>
