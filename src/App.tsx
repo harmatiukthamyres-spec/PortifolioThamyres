@@ -163,23 +163,14 @@ function App() {
               <p>UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.</p>
             </div>
           </div>
-          <div className="hero-contact-bar">
-            <a className="hero-contact-link" href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
-              <FaWhatsapp size={17} /> Falar no WhatsApp
-            </a>
-            <a className="hero-contact-link" href="mailto:contato@thamyresharmatiuk.com">
-              <Mail size={17} /> Enviar e-mail
-            </a>
+          <div className="specialty-strip" aria-label="Especialidades">
+            <span>HAIRCARE</span><i />
+            <span>SKINCARE</span><i />
+            <span>BODYCARE</span><i />
+            <span>BEAUTY</span><i />
+            <span>LIFESTYLE</span>
           </div>
         </section>
-
-        <div className="specialty-strip" aria-label="Especialidades">
-          <span>HAIRCARE</span><i />
-          <span>SKINCARE</span><i />
-          <span>BODYCARE</span><i />
-          <span>BEAUTY</span><i />
-          <span>LIFESTYLE</span>
-        </div>
 
         <section className="portfolio paper-section" id="portfolio">
           <div className="portfolio-heading section-heading">
