@@ -170,7 +170,10 @@ function App() {
 
         <section className="portfolio paper-section" id="portfolio">
           <div className="portfolio-heading section-heading">
-            <h2>Portfólio em vídeo</h2>
+            <div>
+              <span className="section-kicker">PORTFÓLIO EM VÍDEO</span>
+              <h2>Trabalhos <em>selecionados</em></h2>
+            </div>
           </div>
 
           <div className="portfolio-grid">
