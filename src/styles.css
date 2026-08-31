@@ -122,7 +122,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .tone-3 { background-color: #3a3835; }
 .tone-4 { background-color: #25282b; }
 
-.photo-heading { margin-bottom: 0.8rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line-light); }
+.portfolio-photos { margin-top: 2.25rem; }
 .carousel-actions { display: flex; align-items: center; gap: 0.4rem; }
 .carousel-actions span { font-size: 0.62rem; letter-spacing: 0.12em; margin-right: 0.5rem; }
 .carousel-actions button { width: 42px; height: 42px; border: 1px solid var(--line-light); background: transparent; display: grid; place-items: center; cursor: pointer; }
@@ -239,8 +239,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .reel-stack { display: flex; flex-direction: row; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .reel-stack::-webkit-scrollbar { display: none; }
   .reel-card { flex: 0 0 84%; scroll-snap-align: start; }
-  .photo-heading { flex-direction: row; align-items: end; }
-  .photo-heading h2 { font-size: var(--section-title-size); }
+  .portfolio-photos { margin-top: 1.75rem; }
   .photo-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .photo-item { flex: 0 0 84%; scroll-snap-align: start; }
   .metrics-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
