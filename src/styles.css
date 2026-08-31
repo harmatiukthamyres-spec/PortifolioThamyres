@@ -78,7 +78,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .specialty-strip span { flex: 1; text-align: center; }
 
 .about, .photos, .services, .profile-coverage { padding: 2.75rem 2.2vw; }
-.about { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.about { padding-top: 2.75rem; padding-bottom: 2.75rem; }
 .photos { padding-top: 2.75rem; padding-bottom: 2.75rem; }
 .section-kicker { font-size: 0.62rem; letter-spacing: 0.14em; font-weight: 600; }
 .section-heading h2, .coverage-copy h2, .contact h2 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; font-size: var(--section-title-size); line-height: 0.88; letter-spacing: -0.055em; margin: 0; }
@@ -133,8 +133,8 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .photo-item h3 { margin: 0 0 0.75rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; }
 .photo-card { width: 100%; aspect-ratio: 4 / 5; scroll-snap-align: start; color: var(--paper); }
 
-.metrics-title { padding-bottom: 1.5rem; }
-.metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 2rem; }
+.metrics-title { padding-bottom: 0.75rem; }
+.metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 0.75rem; }
 .metric-document { border: 1px solid var(--line-light); padding: 0.9rem; margin: 0; }
 .metrics.dark-section .metric-document { border-color: var(--line-dark); }
 .metric-placeholder { aspect-ratio: 4 / 3; margin: 0 0 0.75rem; border: 1px solid var(--line-dark); position: relative; display: grid; place-items: center; background: #262626; }
@@ -223,7 +223,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .specialty-strip span { flex: 0 0 auto; }
   .about, .photos, .services, .profile-coverage, .portfolio, .metrics, .process, .contact { padding: 2.25rem 16px; }
   .portfolio { padding-top: 2.25rem; padding-bottom: 2.25rem; }
-  .about { padding-top: 1rem; padding-bottom: 1rem; }
+  .about { padding-top: 2.25rem; padding-bottom: 2.25rem; }
   .photos { padding-top: 2.25rem; padding-bottom: 2.25rem; }
   .about-media-grid { display: flex; flex-direction: column; }
   .section-heading h2, .coverage-copy h2 { font-size: var(--section-title-size); }
