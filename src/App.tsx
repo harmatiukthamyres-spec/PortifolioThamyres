@@ -257,7 +257,6 @@ function App() {
           padding-top: 3rem;
           padding-bottom: 2rem;
         }
-
         .contact h2 {
           margin: 0 0 2.4rem;
         }
@@ -558,7 +557,7 @@ function App() {
             <div className="bases-block">
               <span className="section-kicker">BASES E DISPONIBILIDADE</span>
               <p className="service-info">
-                Resido em Alphaville, SP e Curitiba, PR. Disponibilidade para viagens em todo o Brasil.
+                Resido em Alphaville, SP e Curitiba, PR. Disponibilidade para viagens.
               </p>
             </div>
           </div>
