@@ -164,10 +164,10 @@ function App() {
             </div>
           </div>
           <div className="specialty-strip" aria-label="Especialidades">
-            <span>HAIRCARE</span><i />
-            <span>SKINCARE</span><i />
-            <span>BODYCARE</span><i />
-            <span>BEAUTY</span><i />
+            <span>HAIRCARE</span>
+            <span>SKINCARE</span>
+            <span>BODYCARE</span>
+            <span>BEAUTY</span>
             <span>LIFESTYLE</span>
           </div>
         </section>
