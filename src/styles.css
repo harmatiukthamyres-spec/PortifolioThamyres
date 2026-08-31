@@ -130,13 +130,13 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .photo-track::-webkit-scrollbar { display: none; }
 .photo-card { width: 100%; aspect-ratio: 4 / 5; scroll-snap-align: start; color: var(--paper); }
 
-.metrics-title { padding-bottom: 2.2rem; border-bottom: 1px solid var(--line-light); }
+.metrics-title { padding-bottom: 1.5rem; }
 .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 2rem; }
 .metric-document { border: 1px solid var(--line-light); padding: 0.9rem; margin: 0; }
-.metric-doc-head { display: flex; justify-content: space-between; font-size: 0.55rem; letter-spacing: 0.1em; border-bottom: 1px solid var(--line-light); padding-bottom: 0.7rem; }
-.metric-placeholder { aspect-ratio: 4 / 3; margin: 0.9rem 0 1rem; border: 1px solid var(--line-dark); position: relative; display: grid; place-items: center; background: #262626; }
+.metrics.dark-section .metric-document { border-color: var(--line-dark); }
+.metric-placeholder { aspect-ratio: 4 / 3; margin: 0 0 0.75rem; border: 1px solid var(--line-dark); position: relative; display: grid; place-items: center; background: #262626; }
 .metric-placeholder strong { z-index: 2; font-size: 0.58rem; letter-spacing: 0.1em; }
-.metric-document h3 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; font-size: 2.2rem; margin: 0; }
+.metric-document h3 { font-family: 'Inter Tight', Arial, sans-serif; font-weight: 500; font-size: 0.68rem; letter-spacing: 0.12em; margin: 0; }
 
 .services-heading { padding-bottom: 2.4rem; }
 .services-grid { display: grid; grid-template-columns: 0.72fr 1.28fr; gap: 6vw; border-top: 1px solid var(--line-light); padding-top: 1rem; }
