@@ -285,6 +285,13 @@ function App() {
             <p className="price-note" style={{ margin: '1rem 0 0' }}>
               Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
             </p>
+
+            <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid var(--line-light)' }}>
+              <span className="section-kicker" style={{ display: 'block', marginBottom: '0.65rem' }}>BASES E DISPONIBILIDADE</span>
+              <p className="price-note" style={{ margin: 0 }}>
+                Resido em Alphaville, SP e Curitiba, PR. Disponibilidade para viagens em todo o Brasil.
+              </p>
+            </div>
           </div>
 
           <div className="services-grid">
@@ -315,22 +322,9 @@ function App() {
           </div>
         </section>
 
-        <section className="profile-coverage paper-section" id="atuacao">
-          <div className="coverage-copy">
-            <span className="section-kicker">07 · PERFIL E ATUAÇÃO</span>
-            <h2>De duas bases,<br /><em>para todo o Brasil.</em></h2>
-          </div>
-          <div className="coverage-grid">
-            <div><span>BASE 01</span><strong>ALPHAVILLE</strong><small>SÃO PAULO</small></div>
-            <div><span>BASE 02</span><strong>IRATI</strong><small>PARANÁ</small></div>
-            <div><span>ATUAÇÃO</span><strong>BRASIL</strong><small>PROJETOS PRESENCIAIS E REMOTOS</small></div>
-            <div><span>LOGÍSTICA</span><strong>NACIONAL</strong><small>RECEBIMENTO DE PRODUTOS E VIAGENS</small></div>
-          </div>
-        </section>
-
         <section className="contact dark-section" id="contato">
           <div className="contact-top">
-            <span className="section-kicker">08 · CONTATO</span>
+            <span className="section-kicker">CONTATO</span>
             <p>PORTUGUÊS · BRASIL · UGC CREATOR</p>
           </div>
           <h2>Vamos criar algo<br /><em>excepcional juntos?</em></h2>
