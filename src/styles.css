@@ -59,8 +59,6 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .hero-identity { position: absolute; z-index: 4; left: 24px; bottom: 24px; color: var(--paper); text-shadow: 0 2px 18px rgba(0, 0, 0, 0.42); }
 .hero-identity h1 { width: max-content; max-width: calc(100vw - 80px); margin: 0; padding: 0; color: var(--paper); font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(2rem, 2.8vw, 3.4rem); line-height: 1; letter-spacing: -0.04em; font-weight: 400; white-space: nowrap; }
 .hero-identity p { max-width: 36ch; margin: 0.8rem 0 0; padding: 0; color: var(--paper); font-size: 0.72rem; line-height: 1.45; }
-.hero-contact-bar { min-height: 50px; display: flex; align-items: center; justify-content: center; gap: 2.4rem; padding: 0 16px; background: #000; }
-.hero-contact-link { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 42px; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.68rem; }
 
 .image-placeholder { position: relative; overflow: hidden; background: #2b2b2b; }
 .image-placeholder::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 60% 30%, rgba(255,255,255,0.16), transparent 32%), linear-gradient(145deg, rgba(255,255,255,0.06), transparent 55%); }
@@ -74,7 +72,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .placeholder-label strong, .media-label strong { font-size: 0.64rem; letter-spacing: 0.12em; }
 .placeholder-label span, .media-label small { font-size: 0.52rem; letter-spacing: 0.1em; opacity: 0.7; }
 
-.specialty-strip { min-height: 66px; background: var(--paper); border-bottom: 1px solid var(--line-light); color: var(--ink); display: flex; align-items: center; justify-content: space-around; gap: 1.3rem; padding: 0 2.2vw; font-size: clamp(0.72rem, 1vw, 1rem); letter-spacing: 0.16em; white-space: nowrap; }
+.specialty-strip { min-height: 58px; background: #000; border-bottom: 1px solid rgba(255,255,255,0.18); color: #fff; display: flex; align-items: center; justify-content: space-around; gap: 1.3rem; padding: 0 2.2vw; font-size: clamp(0.72rem, 1vw, 1rem); letter-spacing: 0.16em; white-space: nowrap; }
 .specialty-strip i { width: 4px; height: 4px; background: currentColor; border-radius: 50%; opacity: 0.55; }
 
 .about, .photos, .services, .profile-coverage { padding: 4.5rem 2.2vw; }
@@ -217,8 +215,6 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .hero-identity { left: 12px; right: 12px; bottom: 12px; }
   .hero-identity h1 { max-width: 100%; font-size: clamp(1.85rem, 9vw, 2.6rem); }
   .hero-identity p { max-width: 32ch; font-size: 0.68rem; }
-  .hero-contact-bar { min-height: 56px; justify-content: space-between; gap: 0.75rem; }
-  .hero-contact-link { font-size: 0.55rem; }
   .placeholder-label { flex-direction: column; align-items: flex-start; }
   .specialty-strip { overflow-x: auto; justify-content: flex-start; padding: 0 16px; min-height: 58px; }
   .about, .photos, .services, .profile-coverage, .portfolio, .metrics, .process, .contact { padding: 3.5rem 16px; }
