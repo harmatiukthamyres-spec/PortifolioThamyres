@@ -147,12 +147,9 @@ function App() {
 
       <main>
         <section className="hero dark-section" id="inicio">
-          <div className="hero-media" role="img" aria-label="Espaços reservados para fotografias reais de Thamyres">
-            <div className="hero-image hero-image-primary image-placeholder">
+          <div className="hero-media" role="img" aria-label="Espaço reservado para uma fotografia real de Thamyres">
+            <div className="hero-image image-placeholder">
               <span className="image-index">01</span>
-              <span className="placeholder-cross" aria-hidden="true" />
-            </div>
-            <div className="hero-image hero-image-secondary image-placeholder">
               <span className="placeholder-cross" aria-hidden="true" />
             </div>
             <div className="hero-identity">
