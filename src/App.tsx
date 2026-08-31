@@ -236,7 +236,7 @@ function App() {
           </div>
         </section>
 
-        <section className="about dark-section" id="sobre">
+        <section className="about paper-section" id="sobre">
           <div className="about-media-grid">
             <div className="profile-panel">
               <h2 className="about-title">Sobre mim</h2>
