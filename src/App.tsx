@@ -173,6 +173,14 @@ function App() {
           </div>
         </section>
 
+        <div className="specialty-strip" aria-label="Especialidades">
+          <span>HAIRCARE</span><i />
+          <span>SKINCARE</span><i />
+          <span>BODYCARE</span><i />
+          <span>BEAUTY</span><i />
+          <span>LIFESTYLE</span>
+        </div>
+
         <section className="about paper-section" id="sobre">
           <div className="about-media-grid">
             <div className="profile-panel">
@@ -197,14 +205,6 @@ function App() {
             </button>
           </div>
         </section>
-
-        <div className="specialty-strip" aria-label="Especialidades">
-          <span>HAIRCARE</span><i />
-          <span>SKINCARE</span><i />
-          <span>BODYCARE</span><i />
-          <span>BEAUTY</span><i />
-          <span>LIFESTYLE</span>
-        </div>
 
         <section className="portfolio dark-section" id="portfolio">
           <div className="portfolio-heading section-heading">
