@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 import {
-  ArrowDown,
   ArrowUpRight,
-  AtSign,
   Mail,
   Play,
   Volume2,
   X,
 } from 'lucide-react'
-import { FaWhatsapp } from 'react-icons/fa6'
+import { FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa6'
 
 type PortfolioVideo = {
   id: string
@@ -157,9 +155,101 @@ function App() {
           background-color: #000000;
         }
 
-        .reel-meta small,
-        .contact-copy {
+        .reel-meta small {
           color: #FFFFFF;
+        }
+
+        .profile-panel {
+          display: grid;
+          grid-template-rows: auto minmax(120px, 1fr) auto;
+        }
+
+        .profile-panel .about-bio {
+          align-self: center;
+          margin: 0;
+          padding: 1.75rem 0;
+        }
+
+        .profile-panel .profile-facts {
+          margin: 0;
+        }
+
+        .services-heading {
+          padding-bottom: 0;
+        }
+
+        .services-intro {
+          max-width: 78ch;
+          margin: 2rem 0 2.4rem;
+          color: #000000;
+          font-size: 0.82rem;
+          line-height: 1.55;
+          opacity: 1;
+        }
+
+        .process-block {
+          margin-bottom: 1.6rem;
+        }
+
+        .process-block .section-kicker {
+          display: block;
+          margin-bottom: 0.65rem;
+        }
+
+        .process-list {
+          border-top: 1px solid var(--line-light) !important;
+        }
+
+        .process-list li {
+          display: grid;
+          grid-template-columns: 42px 1fr;
+          align-items: center;
+          min-height: 42px;
+          border-bottom: 1px solid var(--line-light) !important;
+        }
+
+        .process-list span,
+        .process-list strong {
+          font-family: 'Inter Tight', Arial, sans-serif;
+          font-size: 0.7rem;
+          line-height: 1.2;
+          letter-spacing: 0.06em;
+          font-weight: 500;
+          color: #000000;
+        }
+
+        .service-info {
+          margin: 1rem 0 0;
+          color: #000000;
+          font-size: 0.82rem;
+          line-height: 1.5;
+          opacity: 1;
+        }
+
+        .bases-block {
+          margin-top: 1.4rem;
+          padding-top: 1rem;
+          border-top: 1px solid var(--line-light);
+        }
+
+        .bases-block .section-kicker {
+          display: block;
+          margin-bottom: 0.65rem;
+        }
+
+        .services-grid {
+          border-top: 0;
+          padding-top: 0;
+        }
+
+        .formats-column .section-kicker,
+        .price-table .section-kicker {
+          display: block;
+          padding: 0 0 0.85rem;
+        }
+
+        .price-table {
+          border-top: 0;
         }
 
         .contact {
@@ -205,15 +295,65 @@ function App() {
         }
 
         .social-row {
-          border-bottom: 1px solid var(--line-dark);
-          padding: 1.1rem 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          gap: 0.7rem;
+          padding: 1rem 0 0;
+          border: 0;
+        }
+
+        .social-row a,
+        .social-row .social-item {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          font-size: 0.65rem;
+          letter-spacing: 0.08em;
+        }
+
+        .social-row svg {
+          width: 17px;
+          height: 17px;
+          flex: 0 0 auto;
         }
 
         .contact footer {
-          margin-top: 1.75rem;
+          margin-top: 2rem;
+          border-top: 0;
+          padding-top: 0;
         }
 
         @media (max-width: 720px) {
+          .profile-panel {
+            display: grid;
+            grid-template-rows: auto auto auto;
+          }
+
+          .profile-panel .about-bio {
+            padding: 1.35rem 0;
+          }
+
+          .services-intro {
+            margin: 1.4rem 0 1.8rem;
+            font-size: 0.8rem;
+          }
+
+          .process-list li {
+            grid-template-columns: 34px 1fr;
+            min-height: 38px;
+          }
+
+          .process-list span,
+          .process-list strong {
+            font-size: 0.66rem;
+          }
+
+          .service-info {
+            font-size: 0.8rem;
+          }
+
           .contact {
             padding-top: 2.25rem;
           }
@@ -237,7 +377,7 @@ function App() {
 
           .social-row {
             gap: 0.65rem;
-            padding: 1rem 0;
+            padding: 1rem 0 0;
           }
 
           .contact footer {
@@ -315,7 +455,7 @@ function App() {
                       onClick={() => setActiveVideo(video)}
                       aria-label={`Abrir ${video.format} de ${video.category}`}
                     >
-                      <span className="reel-visual"><span className="placeholder-cross" /></span>
+                      <span className="reel-visual" />
                       <span className="reel-play"><Play fill="currentColor" size={14} /></span>
                       <span className="reel-meta">
                         <strong>{video.format}</strong>
@@ -334,7 +474,6 @@ function App() {
                 <article className="photo-item" key={category}>
                   <h3>{category}</h3>
                   <div className={`photo-card image-placeholder tone-${index + 1}`} role="img" aria-label={`Espaço reservado para fotografia de ${category.toLowerCase()}`}>
-                    <span className="placeholder-cross" aria-hidden="true" />
                     <span className="media-label"><strong>INSERIR FOTOGRAFIA</strong><small>PROPORÇÃO 4:5</small></span>
                   </div>
                 </article>
@@ -357,7 +496,7 @@ function App() {
               ['DESEMPENHO', 'INSERIR DADOS DE DESEMPENHO'],
             ].map(([label, placeholder]) => (
               <article className="metric-document" key={label}>
-                <div className="metric-placeholder"><span className="placeholder-cross" /><strong>{placeholder}</strong></div>
+                <div className="metric-placeholder"><strong>{placeholder}</strong></div>
                 <h3>{label}</h3>
               </article>
             ))}
@@ -397,43 +536,45 @@ function App() {
             </div>
           </div>
 
-          <div style={{ marginBottom: '2.4rem' }}>
-            <p className="price-note" style={{ margin: '0 0 1.5rem' }}>
-              O orçamento final considera complexidade, locação, quantidade, prazo e período de uso. O escopo base inclui roteiro, gravação, edição, legenda e uma rodada de ajustes.
-            </p>
+          <p className="services-intro">
+            O orçamento final considera complexidade, locação, quantidade, prazo e período de uso. O escopo base inclui roteiro, gravação, edição, legenda e uma rodada de ajustes.
+          </p>
 
-            <span className="section-kicker" style={{ display: 'block', marginBottom: '1rem' }}>PROCESSO</span>
-            <ol className="process-list" style={{ borderTop: '1px solid var(--line-light)' }}>
+          <div className="process-block">
+            <span className="section-kicker">PROCESSO</span>
+            <ol className="process-list">
               {process.map((item, index) => (
-                <li key={item} style={{ borderBottom: '1px solid var(--line-light)' }}>
+                <li key={item}>
                   <span>{String(index + 1).padStart(2, '0')}</span>
                   <strong>{item}</strong>
-                  <ArrowDown size={18} />
                 </li>
               ))}
             </ol>
 
-            <p className="price-note" style={{ margin: '1rem 0 0' }}>
+            <p className="service-info">
               Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
             </p>
 
-            <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid var(--line-light)' }}>
-              <span className="section-kicker" style={{ display: 'block', marginBottom: '0.65rem' }}>BASES E DISPONIBILIDADE</span>
-              <p className="price-note" style={{ margin: 0 }}>
+            <div className="bases-block">
+              <span className="section-kicker">BASES E DISPONIBILIDADE</span>
+              <p className="service-info">
                 Resido em Alphaville, SP e Curitiba, PR. Disponibilidade para viagens em todo o Brasil.
               </p>
             </div>
           </div>
 
           <div className="services-grid">
-            <div className="service-list">
-              {services.map((service, index) => (
-                <div key={service}><span>{String(index + 1).padStart(2, '0')}</span><p>{service}</p></div>
-              ))}
+            <div className="formats-column">
+              <span className="section-kicker">FORMATOS</span>
+              <div className="service-list">
+                {services.map((service, index) => (
+                  <div key={service}><span>{String(index + 1).padStart(2, '0')}</span><p>{service}</p></div>
+                ))}
+              </div>
             </div>
 
             <div className="price-table">
-              <span className="section-kicker" style={{ display: 'block', padding: '0.9rem 0' }}>PACOTES UGC</span>
+              <span className="section-kicker">PACOTES</span>
               {prices.map(({ number, name, detail, unit, price }) => (
                 <div className="price-row" key={number}>
                   <span>{number}</span>
@@ -464,8 +605,10 @@ function App() {
             </a>
           </div>
           <div className="social-row">
-            <a href="https://www.instagram.com/thamyresharmatiuk" target="_blank" rel="noreferrer"><AtSign size={17} /> Instagram · @thamyresharmatiuk</a>
-            <span>TikTok · Thamyres Harmatiuk</span>
+            <a href="https://www.instagram.com/thamyresharmatiuk" target="_blank" rel="noreferrer">
+              <FaInstagram /> <span>Instagram · @thamyresharmatiuk</span>
+            </a>
+            <span className="social-item"><FaTiktok /> <span>TikTok · Thamyres Harmatiuk</span></span>
           </div>
           <footer>
             <span>© {new Date().getFullYear()} THAMYRES HARMATIUK</span>
