@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 875" preserveAspectRatio="xMidYMid meet"><rect width="700" height="875" fill="#fff"/><image href="/images/metricas-alcance.webp" x="0" y="0" width="700" height="875" preserveAspectRatio="xMidYMid meet"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 875" role="img" aria-labelledby="title desc">
+  <title id="title">Visualizações no Instagram</title>
+  <desc id="desc">13.943 visualizações nos últimos 30 dias, de 2 a 31 de agosto.</desc>
+  <defs>
+    <linearGradient id="reachGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5613dc"/>
+      <stop offset="0.52" stop-color="#7b16d8"/>
+      <stop offset="1" stop-color="#d22ab8"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="875" fill="#fff"/>
+  <rect x="38" y="35" width="186" height="58" rx="29" fill="#f7f7f9"/>
+  <text x="65" y="72" fill="#111" font-family="Arial, sans-serif" font-size="22" font-weight="600">Últimos 30 dias⌄</text>
+  <text x="662" y="72" fill="#111" font-family="Arial, sans-serif" font-size="22" font-weight="600" text-anchor="end">2 de ago - 31 de ago</text>
+  <line x1="0" y1="116" x2="700" y2="116" stroke="#ededf0" stroke-width="2"/>
+  <circle cx="350" cy="435" r="196" fill="none" stroke="#f1f1f4" stroke-width="25"/>
+  <circle cx="350" cy="435" r="196" fill="none" stroke="url(#reachGradient)" stroke-width="25" stroke-linecap="round" transform="rotate(-90 350 435)"/>
+  <text x="350" y="420" fill="#222" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">Visualizações</text>
+  <text x="350" y="492" fill="#111" font-family="Arial, sans-serif" font-size="70" font-weight="500" text-anchor="middle">13,943</text>
+</svg>
