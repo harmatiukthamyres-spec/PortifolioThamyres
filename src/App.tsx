@@ -566,7 +566,7 @@ function App() {
           </div>
 
           <p className="services-intro">
-            O orçamento final considera complexidade, locação, quantidade, prazo e período de uso. O escopo base inclui roteiro, gravação, edição, legenda e uma rodada de ajustes. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
+            O investimento pode variar conforme o formato, volume de entregas, complexidade da produção e direitos de uso. Os valores incluem roteiro, gravação, edição, legenda e uma rodada de ajustes. Custos adicionais de produção, deslocamento ou locação, quando necessários, são orçados separadamente. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
           </p>
 
           <div className="process-block">
