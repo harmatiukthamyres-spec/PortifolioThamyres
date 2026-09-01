@@ -566,7 +566,7 @@ function App() {
           </div>
 
           <p className="services-intro">
-            O investimento pode variar conforme o formato, volume de entregas, complexidade da produção e direitos de uso. Os valores incluem roteiro, gravação, edição, legenda e uma rodada de ajustes. Custos adicionais de produção, deslocamento ou locação, quando necessários, são orçados separadamente. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
+            Os valores apresentados correspondem aos pacotes descritos e incluem roteiro, gravação, edição, legenda e uma rodada de ajustes. Direitos de uso para mídia paga e períodos de veiculação são definidos separadamente. Custos adicionais de produção, deslocamento ou locação, quando necessários, são orçados à parte. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
           </p>
 
           <div className="process-block">
