@@ -537,7 +537,7 @@ function App() {
             <div className="profile-panel">
               <h2 className="about-title">Sobre mim</h2>
               <p className="about-bio">
-                Sou Thamyres Harmatiuk, criadora de conteúdo UGC especializada em beleza e lifestyle. Crio vídeos que unem estética editorial, linguagem natural e demonstração clara para transformar benefícios de produto em desejo e decisão de compra.
+                Sou Thamyres Harmatiuk e crio conteúdo de beleza e lifestyle com um olhar mais editorial, natural e contemporâneo. Gosto de transformar produtos em experiências visuais que parecem parte da rotina, mas que ainda comunicam desejo, benefício e intenção de compra.
               </p>
               <dl className="profile-facts">
                 {profileFacts.map(([label, value]) => (
