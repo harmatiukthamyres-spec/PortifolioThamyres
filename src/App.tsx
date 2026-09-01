@@ -95,6 +95,28 @@ const prices = [
 
 const process = ['Briefing', 'Estratégia e roteiro', 'Gravação', 'Edição e revisão', 'Entrega']
 
+const audienceAge = [
+  ['13–17', '0,2%', 0.2],
+  ['18–24', '22,3%', 22.3],
+  ['25–34', '47,5%', 47.5],
+  ['35–44', '20,6%', 20.6],
+  ['45–54', '6,8%', 6.8],
+  ['55–64', '2,2%', 2.2],
+  ['65+', '0,4%', 0.4],
+] as const
+
+const contentMix = [
+  ['Stories', '54,2%', 54.2],
+  ['Posts', '39,9%', 39.9],
+  ['Reels', '5,9%', 5.9],
+] as const
+
+const topContent = [
+  ['859', '24 DE AGO'],
+  ['623', '26 DE AGO'],
+  ['529', '26 DE AGO'],
+] as const
+
 function App() {
   const [activeVideo, setActiveVideo] = useState<PortfolioVideo | null>(null)
 
@@ -183,6 +205,222 @@ function App() {
         }
 
         .metrics-handle:hover {
+          opacity: 0.7;
+        }
+
+        .metrics-dashboard {
+          border-top: 1px solid var(--line-dark);
+          padding-top: 1.25rem;
+        }
+
+        .metrics-period {
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+          font-family: 'Inter Tight', Arial, sans-serif;
+          font-size: 0.67rem;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+
+        .metrics-period span:last-child {
+          opacity: 0.72;
+        }
+
+        .metric-summary-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          border-top: 1px solid var(--line-dark);
+          border-bottom: 1px solid var(--line-dark);
+        }
+
+        .metric-summary-card {
+          min-height: 148px;
+          padding: 1.2rem 1.1rem 1.1rem 0;
+          border-right: 1px solid var(--line-dark);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .metric-summary-card:not(:first-child) {
+          padding-left: 1.1rem;
+        }
+
+        .metric-summary-card:last-child {
+          border-right: 0;
+        }
+
+        .metric-summary-card span,
+        .metric-block-title,
+        .metric-top-label {
+          font-family: 'Inter Tight', Arial, sans-serif;
+          font-size: 0.66rem;
+          letter-spacing: 0.09em;
+          text-transform: uppercase;
+        }
+
+        .metric-summary-card strong {
+          display: block;
+          font-family: Georgia, 'Times New Roman', serif;
+          font-size: clamp(2rem, 4.2vw, 4rem);
+          line-height: 0.95;
+          font-weight: 400;
+        }
+
+        .metric-summary-card small {
+          font-family: 'Inter Tight', Arial, sans-serif;
+          font-size: 0.72rem;
+          line-height: 1.45;
+          letter-spacing: 0.02em;
+        }
+
+        .metric-detail-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0;
+          margin-top: 1.5rem;
+          border-top: 1px solid var(--line-dark);
+          border-bottom: 1px solid var(--line-dark);
+        }
+
+        .metric-detail-block {
+          padding: 1.2rem 1.2rem 1.3rem 0;
+        }
+
+        .metric-detail-block + .metric-detail-block {
+          padding-left: 1.2rem;
+          border-left: 1px solid var(--line-dark);
+        }
+
+        .metric-block-title {
+          display: block;
+          margin-bottom: 1.1rem;
+        }
+
+        .metric-bar-row {
+          display: grid;
+          grid-template-columns: 82px 1fr 54px;
+          align-items: center;
+          gap: 0.65rem;
+          margin-bottom: 0.75rem;
+          font-family: 'Inter Tight', Arial, sans-serif;
+          font-size: 0.74rem;
+        }
+
+        .metric-bar-row:last-child {
+          margin-bottom: 0;
+        }
+
+        .metric-bar-track {
+          width: 100%;
+          height: 5px;
+          border: 1px solid rgba(255, 255, 255, 0.34);
+          position: relative;
+        }
+
+        .metric-bar-fill {
+          display: block;
+          height: 100%;
+          background: #FFFFFF;
+        }
+
+        .metric-bar-row strong {
+          text-align: right;
+          font-size: 0.72rem;
+          font-weight: 600;
+        }
+
+        .gender-stack {
+          display: grid;
+          gap: 1rem;
+        }
+
+        .gender-item {
+          display: grid;
+          grid-template-columns: 90px 1fr 54px;
+          align-items: center;
+          gap: 0.65rem;
+          font-family: 'Inter Tight', Arial, sans-serif;
+          font-size: 0.74rem;
+        }
+
+        .gender-item strong {
+          text-align: right;
+          font-size: 0.72rem;
+        }
+
+        .metrics-content-block {
+          margin-top: 1.5rem;
+          padding-top: 1.25rem;
+          border-top: 1px solid var(--line-dark);
+        }
+
+        .content-mix-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1rem;
+          margin-top: 1rem;
+        }
+
+        .content-mix-item {
+          padding: 0.9rem 0;
+          border-top: 1px solid var(--line-dark);
+          border-bottom: 1px solid var(--line-dark);
+        }
+
+        .content-mix-item div:first-child {
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          margin-bottom: 0.65rem;
+          font-family: 'Inter Tight', Arial, sans-serif;
+          font-size: 0.75rem;
+        }
+
+        .top-content-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          border-top: 1px solid var(--line-dark);
+          margin-top: 1rem;
+        }
+
+        .top-content-card {
+          min-height: 135px;
+          padding: 1rem 1rem 1rem 0;
+          border-right: 1px solid var(--line-dark);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .top-content-card:not(:first-child) {
+          padding-left: 1rem;
+        }
+
+        .top-content-card:last-child {
+          border-right: 0;
+        }
+
+        .top-content-card strong {
+          font-family: Georgia, 'Times New Roman', serif;
+          font-size: clamp(2rem, 3vw, 3rem);
+          font-weight: 400;
+        }
+
+        .top-content-card small {
+          font-family: 'Inter Tight', Arial, sans-serif;
+          font-size: 0.67rem;
+          letter-spacing: 0.08em;
+        }
+
+        .metrics-note {
+          margin: 0.9rem 0 0;
+          font-family: 'Inter Tight', Arial, sans-serif;
+          font-size: 0.63rem;
+          line-height: 1.5;
+          letter-spacing: 0.03em;
           opacity: 0.7;
         }
 
@@ -362,6 +600,49 @@ function App() {
             margin: -0.8rem 0 0;
           }
 
+          .metric-summary-grid,
+          .metric-detail-grid,
+          .content-mix-grid,
+          .top-content-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .metric-summary-card,
+          .metric-summary-card:not(:first-child),
+          .top-content-card,
+          .top-content-card:not(:first-child) {
+            padding: 1rem 0;
+            border-right: 0;
+            border-bottom: 1px solid var(--line-dark);
+            min-height: 110px;
+          }
+
+          .metric-summary-card:last-child,
+          .top-content-card:last-child {
+            border-bottom: 0;
+          }
+
+          .metric-detail-block,
+          .metric-detail-block + .metric-detail-block {
+            padding: 1rem 0;
+            border-left: 0;
+          }
+
+          .metric-detail-block + .metric-detail-block {
+            border-top: 1px solid var(--line-dark);
+          }
+
+          .metric-bar-row,
+          .gender-item {
+            grid-template-columns: 68px 1fr 48px;
+            gap: 0.5rem;
+          }
+
+          .metrics-period {
+            flex-direction: column;
+            gap: 0.35rem;
+          }
+
           .services-intro {
             margin: 1.4rem 0 1.8rem;
             font-size: 0.8rem;
@@ -518,17 +799,85 @@ function App() {
               @thamyresharmatiuk
             </a>
           </div>
-          <div className="metrics-grid">
-            {[
-              ['ALCANCE', 'INSERIR PRINT DO ALCANCE'],
-              ['PÚBLICO', 'INSERIR PRINT DO PÚBLICO'],
-              ['DESEMPENHO', 'INSERIR DADOS DE DESEMPENHO'],
-            ].map(([label, placeholder]) => (
-              <article className="metric-document" key={label}>
-                <div className="metric-placeholder"><strong>{placeholder}</strong></div>
-                <h3>{label}</h3>
+
+          <div className="metrics-dashboard">
+            <div className="metrics-period">
+              <span>Instagram Insights · últimos 30 dias</span>
+              <span>2 de ago · 31 de ago</span>
+            </div>
+
+            <div className="metric-summary-grid">
+              <article className="metric-summary-card">
+                <span>Visualizações</span>
+                <strong>13.943</strong>
+                <small>Total de visualizações no período</small>
               </article>
-            ))}
+              <article className="metric-summary-card">
+                <span>Visualizadores</span>
+                <strong>3.638</strong>
+                <small>+756% no período</small>
+              </article>
+              <article className="metric-summary-card">
+                <span>Descoberta</span>
+                <strong>63,3%</strong>
+                <small>Não seguidores · 36,7% seguidores</small>
+              </article>
+            </div>
+
+            <div className="metric-detail-grid">
+              <article className="metric-detail-block">
+                <span className="metric-block-title">Gênero</span>
+                <div className="gender-stack">
+                  <div className="gender-item">
+                    <span>Mulheres</span>
+                    <span className="metric-bar-track"><span className="metric-bar-fill" style={{ width: '69.6%' }} /></span>
+                    <strong>69,6%</strong>
+                  </div>
+                  <div className="gender-item">
+                    <span>Homens</span>
+                    <span className="metric-bar-track"><span className="metric-bar-fill" style={{ width: '30.4%' }} /></span>
+                    <strong>30,4%</strong>
+                  </div>
+                </div>
+              </article>
+
+              <article className="metric-detail-block">
+                <span className="metric-block-title">Faixa etária · mulheres</span>
+                {audienceAge.map(([label, value, width]) => (
+                  <div className="metric-bar-row" key={label}>
+                    <span>{label}</span>
+                    <span className="metric-bar-track"><span className="metric-bar-fill" style={{ width: `${width}%` }} /></span>
+                    <strong>{value}</strong>
+                  </div>
+                ))}
+              </article>
+            </div>
+
+            <div className="metrics-content-block">
+              <span className="metric-block-title">Por tipo de conteúdo</span>
+              <div className="content-mix-grid">
+                {contentMix.map(([label, value, width]) => (
+                  <div className="content-mix-item" key={label}>
+                    <div><span>{label}</span><strong>{value}</strong></div>
+                    <span className="metric-bar-track"><span className="metric-bar-fill" style={{ width: `${width}%` }} /></span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="metrics-content-block">
+              <span className="metric-top-label">Conteúdos principais</span>
+              <div className="top-content-grid">
+                {topContent.map(([views, date], index) => (
+                  <article className="top-content-card" key={`${views}-${date}-${index}`}>
+                    <small>CONTEÚDO {String(index + 1).padStart(2, '0')}</small>
+                    <strong>{views}</strong>
+                    <small>{date}</small>
+                  </article>
+                ))}
+              </div>
+              <p className="metrics-note">Dados extraídos dos Insights do Instagram fornecidos para o período indicado. A distribuição de faixa etária apresentada corresponde ao filtro de mulheres exibido no relatório.</p>
+            </div>
           </div>
         </section>
 
