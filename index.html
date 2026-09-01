@@ -93,14 +93,37 @@
         object-position: center center !important;
       }
 
-      /* Métricas publicadas */
+      /* Métricas em carrossel horizontal */
       #root .metrics-grid.metrics-published {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        display: grid !important;
+        grid-auto-flow: column !important;
+        grid-auto-columns: clamp(190px, 22vw, 250px) !important;
+        grid-template-columns: none !important;
         gap: 12px !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        padding: 0 0 12px !important;
+        scroll-snap-type: x mandatory;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+      }
+
+      #root .metrics-grid.metrics-published::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      #root .metrics-grid.metrics-published::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      #root .metrics-grid.metrics-published::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.28);
       }
 
       #root .metrics-grid.metrics-published .metric-document {
         min-width: 0;
+        scroll-snap-align: start;
       }
 
       #root .metrics-grid.metrics-published .metric-placeholder {
@@ -204,7 +227,7 @@
         }
 
         #root .metrics-grid.metrics-published {
-          grid-template-columns: 1fr !important;
+          grid-auto-columns: minmax(175px, 68vw) !important;
         }
 
         #root .services .process-flow {
