@@ -534,8 +534,9 @@ function App() {
           <div className="metrics-grid">
             {[
               ['ALCANCE', '/images/metricas-alcance.svg', 'Visualizações dos últimos 30 dias no Instagram'],
-              ['PÚBLICO', '/images/metricas-publico.svg', 'Faixa etária e gênero dos seguidores no Instagram'],
-              ['DESEMPENHO', '/images/metricas-desempenho.svg', 'Conteúdos principais e visualizações no Instagram'],
+              ['GÊNERO', '/images/metricas-genero.webp', 'Distribuição por gênero dos seguidores no Instagram'],
+              ['FAIXA ETÁRIA', '/images/metricas-faixa-etaria.webp', 'Faixa etária dos seguidores no Instagram'],
+              ['DESEMPENHO', '/images/metricas-desempenho.webp', 'Conteúdos principais e visualizações no Instagram'],
             ].map(([label, image, alt]) => (
               <article className="metric-document" key={label}>
                 <div className="metric-placeholder">
