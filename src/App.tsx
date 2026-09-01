@@ -220,7 +220,7 @@ function App() {
           </div>
           <div className="metrics-grid">
             {[
-              ['ALCANCE', '/images/metricas-alcance-original.jpeg', 'Visualizações dos últimos 30 dias no Instagram'],
+              ['ALCANCE', '/images/metricas-visualizacoes.jpeg', 'Visualizações dos últimos 30 dias no Instagram'],
               ['GÊNERO', '/images/metricas-genero.webp', 'Distribuição por gênero dos seguidores no Instagram'],
               ['FAIXA ETÁRIA', '/images/metricas-faixa-etaria.webp', 'Faixa etária dos seguidores no Instagram'],
               ['DESEMPENHO', '/images/metricas-desempenho.webp', 'Conteúdos principais e visualizações no Instagram'],
