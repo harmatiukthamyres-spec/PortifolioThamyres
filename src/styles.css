@@ -61,13 +61,14 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   z-index: 2;
   inset: 0;
   pointer-events: none;
+  display: none;
   background:
     linear-gradient(90deg, rgba(4, 38, 29, 0.58) 0%, rgba(4, 38, 29, 0.2) 40%, transparent 72%),
     linear-gradient(0deg, rgba(3, 31, 24, 0.62) 0%, rgba(3, 31, 24, 0.1) 42%, transparent 66%);
 }
 .hero-picture { position: absolute; inset: 0; display: block; }
 .hero-picture img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center center; }
-.hero-identity { position: absolute; z-index: 4; left: 24px; bottom: 24px; color: var(--paper); text-shadow: 0 2px 18px rgba(0, 0, 0, 0.42); }
+.hero-identity { display: none; position: absolute; z-index: 4; left: 24px; bottom: 24px; color: var(--paper); text-shadow: 0 2px 18px rgba(0, 0, 0, 0.42); }
 .hero-identity h1 { width: max-content; max-width: calc(100vw - 80px); margin: 0; padding: 0; color: var(--paper); font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(2rem, 2.8vw, 3.4rem); line-height: 1; letter-spacing: -0.04em; font-weight: 400; white-space: nowrap; }
 .hero-identity p { max-width: 36ch; margin: 0.8rem 0 0; padding: 0; color: var(--paper); font-size: 0.72rem; line-height: 1.45; }
 
@@ -243,7 +244,8 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .hero { padding: 0; }
   .hero-media { height: min(128vw, 520px); min-height: 430px; }
   .hero-picture img { object-position: center center; }
-  .hero-identity { left: 12px; right: 12px; bottom: 12px; }
+  .hero-media::after { display: block; }
+  .hero-identity { display: block; left: 12px; right: 12px; bottom: 12px; }
   .hero-identity h1 { max-width: 100%; font-size: clamp(1.85rem, 9vw, 2.6rem); }
   .hero-identity p { max-width: 32ch; font-size: 0.68rem; }
   .placeholder-label { flex-direction: column; align-items: flex-start; }

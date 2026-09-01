@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import {
+  ArrowDown,
   ArrowUpRight,
+  AtSign,
   Mail,
   Play,
   Volume2,
   X,
 } from 'lucide-react'
-import { FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa6'
+import { FaWhatsapp } from 'react-icons/fa6'
 
 type PortfolioVideo = {
   id: string
@@ -75,22 +77,22 @@ const profileFacts = [
 
 const services = [
   'Vídeos UGC orgânicos',
-  'Vídeos UGC para anúncios',
-  'Unboxing e ASMR',
-  'Demonstração de produto',
-  'Tutoriais e modo de uso',
+  'Anúncios UGC para conversão',
+  'Roteiro, gravação e edição',
+  'Demonstração de produto e textura',
+  'Tutoriais e comparativos',
   'Antes e depois',
   'Vídeos narrados',
-  'Reviews e depoimentos',
-  'Fotografia de produto e lifestyle',
+  'Lifestyle e rotinas',
+  'Unboxing e ASMR',
+  'Fotografias de produto e lifestyle',
 ]
 
 const prices = [
-  { number: '01', name: 'ESSENCIAL', detail: '1 VÍDEO UGC', unit: '', price: 'R$ 250' },
-  { number: '02', name: 'DUO', detail: '2 VÍDEOS UGC', unit: 'R$ 230 POR VÍDEO', price: 'R$ 460' },
-  { number: '03', name: 'CAMPANHA', detail: '3 VÍDEOS UGC', unit: 'R$ 210 POR VÍDEO', price: 'R$ 630' },
-  { number: '04', name: 'CONTENT PACK', detail: '5 VÍDEOS UGC + 2 FOTOS', unit: '', price: 'R$ 1.050' },
-  { number: '05', name: 'CONTRATO MENSAL', detail: 'UGC + REDES SOCIAIS', unit: '', price: 'SOB CONSULTA' },
+  ['01', '1 VÍDEO UGC EDITADO', 'ATÉ 60 SEGUNDOS', 'A PARTIR DE R$ 450'],
+  ['02', 'PACOTE COM 3 VÍDEOS', 'PLANEJAMENTO INTEGRADO', 'A PARTIR DE R$ 1.200'],
+  ['03', 'PACOTE COM 5 VÍDEOS', 'BANCO DE CONTEÚDO', 'A PARTIR DE R$ 1.850'],
+  ['04', 'EXTRAS E DIREITOS', 'FOTOS, BRUTOS, GANCHOS E MÍDIA', 'SOB CONSULTA'],
 ]
 
 const process = ['Briefing', 'Estratégia e roteiro', 'Gravação', 'Edição e revisão', 'Entrega']
@@ -113,318 +115,6 @@ function App() {
 
   return (
     <div className="site-shell">
-      <style>{`
-        :root {
-          --ink: #000000;
-          --graphite: #000000;
-          --paper: #FFFFFF;
-          --gray: #000000;
-          --white: #FFFFFF;
-          --line-dark: rgba(255, 255, 255, 0.22);
-          --line-light: rgba(0, 0, 0, 0.22);
-        }
-
-        html,
-        body,
-        .site-shell {
-          background: #000000;
-        }
-
-        .paper-section {
-          background: #FFFFFF;
-          color: #000000;
-        }
-
-        .dark-section,
-        .graphite-section,
-        .topbar,
-        .specialty-strip {
-          background: #000000;
-          color: #FFFFFF;
-        }
-
-        .hero-media,
-        .image-placeholder,
-        .reel-card,
-        .metric-placeholder,
-        .tone-0,
-        .tone-1,
-        .tone-2,
-        .tone-3,
-        .tone-4 {
-          background-color: #000000;
-        }
-
-        .reel-meta small {
-          color: #FFFFFF;
-        }
-
-        .profile-panel {
-          display: grid;
-          grid-template-rows: auto minmax(120px, 1fr) auto;
-        }
-
-        .profile-panel .about-bio {
-          align-self: center;
-          margin: 0;
-          padding: 1.75rem 0;
-        }
-
-        .profile-panel .profile-facts {
-          margin: 0;
-        }
-
-        .metrics-handle {
-          align-self: flex-end;
-          margin: 0 0 0.55rem;
-          font-size: 0.65rem;
-          letter-spacing: 0.08em;
-          text-transform: none;
-        }
-
-        .metrics-handle:hover {
-          opacity: 0.7;
-        }
-
-        .metrics .metric-placeholder {
-          aspect-ratio: 4 / 5;
-          overflow: hidden;
-          background: #FFFFFF;
-        }
-
-        .metrics .metric-placeholder img {
-          width: 100%;
-          height: 100%;
-          display: block;
-          object-fit: contain;
-        }
-
-        .services-heading {
-          padding-bottom: 0;
-        }
-
-        .services-intro {
-          max-width: 90ch;
-          margin: 2rem 0 2.4rem;
-          color: #000000;
-          font-size: 0.82rem;
-          line-height: 1.55;
-          opacity: 1;
-        }
-
-        .process-block {
-          margin-bottom: 1.6rem;
-        }
-
-        .process-block .section-kicker {
-          display: block;
-          margin-bottom: 0.8rem;
-        }
-
-        .process-flow {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          gap: 0.55rem;
-          padding: 0.85rem 0;
-          border-top: 1px solid var(--line-light);
-          border-bottom: 1px solid var(--line-light);
-          color: #000000;
-          font-family: 'Inter Tight', Arial, sans-serif;
-          font-size: 0.72rem;
-          line-height: 1.3;
-          letter-spacing: 0.035em;
-        }
-
-        .process-step {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.55rem;
-          white-space: nowrap;
-        }
-
-        .process-separator {
-          font-weight: 400;
-          opacity: 0.55;
-        }
-
-        .service-info {
-          margin: 1rem 0 0;
-          color: #000000;
-          font-size: 0.82rem;
-          line-height: 1.5;
-          opacity: 1;
-        }
-
-        .bases-block {
-          margin-top: 0;
-          padding-top: 1rem;
-          border-top: 1px solid var(--line-light);
-        }
-
-        .bases-block .section-kicker {
-          display: block;
-          margin-bottom: 0.65rem;
-        }
-
-        .services-grid {
-          border-top: 0;
-          padding-top: 0;
-        }
-
-        .formats-column .section-kicker,
-        .price-table .section-kicker {
-          display: block;
-          padding: 0 0 0.85rem;
-        }
-
-        .price-table {
-          border-top: 0;
-        }
-
-        .service-list > div:last-child,
-        .price-row.extras-row {
-          border-bottom: 0;
-        }
-
-        .contact {
-          min-height: auto;
-          padding-top: 3rem;
-          padding-bottom: 2rem;
-        }
-
-        .contact h2 {
-          margin: 0 0 2.4rem;
-        }
-
-        .contact-links {
-          margin: 0 0 1rem;
-          border-top: 1px solid var(--line-dark);
-        }
-
-        .contact-links a {
-          grid-template-columns: minmax(180px, 0.45fr) 1fr;
-          gap: 1.5rem;
-          min-height: 64px;
-          padding: 0;
-        }
-
-        .contact-links span,
-        .contact-links strong {
-          font-family: 'Inter Tight', Arial, sans-serif;
-          font-size: 0.68rem;
-          line-height: 1.3;
-          letter-spacing: 0.1em;
-          font-weight: 500;
-        }
-
-        .contact-links strong {
-          text-align: left;
-          overflow-wrap: anywhere;
-        }
-
-        .contact-links a:hover {
-          padding-left: 0;
-          background: transparent;
-          opacity: 0.72;
-        }
-
-        .social-row {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: flex-start;
-          gap: 0.7rem;
-          padding: 1rem 0 0;
-          border: 0;
-        }
-
-        .social-row a,
-        .social-row .social-item {
-          display: flex;
-          align-items: center;
-          gap: 0.6rem;
-          font-size: 0.65rem;
-          letter-spacing: 0.08em;
-        }
-
-        .social-row svg {
-          width: 17px;
-          height: 17px;
-          flex: 0 0 auto;
-        }
-
-        .contact footer {
-          margin-top: 2rem;
-          border-top: 0;
-          padding-top: 0;
-        }
-
-        @media (max-width: 720px) {
-          .profile-panel {
-            display: grid;
-            grid-template-rows: auto auto auto;
-          }
-
-          .profile-panel .about-bio {
-            padding: 1.35rem 0;
-          }
-
-          .metrics-handle {
-            align-self: flex-start;
-            margin: -0.8rem 0 0;
-          }
-
-          .services-intro {
-            margin: 1.4rem 0 1.8rem;
-            font-size: 0.8rem;
-          }
-
-          .process-flow {
-            gap: 0.45rem;
-            font-size: 0.68rem;
-          }
-
-          .process-step {
-            gap: 0.45rem;
-          }
-
-          .service-info {
-            font-size: 0.8rem;
-          }
-
-          .contact {
-            padding-top: 2.25rem;
-          }
-
-          .contact h2 {
-            margin: 0 0 2rem;
-          }
-
-          .contact-links a {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.35rem;
-            min-height: 72px;
-            padding: 0.85rem 0;
-          }
-
-          .contact-links strong {
-            grid-column: 1;
-            font-size: 0.68rem;
-          }
-
-          .social-row {
-            gap: 0.65rem;
-            padding: 1rem 0 0;
-          }
-
-          .contact footer {
-            margin-top: 1.5rem;
-          }
-        }
-      `}</style>
-
       <header className="topbar">
         <nav className="desktop-nav" aria-label="Navegação principal">
           <a href="#portfolio">Portfólio</a>
@@ -448,15 +138,14 @@ function App() {
         <section className="hero dark-section" id="inicio">
           <div className="hero-media">
             <picture className="hero-picture">
-              <source media="(max-width: 720px)" srcSet="/images/hero-thamyres-mobile.webp" />
+              <source media="(max-width: 720px)" srcSet="/images/hero-thamyres-mobile-final.jpeg" />
               <img
-                src="/images/hero-thamyres-desktop.webp"
-                alt="Thamyres Harmatiuk segurando um produto de beleza diante do mar"
+                src="/images/hero-thamyres-final.webp"
+                alt="Thamyres Harmatiuk em retrato editorial para seu portfólio UGC"
                 fetchPriority="high"
                 decoding="async"
               />
             </picture>
-            <span className="image-index">01</span>
             <div className="hero-identity">
               <h1>Thamyres Harmatiuk</h1>
               <p>UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.</p>
@@ -494,7 +183,7 @@ function App() {
                       onClick={() => setActiveVideo(video)}
                       aria-label={`Abrir ${video.format} de ${video.category}`}
                     >
-                      <span className="reel-visual" />
+                      <span className="reel-visual"><span className="placeholder-cross" /></span>
                       <span className="reel-play"><Play fill="currentColor" size={14} /></span>
                       <span className="reel-meta">
                         <strong>{video.format}</strong>
@@ -513,6 +202,7 @@ function App() {
                 <article className="photo-item" key={category}>
                   <h3>{category}</h3>
                   <div className={`photo-card image-placeholder tone-${index + 1}`} role="img" aria-label={`Espaço reservado para fotografia de ${category.toLowerCase()}`}>
+                    <span className="placeholder-cross" aria-hidden="true" />
                     <span className="media-label"><strong>INSERIR FOTOGRAFIA</strong><small>PROPORÇÃO 4:5</small></span>
                   </div>
                 </article>
@@ -527,13 +217,10 @@ function App() {
               <span className="section-kicker">MÉTRICAS</span>
               <h2>Dados da <em>audiência</em></h2>
             </div>
-            <a className="metrics-handle" href="https://www.instagram.com/thamyresharmatiuk" target="_blank" rel="noreferrer">
-              @thamyresharmatiuk
-            </a>
           </div>
           <div className="metrics-grid">
             {[
-              ['ALCANCE', '/images/metricas-alcance.svg', 'Visualizações dos últimos 30 dias no Instagram'],
+              ['ALCANCE', '/images/metricas-alcance-original.jpeg', 'Visualizações dos últimos 30 dias no Instagram'],
               ['GÊNERO', '/images/metricas-genero.webp', 'Distribuição por gênero dos seguidores no Instagram'],
               ['FAIXA ETÁRIA', '/images/metricas-faixa-etaria.webp', 'Faixa etária dos seguidores no Instagram'],
               ['DESEMPENHO', '/images/metricas-desempenho.webp', 'Conteúdos principais e visualizações no Instagram'],
@@ -553,7 +240,7 @@ function App() {
             <div className="profile-panel">
               <h2 className="about-title">Sobre mim</h2>
               <p className="about-bio">
-                Sou Thamyres Harmatiuk, criadora de conteúdo focada em haircare, skincare, bodycare e beauty. Meu trabalho une estética editorial, naturalidade e demonstração de produto para criar conteúdos que parecem parte da rotina e, ao mesmo tempo, despertam desejo e comunicam valor.
+                Sou Thamyres Harmatiuk, criadora de conteúdo UGC especializada em beleza e lifestyle. Crio vídeos que unem estética editorial, linguagem natural e demonstração clara para transformar benefícios de produto em desejo e decisão de compra.
               </p>
               <dl className="profile-facts">
                 {profileFacts.map(([label, value]) => (
@@ -576,82 +263,77 @@ function App() {
         <section className="services paper-section" id="servicos">
           <div className="section-heading services-heading">
             <div>
-              <span className="section-kicker">SERVIÇOS E INVESTIMENTO</span>
+              <span className="section-kicker">05 · SERVIÇOS E INVESTIMENTO</span>
               <h2>Do conceito à <em>entrega</em></h2>
             </div>
-          </div>
-
-          <p className="services-intro">
-            Os valores apresentados correspondem aos pacotes descritos e incluem roteiro, gravação, edição, legenda e uma rodada de ajustes. Direitos de uso para mídia paga e períodos de veiculação são definidos separadamente. Custos adicionais de produção, deslocamento ou locação, quando necessários, são orçados à parte. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
-          </p>
-
-          <div className="process-block">
-            <span className="section-kicker">PROCESSO</span>
-            <div className="process-flow" aria-label="Etapas do processo">
-              {process.map((item, index) => (
-                <span className="process-step" key={item}>
-                  <span>{item}</span>
-                  {index < process.length - 1 && <span className="process-separator" aria-hidden="true">&gt;</span>}
-                </span>
-              ))}
-            </div>
+            <p>Produção pensada para conteúdo orgânico, campanhas, anúncios e páginas de produto.</p>
           </div>
 
           <div className="services-grid">
-            <div className="formats-column">
-              <span className="section-kicker">FORMATOS</span>
-              <div className="service-list">
-                {services.map((service, index) => (
-                  <div key={service}><span>{String(index + 1).padStart(2, '0')}</span><p>{service}</p></div>
-                ))}
-              </div>
+            <div className="service-list">
+              {services.map((service, index) => (
+                <div key={service}><span>{String(index + 1).padStart(2, '0')}</span><p>{service}</p></div>
+              ))}
             </div>
-
             <div className="price-table">
-              <span className="section-kicker">PACOTES</span>
-              {prices.map(({ number, name, detail, unit, price }) => (
+              {prices.map(([number, name, detail, price]) => (
                 <div className="price-row" key={number}>
                   <span>{number}</span>
                   <strong>{name}</strong>
-                  <small>{detail}{unit && <><br />{unit}</>}</small>
+                  <small>{detail}</small>
                   <b>{price}</b>
                 </div>
               ))}
-
-              <div className="price-row extras-row">
-                <span />
-                <strong>EXTRAS E DIREITOS</strong>
-                <small>FOTOS, BRUTOS, GANCHOS E MÍDIA</small>
-                <b>SOB CONSULTA</b>
-              </div>
-
-              <div className="bases-block">
-                <span className="section-kicker">BASES E DISPONIBILIDADE</span>
-                <p className="service-info">
-                  Resido em Alphaville, SP e Curitiba, PR. Disponibilidade para viagens.
-                </p>
-              </div>
+              <p className="price-note">
+                O orçamento final considera complexidade, locação, quantidade, prazo e período de uso. O escopo base inclui roteiro, gravação, edição, legenda e uma rodada de ajustes simples.
+              </p>
             </div>
           </div>
         </section>
 
+        <section className="process dark-section" id="processo">
+          <div className="section-heading">
+            <div><span className="section-kicker">06 · PROCESSO</span><h2>Clareza em <em>cada etapa</em></h2></div>
+            <p>Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.</p>
+          </div>
+          <ol className="process-list">
+            {process.map((item, index) => (
+              <li key={item}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item}</strong><ArrowDown size={18} /></li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="profile-coverage paper-section" id="atuacao">
+          <div className="coverage-copy">
+            <span className="section-kicker">07 · PERFIL E ATUAÇÃO</span>
+            <h2>De duas bases,<br /><em>para todo o Brasil.</em></h2>
+          </div>
+          <div className="coverage-grid">
+            <div><span>BASE 01</span><strong>ALPHAVILLE</strong><small>SÃO PAULO</small></div>
+            <div><span>BASE 02</span><strong>IRATI</strong><small>PARANÁ</small></div>
+            <div><span>ATUAÇÃO</span><strong>BRASIL</strong><small>PROJETOS PRESENCIAIS E REMOTOS</small></div>
+            <div><span>LOGÍSTICA</span><strong>NACIONAL</strong><small>RECEBIMENTO DE PRODUTOS E VIAGENS</small></div>
+          </div>
+        </section>
+
         <section className="contact dark-section" id="contato">
+          <div className="contact-top">
+            <span className="section-kicker">08 · CONTATO</span>
+            <p>PORTUGUÊS · BRASIL · UGC CREATOR</p>
+          </div>
           <h2>Vamos criar algo<br /><em>excepcional juntos?</em></h2>
+          <p className="contact-copy">Se sua marca procura conteúdo de beleza com estética, clareza e intenção comercial, fale comigo para receber uma proposta personalizada.</p>
           <div className="contact-links">
             <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
-              <span>WHATSAPP COMERCIAL</span><strong>(11) 98824 2425</strong>
+              <span>WHATSAPP COMERCIAL</span><strong>(11) 98824 2425</strong><ArrowUpRight />
             </a>
             <a href="mailto:contato@thamyresharmatiuk.com">
-              <span>E-MAIL PROFISSIONAL</span><strong>contato@thamyresharmatiuk.com</strong>
+              <span>E-MAIL PROFISSIONAL</span><strong>contato@thamyresharmatiuk.com</strong><ArrowUpRight />
             </a>
           </div>
           <div className="social-row">
-            <a href="https://www.instagram.com/thamyresharmatiuk" target="_blank" rel="noreferrer">
-              <FaInstagram /> <span>Instagram · @thamyresharmatiuk</span>
-            </a>
-            <a href="https://www.tiktok.com/@thamyres.harmatiu" target="_blank" rel="noreferrer">
-              <FaTiktok /> <span>TikTok · @thamyres.harmatiu</span>
-            </a>
+            <a href="https://www.instagram.com/thamyresharmatiuk" target="_blank" rel="noreferrer"><AtSign size={17} /> Instagram · @thamyresharmatiuk</a>
+            <span>TikTok · PERFIL A INSERIR</span>
           </div>
           <footer>
             <span>© {new Date().getFullYear()} THAMYRES HARMATIUK</span>
