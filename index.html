@@ -83,7 +83,6 @@
         font-size: 0.62rem !important;
       }
 
-      /* Capa publicada: o texto já faz parte da arte final */
       #root .hero .image-index,
       #root .hero .hero-identity {
         display: none !important;
@@ -93,57 +92,56 @@
         object-position: center center !important;
       }
 
-      /* Métricas em carrossel horizontal */
-      #root .metrics-grid.metrics-published {
-        display: grid !important;
-        grid-auto-flow: column !important;
-        grid-auto-columns: clamp(190px, 22vw, 250px) !important;
-        grid-template-columns: none !important;
-        gap: 12px !important;
-        overflow-x: auto !important;
-        overflow-y: hidden !important;
-        padding: 0 0 12px !important;
+      #root .metrics-carousel {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(220px, 260px);
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 8px;
         scroll-snap-type: x mandatory;
-        overscroll-behavior-x: contain;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
       }
 
-      #root .metrics-grid.metrics-published::-webkit-scrollbar {
+      #root .metrics-carousel::-webkit-scrollbar {
         height: 6px;
       }
 
-      #root .metrics-grid.metrics-published::-webkit-scrollbar-track {
-        background: transparent;
+      #root .metrics-carousel::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,.28);
       }
 
-      #root .metrics-grid.metrics-published::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.28);
-      }
-
-      #root .metrics-grid.metrics-published .metric-document {
-        min-width: 0;
+      #root .metric-card {
         scroll-snap-align: start;
+        border: 1px solid rgba(255,255,255,.18);
+        padding: .8rem;
+        background: #000000;
       }
 
-      #root .metrics-grid.metrics-published .metric-placeholder {
+      #root .metric-card-image {
         width: 100%;
-        aspect-ratio: 4 / 5 !important;
+        aspect-ratio: 4 / 5;
         overflow: hidden;
-        display: flex !important;
+        background: #FFFFFF;
+        display: flex;
         align-items: center;
         justify-content: center;
-        background: #FFFFFF !important;
       }
 
-      #root .metrics-grid.metrics-published .metric-placeholder img {
+      #root .metric-card-image img {
         width: 100%;
         height: 100%;
         display: block;
-        object-fit: contain !important;
+        object-fit: contain;
       }
 
-      /* Sobre mim: composição igual à referência */
+      #root .metric-card h3 {
+        margin: .7rem 0 0;
+        color: #FFFFFF;
+        font-size: .72rem;
+        letter-spacing: .12em;
+      }
+
       #root .about-media-grid {
         align-items: start !important;
       }
@@ -172,7 +170,6 @@
         margin: clamp(2.7rem, 3.8vw, 3.5rem) 0 0 !important;
       }
 
-      /* Serviços e investimento */
       #root .services .process-flow {
         width: 100%;
         margin-bottom: 1.6rem;
@@ -226,8 +223,8 @@
           padding: 0.5rem 0.68rem;
         }
 
-        #root .metrics-grid.metrics-published {
-          grid-auto-columns: minmax(175px, 68vw) !important;
+        #root .metrics-carousel {
+          grid-auto-columns: minmax(180px, 220px);
         }
 
         #root .services .process-flow {
@@ -247,38 +244,43 @@
     <script type="module" src="/src/main.tsx"></script>
     <script>
       (() => {
+        const cover = '/images/hero-cover-green-v4.webp?v=4';
         const metrics = [
-          ['ALCANCE', '/images/metricas-alcance.webp', 'Visualizações dos últimos 30 dias no Instagram'],
-          ['GÊNERO', '/images/metricas-genero.webp', 'Distribuição de gênero da audiência no Instagram'],
-          ['FAIXA ETÁRIA', '/images/metricas-faixa-etaria.webp', 'Faixa etária da audiência feminina no Instagram'],
-          ['DESEMPENHO', '/images/metricas-desempenho.webp', 'Conteúdos principais e visualizações no Instagram'],
-        ]
+          ['ALCANCE', '/images/metricas-alcance-v4.webp?v=4', 'Visualizações dos últimos 30 dias no Instagram'],
+          ['GÊNERO', '/images/metricas-genero-v4.webp?v=4', 'Distribuição de gênero da audiência no Instagram'],
+          ['FAIXA ETÁRIA', '/images/metricas-faixa-v4.webp?v=4', 'Faixa etária da audiência feminina no Instagram'],
+          ['DESEMPENHO', '/images/metricas-desempenho-v4.webp?v=4', 'Conteúdos principais e visualizações no Instagram'],
+        ];
 
-        const publishMetrics = () => {
-          const grid = document.querySelector('#metricas .metrics-grid')
-          if (!grid || grid.dataset.metricsPublished === 'true') return
+        const publishAssets = () => {
+          const heroImg = document.querySelector('#inicio .hero-picture img');
+          const heroSource = document.querySelector('#inicio .hero-picture source');
+          if (heroImg) heroImg.src = cover;
+          if (heroSource) heroSource.srcset = cover;
 
-          grid.classList.add('metrics-published')
+          const grid = document.querySelector('#metricas .metrics-grid, #metricas .metrics-carousel');
+          if (!grid) return;
+
+          grid.className = 'metrics-carousel';
           grid.innerHTML = metrics.map(([label, image, alt]) => `
-            <article class="metric-document">
-              <div class="metric-placeholder">
+            <article class="metric-card">
+              <div class="metric-card-image">
                 <img src="${image}" alt="${alt}" loading="lazy" decoding="async" />
               </div>
               <h3>${label}</h3>
             </article>
-          `).join('')
-          grid.dataset.metricsPublished = 'true'
-        }
+          `).join('');
+        };
 
-        const root = document.getElementById('root')
+        const root = document.getElementById('root');
         if (root) {
-          const observer = new MutationObserver(() => publishMetrics())
-          observer.observe(root, { childList: true, subtree: true })
+          const observer = new MutationObserver(() => publishAssets());
+          observer.observe(root, { childList: true, subtree: true });
         }
 
-        document.addEventListener('DOMContentLoaded', publishMetrics)
-        requestAnimationFrame(publishMetrics)
-      })()
+        document.addEventListener('DOMContentLoaded', publishAssets);
+        requestAnimationFrame(publishAssets);
+      })();
     </script>
   </body>
 </html>
