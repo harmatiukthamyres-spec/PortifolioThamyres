@@ -9,6 +9,7 @@ import {
   X,
 } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa6'
+import metricasVisualizacoes from './assets/metricas-visualizacoes.jpeg'
 
 type PortfolioVideo = {
   id: string
@@ -136,21 +137,6 @@ function App() {
 
       <main>
         <section className="hero dark-section" id="inicio">
-          <div className="hero-media">
-            <picture className="hero-picture">
-              <source media="(max-width: 720px)" srcSet="/images/hero-thamyres-mobile-final.jpeg" />
-              <img
-                src="/images/hero-thamyres-final.webp"
-                alt="Thamyres Harmatiuk em retrato editorial para seu portfólio UGC"
-                fetchPriority="high"
-                decoding="async"
-              />
-            </picture>
-            <div className="hero-identity">
-              <h1>Thamyres Harmatiuk</h1>
-              <p>UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.</p>
-            </div>
-          </div>
           <div className="specialty-strip" aria-label="Especialidades">
             <span>HAIRCARE</span>
             <span>SKINCARE</span>
@@ -220,7 +206,7 @@ function App() {
           </div>
           <div className="metrics-grid">
             {[
-              ['ALCANCE', '/images/metricas-visualizacoes.jpeg', 'Visualizações dos últimos 30 dias no Instagram'],
+              ['ALCANCE', metricasVisualizacoes, 'Visualizações dos últimos 30 dias no Instagram'],
               ['GÊNERO', '/images/metricas-genero.webp', 'Distribuição por gênero dos seguidores no Instagram'],
               ['FAIXA ETÁRIA', '/images/metricas-faixa-etaria.webp', 'Faixa etária dos seguidores no Instagram'],
               ['DESEMPENHO', '/images/metricas-desempenho.webp', 'Conteúdos principais e visualizações no Instagram'],

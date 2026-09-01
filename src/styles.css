@@ -156,6 +156,8 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   width: 100%;
+  max-width: 96rem;
+  justify-content: center;
   margin: 0.75rem auto 0;
 }
 .metric-document { border: 1px solid var(--line-light); padding: 0.9rem; margin: 0; }
