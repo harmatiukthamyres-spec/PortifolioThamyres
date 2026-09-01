@@ -83,9 +83,10 @@
         font-size: 0.62rem !important;
       }
 
-      /* Sobre mim: mesma distribuição visual da referência */
+      /* Sobre mim: espaçamento vertical equilibrado */
       #root .profile-panel {
-        padding-top: clamp(3.5rem, 5vw, 5rem) !important;
+        padding-top: clamp(2.25rem, 3vw, 3rem) !important;
+        padding-bottom: clamp(2.25rem, 3vw, 3rem) !important;
         grid-template-rows: auto auto 1fr !important;
       }
 
@@ -96,7 +97,7 @@
       #root .profile-panel .about-bio {
         align-self: start !important;
         margin: 0 !important;
-        padding: clamp(2.5rem, 4vw, 4rem) 0 0 !important;
+        padding: clamp(1.55rem, 2.2vw, 2rem) 0 0 !important;
       }
 
       #root .profile-panel .profile-facts {
@@ -131,12 +132,13 @@
 
       @media (max-width: 720px) {
         #root .profile-panel {
-          padding-top: 1.8rem !important;
+          padding-top: 1.4rem !important;
+          padding-bottom: 1.4rem !important;
           grid-template-rows: auto auto auto !important;
         }
 
         #root .profile-panel .about-bio {
-          padding-top: 1.8rem !important;
+          padding-top: 1.35rem !important;
         }
 
         #root .metrics-handle {
