@@ -633,8 +633,8 @@ function App() {
             <a href="https://www.instagram.com/thamyresharmatiuk" target="_blank" rel="noreferrer">
               <FaInstagram /> <span>Instagram · @thamyresharmatiuk</span>
             </a>
-            <a href="https://www.tiktok.com/@thamyresharmatiuk" target="_blank" rel="noreferrer">
-              <FaTiktok /> <span>TikTok · @thamyresharmatiuk</span>
+            <a href="https://www.tiktok.com/@thamyres.harmatiu" target="_blank" rel="noreferrer">
+              <FaTiktok /> <span>TikTok · @thamyres.harmatiu</span>
             </a>
           </div>
           <footer>
