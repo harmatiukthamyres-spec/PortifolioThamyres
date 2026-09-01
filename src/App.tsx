@@ -633,7 +633,9 @@ function App() {
             <a href="https://www.instagram.com/thamyresharmatiuk" target="_blank" rel="noreferrer">
               <FaInstagram /> <span>Instagram · @thamyresharmatiuk</span>
             </a>
-            <span className="social-item"><FaTiktok /> <span>TikTok · Thamyres Harmatiuk</span></span>
+            <a href="https://www.tiktok.com/@thamyresharmatiuk" target="_blank" rel="noreferrer">
+              <FaTiktok /> <span>TikTok · @thamyresharmatiuk</span>
+            </a>
           </div>
           <footer>
             <span>© {new Date().getFullYear()} THAMYRES HARMATIUK</span>
