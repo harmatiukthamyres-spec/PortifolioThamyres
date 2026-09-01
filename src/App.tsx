@@ -9,6 +9,7 @@ import {
   X,
 } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa6'
+import metricasAlcanceRestaurado from './assets/metricas-alcance-restaurado.png'
 
 type PortfolioVideo = {
   id: string
@@ -211,6 +212,7 @@ function App() {
           </div>
           <div className="metrics-grid">
             {[
+              ['ALCANCE', metricasAlcanceRestaurado, 'Visualizações dos últimos 30 dias no Instagram'],
               ['GÊNERO', '/images/metricas-genero.webp', 'Distribuição por gênero dos seguidores no Instagram'],
               ['FAIXA ETÁRIA', '/images/metricas-faixa-etaria.webp', 'Faixa etária dos seguidores no Instagram'],
               ['DESEMPENHO', '/images/metricas-desempenho.webp', 'Conteúdos principais e visualizações no Instagram'],

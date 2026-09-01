@@ -157,7 +157,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .metrics-title { padding-bottom: 0.75rem; }
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   width: 100%;
   max-width: 96rem;
@@ -238,7 +238,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .video-intro { min-height: 0; }
   .portfolio-grid { gap: 2rem; }
   .reel-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .metrics-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .services-grid { grid-template-columns: 1fr; gap: 2rem; }
   .profile-coverage { grid-template-columns: 1fr; }
 }
