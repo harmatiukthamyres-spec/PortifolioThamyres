@@ -54,6 +54,10 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .header-actions a { display: flex; align-items: center; gap: 0.45rem; }
 
 .hero { padding: 52px 0 0; }
+.hero-black-cover { position: relative; height: clamp(320px, 38vw, 580px); background: #000; border-bottom: 1px solid rgba(255, 255, 255, 0.18); }
+.hero-black-copy { position: absolute; left: 2.2vw; bottom: 2.2rem; color: #fff; }
+.hero-black-copy h1 { margin: 0; font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(2.8rem, 5.2vw, 6rem); font-weight: 400; line-height: 0.95; letter-spacing: -0.045em; }
+.hero-black-copy p { max-width: 42ch; margin: 1rem 0 0; font-size: 0.76rem; line-height: 1.5; }
 .hero-media { position: relative; height: clamp(360px, 42vw, 650px); overflow: hidden; background: #7cb6ca; }
 .hero-media::after {
   content: '';
@@ -153,7 +157,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .metrics-title { padding-bottom: 0.75rem; }
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   width: 100%;
   max-width: 96rem;
@@ -234,7 +238,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .video-intro { min-height: 0; }
   .portfolio-grid { gap: 2rem; }
   .reel-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .metrics-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .services-grid { grid-template-columns: 1fr; gap: 2rem; }
   .profile-coverage { grid-template-columns: 1fr; }
 }
@@ -244,6 +248,10 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   body { padding-bottom: 62px; }
   .topbar { display: none; }
   .hero { padding: 0; }
+  .hero-black-cover { height: min(108vw, 480px); min-height: 360px; }
+  .hero-black-copy { left: 16px; right: 16px; bottom: 1.5rem; }
+  .hero-black-copy h1 { font-size: clamp(2.7rem, 13vw, 4.4rem); }
+  .hero-black-copy p { max-width: 34ch; font-size: 0.72rem; }
   .hero-media { height: min(128vw, 520px); min-height: 430px; }
   .hero-picture img { object-position: center center; }
   .hero-media::after { display: block; }
