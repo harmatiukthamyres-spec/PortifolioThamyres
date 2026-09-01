@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa6'
 import metricasAlcanceRestaurado from './assets/metricas-alcance-restaurado.png'
+import skincareDemonstracaoPoster from './assets/skincare-demonstracao-poster.webp'
 
 type PortfolioVideo = {
   id: string
@@ -17,6 +18,8 @@ type PortfolioVideo = {
   format: string
   duration: string
   tone: string
+  sourceParts?: string[]
+  poster?: string
 }
 
 type Category = {
@@ -52,15 +55,29 @@ const categoryBlueprints = [
   },
 ]
 
+const portfolioMedia: Record<string, Pick<PortfolioVideo, 'sourceParts' | 'poster' | 'duration'>> = {
+  'skincare-2': {
+    sourceParts: Array.from({ length: 7 }, (_, index) => `/videos/skincare-demonstracao.mp4.part-${String(index).padStart(2, '0')}`),
+    poster: skincareDemonstracaoPoster,
+    duration: '00:24',
+  },
+}
+
 const categories: Category[] = categoryBlueprints.map((category, categoryIndex) => ({
   name: category.name,
-  videos: category.formats.map((format, videoIndex) => ({
-    id: `${category.name.toLowerCase()}-${videoIndex + 1}`,
-    category: category.name,
-    format,
-    duration: ['00:30', '00:45', '00:35', '00:60'][videoIndex],
-    tone: `tone-${(categoryIndex + videoIndex) % 5}`,
-  })),
+  videos: category.formats.map((format, videoIndex) => {
+    const id = `${category.name.toLowerCase()}-${videoIndex + 1}`
+    const media = portfolioMedia[id]
+    return {
+      id,
+      category: category.name,
+      format,
+      duration: media?.duration ?? ['00:30', '00:45', '00:35', '00:60'][videoIndex],
+      tone: `tone-${(categoryIndex + videoIndex) % 5}`,
+      sourceParts: media?.sourceParts,
+      poster: media?.poster,
+    }
+  }),
 }))
 
 const profileFacts = [
@@ -100,6 +117,8 @@ const process = ['Briefing', 'Estratégia e roteiro', 'Gravação', 'Edição e 
 
 function App() {
   const [activeVideo, setActiveVideo] = useState<PortfolioVideo | null>(null)
+  const [playbackSource, setPlaybackSource] = useState<string | null>(null)
+  const [videoLoadError, setVideoLoadError] = useState(false)
 
   useEffect(() => {
     if (!activeVideo) return
@@ -111,6 +130,35 @@ function App() {
     return () => {
       document.body.classList.remove('modal-open')
       window.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [activeVideo])
+
+  useEffect(() => {
+    setPlaybackSource(null)
+    setVideoLoadError(false)
+    if (!activeVideo?.sourceParts) return
+
+    const controller = new AbortController()
+    let objectUrl: string | null = null
+
+    const loadVideo = async () => {
+      try {
+        const responses = await Promise.all(
+          activeVideo.sourceParts!.map((part) => fetch(part, { signal: controller.signal })),
+        )
+        if (responses.some((response) => !response.ok)) throw new Error('Não foi possível carregar o vídeo')
+        const chunks = await Promise.all(responses.map((response) => response.arrayBuffer()))
+        objectUrl = URL.createObjectURL(new Blob(chunks, { type: 'video/mp4' }))
+        setPlaybackSource(objectUrl)
+      } catch (error) {
+        if (!controller.signal.aborted) setVideoLoadError(true)
+      }
+    }
+
+    void loadVideo()
+    return () => {
+      controller.abort()
+      if (objectUrl) URL.revokeObjectURL(objectUrl)
     }
   }, [activeVideo])
 
@@ -175,7 +223,13 @@ function App() {
                       onClick={() => setActiveVideo(video)}
                       aria-label={`Abrir ${video.format} de ${video.category}`}
                     >
-                      <span className="reel-visual"><span className="placeholder-cross" /></span>
+                      <span className="reel-visual">
+                        {video.poster ? (
+                          <img className="reel-poster" src={video.poster} alt="" loading="lazy" />
+                        ) : (
+                          <span className="placeholder-cross" />
+                        )}
+                      </span>
                       <span className="reel-play"><Play fill="currentColor" size={14} /></span>
                       <span className="reel-meta">
                         <strong>{video.format}</strong>
@@ -343,14 +397,29 @@ function App() {
         <div className="modal-backdrop" role="presentation" onMouseDown={() => setActiveVideo(null)}>
           <section className="video-modal" role="dialog" aria-modal="true" aria-labelledby="video-modal-title" onMouseDown={(event) => event.stopPropagation()}>
             <button className="modal-close" type="button" onClick={() => setActiveVideo(null)} aria-label="Fechar vídeo"><X size={20} /></button>
-            <div className={`modal-video-placeholder ${activeVideo.tone}`}>
-              <Play fill="currentColor" size={26} />
-              <span>INSERIR VÍDEO REAL</span>
-            </div>
+            {activeVideo.sourceParts ? (
+              <div className="modal-video-player">
+                {playbackSource ? (
+                  <video src={playbackSource} controls autoPlay playsInline preload="metadata" poster={activeVideo.poster}>
+                    Seu navegador não oferece suporte à reprodução deste vídeo.
+                  </video>
+                ) : (
+                  <div className="video-loading" role="status">
+                    <Play fill="currentColor" size={24} />
+                    <span>{videoLoadError ? 'NÃO FOI POSSÍVEL CARREGAR' : 'CARREGANDO VÍDEO'}</span>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className={`modal-video-placeholder ${activeVideo.tone}`}>
+                <Play fill="currentColor" size={26} />
+                <span>INSERIR VÍDEO REAL</span>
+              </div>
+            )}
             <div className="modal-info">
               <span>{activeVideo.category} · {activeVideo.duration}</span>
               <h2 id="video-modal-title">{activeVideo.format}</h2>
-              <p>Este espaço está preparado para receber o arquivo final do Reel sem alterar o layout.</p>
+              <p>{activeVideo.sourceParts ? 'Demonstração de skincare em formato vertical.' : 'Este espaço está preparado para receber o arquivo final do Reel sem alterar o layout.'}</p>
               <span className="sound-label"><Volume2 size={15} /> ASSISTIR COM SOM</span>
             </div>
           </section>
