@@ -7,7 +7,6 @@ import {
   X,
 } from 'lucide-react'
 import { FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa6'
-import metricasAlcanceRestaurado from './assets/metricas-alcance-restaurado.png'
 import skincareDemonstracaoPoster from './assets/skincare-demonstracao-poster.webp'
 
 type PortfolioVideo = {
@@ -183,11 +182,18 @@ function App() {
 
       <main>
         <section className="hero dark-section" id="inicio">
-          <div className="hero-black-cover">
-            <div className="hero-black-copy">
-              <h1>Thamyres Harmatiuk</h1>
-              <p>UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.</p>
-            </div>
+          <div className="hero-media hero-cover">
+            <picture className="hero-picture">
+              <img
+                src="/images/hero-thamyres-cover.webp"
+                alt="Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza"
+                width="1672"
+                height="941"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
+            </picture>
           </div>
           <div className="specialty-strip" aria-label="Especialidades">
             <span>HAIRCARE</span>
@@ -223,7 +229,7 @@ function App() {
                     >
                       <span className="reel-visual">
                         {video.poster ? (
-                          <img className="reel-poster" src={video.poster} alt="" loading="lazy" />
+                          <img className="reel-poster" src={video.poster} alt="" loading="lazy" decoding="async" />
                         ) : (
                           <span className="placeholder-cross" />
                         )}
@@ -264,14 +270,14 @@ function App() {
           </div>
           <div className="metrics-grid">
             {[
-              ['ALCANCE', metricasAlcanceRestaurado, 'Visualizações dos últimos 30 dias no Instagram'],
+              ['ALCANCE', '/images/metricas-alcance-clean.webp', 'Visualizações dos últimos 30 dias no Instagram'],
               ['GÊNERO', '/images/metricas-genero.webp', 'Distribuição por gênero dos seguidores no Instagram'],
               ['FAIXA ETÁRIA', '/images/metricas-faixa-etaria.webp', 'Faixa etária dos seguidores no Instagram'],
               ['DESEMPENHO', '/images/metricas-desempenho.webp', 'Conteúdos principais e visualizações no Instagram'],
             ].map(([label, image, alt]) => (
               <article className="metric-document" key={label}>
                 <div className="metric-placeholder">
-                  <img src={image} alt={alt} loading="lazy" />
+                  <img src={image} alt={alt} loading="lazy" decoding="async" />
                 </div>
                 <h3>{label}</h3>
               </article>
