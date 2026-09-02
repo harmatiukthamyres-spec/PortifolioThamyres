@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react'
 import {
   ArrowDown,
   ArrowUpRight,
-  AtSign,
   Mail,
   Play,
   Volume2,
   X,
 } from 'lucide-react'
-import { FaWhatsapp } from 'react-icons/fa6'
+import { FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa6'
 import metricasAlcanceRestaurado from './assets/metricas-alcance-restaurado.png'
 import skincareDemonstracaoPoster from './assets/skincare-demonstracao-poster.webp'
 
@@ -363,23 +362,18 @@ function App() {
         </section>
 
         <section className="contact dark-section" id="contato">
-          <div className="contact-top">
-            <span className="section-kicker">08 · CONTATO</span>
-            <p>PORTUGUÊS · BRASIL · UGC CREATOR</p>
-          </div>
           <h2>Vamos criar algo<br /><em>excepcional juntos?</em></h2>
-          <p className="contact-copy">Se sua marca procura conteúdo de beleza com estética, clareza e intenção comercial, fale comigo para receber uma proposta personalizada.</p>
           <div className="contact-links">
             <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
-              <span>WHATSAPP COMERCIAL</span><strong>(11) 98824 2425</strong><ArrowUpRight />
+              <span>WHATSAPP COMERCIAL</span><strong>(11) 98824 2425</strong>
             </a>
             <a href="mailto:contato@thamyresharmatiuk.com">
-              <span>E-MAIL PROFISSIONAL</span><strong>contato@thamyresharmatiuk.com</strong><ArrowUpRight />
+              <span>E-MAIL PROFISSIONAL</span><strong>contato@thamyresharmatiuk.com</strong>
             </a>
           </div>
           <div className="social-row">
-            <a href="https://www.instagram.com/thamyresharmatiuk" target="_blank" rel="noreferrer"><AtSign size={17} /> Instagram · @thamyresharmatiuk</a>
-            <span>TikTok · PERFIL A INSERIR</span>
+            <a href="https://www.instagram.com/thamyresharmatiuk" target="_blank" rel="noreferrer"><FaInstagram size={17} /> Instagram · @thamyresharmatiuk</a>
+            <a href="https://www.tiktok.com/@thamyres.harmatiu" target="_blank" rel="noreferrer"><FaTiktok size={17} /> TikTok · @thamyres.harmatiu</a>
           </div>
           <footer>
             <span>© {new Date().getFullYear()} THAMYRES HARMATIUK</span>
