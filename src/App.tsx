@@ -261,7 +261,7 @@ function App() {
           </div>
         </section>
 
-        <section className="metrics dark-section" id="metricas">
+        <section className="metrics paper-section" id="metricas">
           <div className="metrics-title section-heading">
             <div>
               <span className="section-kicker">MÉTRICAS</span>
