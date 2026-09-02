@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import {
-  ArrowDown,
   ArrowUpRight,
   Mail,
   Play,
@@ -94,22 +93,22 @@ const profileFacts = [
 
 const services = [
   'Vídeos UGC orgânicos',
-  'Anúncios UGC para conversão',
-  'Roteiro, gravação e edição',
-  'Demonstração de produto e textura',
-  'Tutoriais e comparativos',
+  'Vídeos UGC para anúncios',
+  'Unboxing e ASMR',
+  'Demonstração de produto',
+  'Tutoriais e modo de uso',
   'Antes e depois',
   'Vídeos narrados',
-  'Lifestyle e rotinas',
-  'Unboxing e ASMR',
-  'Fotografias de produto e lifestyle',
+  'Reviews e depoimentos',
+  'Fotografia de produto e lifestyle',
 ]
 
 const prices = [
-  ['01', '1 VÍDEO UGC EDITADO', 'ATÉ 60 SEGUNDOS', 'A PARTIR DE R$ 450'],
-  ['02', 'PACOTE COM 3 VÍDEOS', 'PLANEJAMENTO INTEGRADO', 'A PARTIR DE R$ 1.200'],
-  ['03', 'PACOTE COM 5 VÍDEOS', 'BANCO DE CONTEÚDO', 'A PARTIR DE R$ 1.850'],
-  ['04', 'EXTRAS E DIREITOS', 'FOTOS, BRUTOS, GANCHOS E MÍDIA', 'SOB CONSULTA'],
+  ['01', 'ESSENCIAL', '1 VÍDEO UGC', 'R$ 250'],
+  ['02', 'DUO', '2 VÍDEOS UGC|R$ 230 POR VÍDEO', 'R$ 460'],
+  ['03', 'CAMPANHA', '3 VÍDEOS UGC|R$ 210 POR VÍDEO', 'R$ 630'],
+  ['04', 'CONTENT PACK', '5 VÍDEOS UGC + 2 FOTOS', 'R$ 1.050'],
+  ['05', 'CONTRATO MENSAL', 'UGC + REDES SOCIAIS', 'SOB CONSULTA'],
 ]
 
 const process = ['Briefing', 'Estratégia e roteiro', 'Gravação', 'Edição e revisão', 'Entrega']
@@ -306,58 +305,51 @@ function App() {
         </section>
 
         <section className="services paper-section" id="servicos">
-          <div className="section-heading services-heading">
-            <div>
-              <span className="section-kicker">05 · SERVIÇOS E INVESTIMENTO</span>
-              <h2>Do conceito à <em>entrega</em></h2>
-            </div>
-            <p>Produção pensada para conteúdo orgânico, campanhas, anúncios e páginas de produto.</p>
+          <div className="services-intro">
+            <span className="section-kicker">SERVIÇOS E INVESTIMENTO</span>
+            <h2>Do conceito à <em>entrega</em></h2>
+            <p>
+              Os valores apresentados correspondem aos pacotes descritos e incluem roteiro, gravação, edição, legenda e uma rodada de ajustes. Direitos de uso para mídia paga e períodos de veiculação são definidos separadamente. Custos adicionais de produção, deslocamento ou locação, quando necessários, são orçados à parte. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
+            </p>
+          </div>
+
+          <div className="compact-process">
+            <span className="section-kicker">PROCESSO</span>
+            <div>{process.map((item, index) => <span key={item}>{item}{index < process.length - 1 && <b aria-hidden="true">›</b>}</span>)}</div>
           </div>
 
           <div className="services-grid">
-            <div className="service-list">
-              {services.map((service, index) => (
-                <div key={service}><span>{String(index + 1).padStart(2, '0')}</span><p>{service}</p></div>
-              ))}
+            <div className="service-column">
+              <h3>FORMATOS</h3>
+              <div className="service-list">
+                {services.map((service, index) => (
+                  <div key={service}><span>{String(index + 1).padStart(2, '0')}</span><p>{service}</p></div>
+                ))}
+              </div>
             </div>
-            <div className="price-table">
-              {prices.map(([number, name, detail, price]) => (
-                <div className="price-row" key={number}>
-                  <span>{number}</span>
-                  <strong>{name}</strong>
-                  <small>{detail}</small>
-                  <b>{price}</b>
+            <div className="package-column">
+              <h3>PACOTES</h3>
+              <div className="price-table">
+                {prices.map(([number, name, detail, price]) => (
+                  <div className="price-row" key={number}>
+                    <span>{number}</span>
+                    <strong>{name}</strong>
+                    <small>{detail.split('|').map((line) => <span key={line}>{line}</span>)}</small>
+                    <b>{price}</b>
+                  </div>
+                ))}
+                <div className="price-row extra-row">
+                  <span aria-hidden="true" />
+                  <strong>EXTRAS E DIREITOS</strong>
+                  <small><span>FOTOS, BRUTOS, GANCHOS E MÍDIA</span></small>
+                  <b>SOB CONSULTA</b>
                 </div>
-              ))}
-              <p className="price-note">
-                O orçamento final considera complexidade, locação, quantidade, prazo e período de uso. O escopo base inclui roteiro, gravação, edição, legenda e uma rodada de ajustes simples.
-              </p>
+              </div>
+              <div className="availability">
+                <h3>BASES E DISPONIBILIDADE</h3>
+                <p>Resido em Alphaville, SP e Curitiba, PR. Disponibilidade para viagens.</p>
+              </div>
             </div>
-          </div>
-        </section>
-
-        <section className="process dark-section" id="processo">
-          <div className="section-heading">
-            <div><span className="section-kicker">06 · PROCESSO</span><h2>Clareza em <em>cada etapa</em></h2></div>
-            <p>Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.</p>
-          </div>
-          <ol className="process-list">
-            {process.map((item, index) => (
-              <li key={item}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item}</strong><ArrowDown size={18} /></li>
-            ))}
-          </ol>
-        </section>
-
-        <section className="profile-coverage paper-section" id="atuacao">
-          <div className="coverage-copy">
-            <span className="section-kicker">07 · PERFIL E ATUAÇÃO</span>
-            <h2>De duas bases,<br /><em>para todo o Brasil.</em></h2>
-          </div>
-          <div className="coverage-grid">
-            <div><span>BASE 01</span><strong>ALPHAVILLE</strong><small>SÃO PAULO</small></div>
-            <div><span>BASE 02</span><strong>IRATI</strong><small>PARANÁ</small></div>
-            <div><span>ATUAÇÃO</span><strong>BRASIL</strong><small>PROJETOS PRESENCIAIS E REMOTOS</small></div>
-            <div><span>LOGÍSTICA</span><strong>NACIONAL</strong><small>RECEBIMENTO DE PRODUTOS E VIAGENS</small></div>
           </div>
         </section>
 

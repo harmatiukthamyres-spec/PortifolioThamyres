@@ -91,11 +91,11 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .specialty-strip { min-height: 44px; background: #000; color: #fff; display: flex; align-items: center; padding: 0 2.2vw; font-size: var(--micro-type); letter-spacing: 0.18em; white-space: nowrap; }
 .specialty-strip span { flex: 1; text-align: center; }
 
-.about, .photos, .services, .profile-coverage { padding: 2.75rem 2.2vw; }
+.about, .photos, .services { padding: 2.75rem 2.2vw; }
 .about { padding-top: 2.75rem; padding-bottom: 2.75rem; }
 .photos { padding-top: 2.75rem; padding-bottom: 2.75rem; }
 .section-kicker { font-size: 0.62rem; letter-spacing: 0.14em; font-weight: 600; }
-.section-heading h2, .coverage-copy h2, .contact h2 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; font-size: var(--section-title-size); line-height: 0.88; letter-spacing: -0.055em; margin: 0; }
+.section-heading h2, .services-intro h2, .contact h2 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; font-size: var(--section-title-size); line-height: 0.88; letter-spacing: -0.055em; margin: 0; }
 .about-media-grid {
   display: grid;
   grid-template-columns: minmax(0, 49fr) minmax(0, 29fr);
@@ -119,7 +119,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .section-heading .section-kicker { display: block; margin-bottom: 1.25rem; }
 .section-heading h2 { font-size: var(--section-title-size); }
 .section-heading > p { max-width: 38ch; line-height: 1.45; font-size: 0.82rem; opacity: 0.75; margin: 0 0 0.5rem; }
-.portfolio, .metrics, .process, .contact { padding: 2.75rem 2.2vw; }
+.portfolio, .metrics, .contact { padding: 2.75rem 2.2vw; }
 .portfolio { padding-top: 2.75rem; padding-bottom: 2.75rem; }
 .portfolio-heading { border-bottom: 1px solid var(--line-light); padding-bottom: 1rem; }
 .portfolio-heading h2 { font-size: var(--section-title-size); }
@@ -172,35 +172,31 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .metric-placeholder strong { z-index: 2; font-size: 0.58rem; letter-spacing: 0.1em; }
 .metric-document h3 { font-family: 'Inter Tight', Arial, sans-serif; font-weight: 500; font-size: 0.68rem; letter-spacing: 0.12em; margin: 0; }
 
-.services-heading { padding-bottom: 2.4rem; }
-.services-grid { display: grid; grid-template-columns: 0.72fr 1.28fr; gap: 6vw; border-top: 1px solid var(--line-light); padding-top: 1rem; }
-.service-list > div { display: grid; grid-template-columns: 42px 1fr; border-bottom: 1px solid var(--line-light); padding: 0.75rem 0; }
-.service-list span { font-family: 'Bodoni Moda', Georgia, serif; font-size: 0.9rem; }
-.service-list p { margin: 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.services-intro .section-kicker { display: block; margin-bottom: 1.15rem; }
+.services-intro h2 { font-size: var(--section-title-size); }
+.services-intro > p { max-width: 78ch; margin: 1.55rem 0 2rem; font-size: 0.68rem; line-height: 1.5; }
+.compact-process { margin-bottom: 1.2rem; }
+.compact-process > .section-kicker { display: block; margin-bottom: 0.75rem; }
+.compact-process > div { display: flex; align-items: center; gap: 0.65rem; min-height: 42px; padding: 0.7rem 0; border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); font-size: 0.68rem; }
+.compact-process div span { display: flex; align-items: center; gap: 0.65rem; }
+.compact-process b { color: #767676; font-weight: 400; }
+.services-grid { display: grid; grid-template-columns: 0.78fr 1.32fr; gap: 6vw; }
+.service-column > h3, .package-column > h3, .availability h3 { margin: 0 0 0.7rem; font-size: 0.58rem; letter-spacing: 0.12em; }
+.service-list { border-top: 1px solid var(--line-light); }
+.service-list > div { display: grid; grid-template-columns: 38px 1fr; align-items: center; min-height: 38px; border-bottom: 1px solid var(--line-light); }
+.service-list span { font-family: 'Inter Tight', Arial, sans-serif; font-size: 0.61rem; font-weight: 600; }
+.service-list p { margin: 0; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.055em; }
 .price-table { border-top: 1px solid var(--line-light); }
-.price-row { display: grid; grid-template-columns: 36px 1.25fr 1fr 1fr; align-items: center; gap: 1rem; min-height: 78px; border-bottom: 1px solid var(--line-light); }
-.price-row > span { font-family: 'Bodoni Moda', Georgia, serif; }
-.price-row strong, .price-row small { font-size: 0.64rem; letter-spacing: 0.07em; }
-.price-row small { opacity: 0.65; }
-.price-row b { font-family: 'Bodoni Moda', Georgia, serif; font-size: 1.2rem; font-weight: 400; text-align: right; }
-.price-note { font-size: 0.64rem; line-height: 1.5; opacity: 0.65; max-width: 90ch; }
+.price-row { display: grid; grid-template-columns: 30px 1.12fr 1fr 0.9fr; align-items: center; gap: 0.75rem; min-height: 43px; border-bottom: 1px solid var(--line-light); }
+.price-row > span { font-size: 0.61rem; font-weight: 600; }
+.price-row strong, .price-row small { font-size: 0.58rem; letter-spacing: 0.065em; }
+.price-row small { display: flex; flex-direction: column; opacity: 0.58; }
+.price-row b { font-family: 'Bodoni Moda', Georgia, serif; font-size: 1.02rem; font-weight: 500; text-align: right; white-space: nowrap; }
+.extra-row strong { grid-column: 2; }
+.availability { padding-top: 0.95rem; }
+.availability p { margin: 1.25rem 0 0; font-size: 0.65rem; line-height: 1.5; }
 
-.process .section-heading { padding-bottom: 2.2rem; }
-.process-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line-dark); }
-.process-list li { display: grid; grid-template-columns: 70px 1fr auto; align-items: center; min-height: 88px; border-bottom: 1px solid var(--line-dark); }
-.process-list span { font-family: 'Bodoni Moda', Georgia, serif; font-size: 1.3rem; color: var(--gray); }
-.process-list strong { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3vw, 3.2rem); }
-
-.profile-coverage { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 6vw; align-items: end; }
-.coverage-copy .section-kicker { display: block; margin-bottom: 2rem; }
-.coverage-copy h2 { font-size: var(--section-title-size); }
-.coverage-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line-light); border-left: 1px solid var(--line-light); }
-.coverage-grid > div { min-height: 150px; border-right: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); padding: 1rem; display: flex; flex-direction: column; }
-.coverage-grid span, .coverage-grid small { font-size: 0.53rem; letter-spacing: 0.11em; }
-.coverage-grid strong { font-family: 'Bodoni Moda', Georgia, serif; font-size: 2rem; font-weight: 400; margin: auto 0 0.2rem; }
-.coverage-grid small { opacity: 0.65; }
-
-.contact { min-height: min(100svh, 620px); display: flex; flex-direction: column; }
+.contact { min-height: 0; display: flex; flex-direction: column; }
 .contact h2 { margin: 0 0 2.15rem; font-size: var(--section-title-size); }
 .contact-links { margin: 0; border-top: 1px solid var(--line-dark); }
 .contact-links a { display: grid; grid-template-columns: 32% 1fr; align-items: center; min-height: 64px; border-bottom: 1px solid var(--line-dark); transition: background 180ms ease, padding 180ms ease; }
@@ -209,7 +205,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .contact-links strong { font-family: 'Inter Tight', Arial, sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.015em; }
 .social-row { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1.7rem 0 0; font-size: 0.68rem; letter-spacing: 0.035em; }
 .social-row a { display: flex; align-items: center; gap: 0.5rem; }
-.contact footer { margin-top: auto; display: flex; justify-content: space-between; padding-top: 1rem; font-size: 0.55rem; letter-spacing: 0.1em; }
+.contact footer { margin-top: 1.8rem; display: flex; justify-content: space-between; padding-top: 1rem; font-size: 0.55rem; letter-spacing: 0.1em; }
 .contact footer a { display: flex; align-items: center; gap: 0.4rem; }
 
 .mobile-contact-dock { display: none; }
@@ -241,7 +237,6 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .reel-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .services-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .profile-coverage { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px) {
@@ -262,12 +257,12 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .placeholder-label { flex-direction: column; align-items: flex-start; }
   .specialty-strip { overflow-x: auto; gap: 2rem; padding: 0 16px; min-height: 42px; }
   .specialty-strip span { flex: 0 0 auto; }
-  .about, .photos, .services, .profile-coverage, .portfolio, .metrics, .process, .contact { padding: 2.25rem 16px; }
+  .about, .photos, .services, .portfolio, .metrics, .contact { padding: 2.25rem 16px; }
   .portfolio { padding-top: 2.25rem; padding-bottom: 2.25rem; }
   .about { padding-top: 2.25rem; padding-bottom: 2.25rem; }
   .photos { padding-top: 2.25rem; padding-bottom: 2.25rem; }
   .about-media-grid { display: flex; flex-direction: column; gap: 1.5rem; width: 100%; margin-inline: 0; }
-  .section-heading h2, .coverage-copy h2 { font-size: var(--section-title-size); }
+  .section-heading h2, .services-intro h2 { font-size: var(--section-title-size); }
   .profile-panel { order: 1; width: 100%; }
   .video-intro { order: 2; width: 100%; min-height: auto; aspect-ratio: 9 / 16; }
   .profile-facts { grid-template-columns: 1fr; }
@@ -285,14 +280,11 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .photo-item { flex: 0 0 84%; scroll-snap-align: start; }
   .metrics-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .metric-document { flex: 0 0 88%; scroll-snap-align: start; }
-  .price-row { grid-template-columns: 28px 1fr; padding: 0.9rem 0; }
+  .compact-process > div { flex-wrap: wrap; gap: 0.45rem 0.65rem; }
+  .price-row { grid-template-columns: 26px 1fr auto; padding: 0.7rem 0; }
   .price-row small { grid-column: 2; }
-  .price-row b { grid-column: 2; text-align: left; }
-  .process-list li { grid-template-columns: 48px 1fr auto; min-height: 74px; }
-  .process-list strong { font-size: 1.65rem; }
-  .coverage-grid { grid-template-columns: 1fr; width: 100%; }
-  .coverage-grid > div { min-height: 118px; }
-  .contact { min-height: min(100svh, 620px); padding-bottom: 2rem; }
+  .price-row b { grid-column: 3; grid-row: 1 / span 2; text-align: right; }
+  .contact { min-height: 0; padding-bottom: 2rem; }
   .contact h2 { font-size: var(--section-title-size); margin: 0 0 2rem; }
   .contact-links a { grid-template-columns: 1fr; gap: 0.45rem; padding: 1rem 0; }
   .contact-links strong { font-size: 0.78rem; overflow-wrap: anywhere; }
