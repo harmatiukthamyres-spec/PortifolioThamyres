@@ -96,10 +96,10 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   width: min(78vw, 1180px);
   margin-inline: auto;
 }
-.profile-panel { padding: 0 1rem 0 0; display: flex; flex-direction: column; }
+.profile-panel { padding: 0 1rem 0 0; display: flex; flex-direction: column; justify-content: center; }
 .about-title { margin: 0 0 0.75rem; font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(1.55rem, 2.2vw, 2.2rem); font-weight: 400; line-height: 1; }
 .about-bio { margin: 0 0 1rem; max-width: 56ch; font-size: 0.74rem; line-height: 1.45; }
-.profile-facts { display: grid; grid-template-columns: 1fr; margin: auto 0 0; }
+.profile-facts { display: grid; grid-template-columns: 1fr; margin: 1.2rem 0 0; }
 .profile-facts div { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 0.75rem; border-top: 1px solid var(--line-light); padding: 0.42rem 0; }
 .profile-facts dt, .profile-facts dd { margin: 0; font-size: 0.58rem; letter-spacing: 0.08em; }
 .profile-facts dd { text-align: right; font-weight: 600; }
@@ -172,7 +172,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .compact-process div span { display: flex; align-items: center; gap: 0.65rem; }
 .compact-process b { color: #767676; font-weight: 400; }
 .services-grid { display: grid; grid-template-columns: 0.78fr 1.32fr; gap: 4vw; }
-.service-column > h3, .package-column > h3, .availability h3 { margin: 0 0 0.7rem; font-size: 0.58rem; letter-spacing: 0.12em; }
+.service-column > h3, .package-column > h3, .availability h3 { margin: 0 0 0.7rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; }
 .service-list { border-top: 1px solid var(--line-light); }
 .service-list > div { display: grid; grid-template-columns: 34px 1fr; align-items: center; min-height: 34px; border-bottom: 1px solid var(--line-light); }
 .service-list span { font-family: 'Inter Tight', Arial, sans-serif; font-size: 0.61rem; font-weight: 600; }
@@ -185,7 +185,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .price-row b { font-family: 'Bodoni Moda', Georgia, serif; font-size: 1.02rem; font-weight: 500; text-align: right; white-space: nowrap; }
 .extra-row strong { grid-column: 2; }
 .availability { padding-top: 0.7rem; }
-.availability p { margin: 0.8rem 0 0; font-size: 0.62rem; line-height: 1.45; }
+.availability p { margin: 0.8rem 0 0; font-size: clamp(0.78rem, 0.88vw, 0.9rem); line-height: 1.55; }
 
 .contact { min-height: 0; display: flex; flex-direction: column; }
 .contact h2 { margin: 0 0 1.35rem; font-size: var(--section-title-size); }
@@ -246,7 +246,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .photos { padding-top: 1.55rem; padding-bottom: 1.55rem; }
   .about-media-grid { display: flex; flex-direction: column; gap: 1rem; width: 100%; margin-inline: 0; }
   .section-heading h2, .services-intro h2 { font-size: var(--section-title-size); }
-  .profile-panel { order: 1; width: 100%; }
+  .profile-panel { order: 1; width: 100%; justify-content: flex-start; }
   .video-intro { order: 2; width: 100%; min-height: auto; aspect-ratio: 9 / 16; }
   .profile-facts { grid-template-columns: 1fr; }
   .profile-facts div { grid-template-columns: 0.8fr 1.2fr; }
@@ -267,6 +267,8 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .services-intro > p { font-size: 0.88rem; line-height: 1.55; }
   .compact-process > .section-kicker { font-size: 0.72rem; }
   .compact-process > div { font-size: 0.78rem; }
+  .service-column > h3, .package-column > h3, .availability h3 { font-size: 0.72rem; }
+  .availability p { font-size: 0.88rem; line-height: 1.55; }
   .price-row { grid-template-columns: 26px 1fr auto; padding: 0.7rem 0; }
   .price-row small { grid-column: 2; }
   .price-row b { grid-column: 3; grid-row: 1 / span 2; text-align: right; }
