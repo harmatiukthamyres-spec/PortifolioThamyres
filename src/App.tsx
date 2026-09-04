@@ -244,7 +244,7 @@ function App() {
                       <span className="reel-play"><Play fill="currentColor" size={14} /></span>
                       <span className="reel-meta">
                         <strong>{video.format}</strong>
-                        <small>{video.category} · {video.duration}</small>
+                        <small>{video.category}</small>
                       </span>
                     </button>
                   ))}
@@ -310,7 +310,7 @@ function App() {
             </div>
             <button className="video-intro image-placeholder" type="button" aria-label="Adicionar vídeo de apresentação">
               <span className="play-disc"><Play fill="currentColor" size={17} /></span>
-              <span className="media-label"><strong>VÍDEO DE APRESENTAÇÃO</strong><small>FORMATO 9:16 · 30 A 60 SEGUNDOS</small></span>
+              <span className="media-label"><strong>VÍDEO DE APRESENTAÇÃO</strong><small>FORMATO VERTICAL</small></span>
             </button>
           </div>
         </section>
@@ -414,7 +414,7 @@ function App() {
               </div>
             )}
             <div className="modal-info">
-              <span>{activeVideo.category} · {activeVideo.duration}</span>
+              <span>{activeVideo.category}</span>
               <h2 id="video-modal-title">{activeVideo.format}</h2>
               <p>{activeVideo.sourceParts ? 'Demonstração de skincare em formato vertical.' : 'Este espaço está preparado para receber o arquivo final do Reel sem alterar o layout.'}</p>
               <span className="sound-label"><Volume2 size={15} /> ASSISTIR COM SOM</span>

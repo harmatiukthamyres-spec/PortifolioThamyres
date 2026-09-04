@@ -52,7 +52,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .header-actions a { display: flex; align-items: center; gap: 0.45rem; }
 
 .hero { padding: 52px 0 0; }
-.hero-showcase { height: clamp(620px, calc(100svh - 90px), 820px); background: #000; }
+.hero-showcase { height: clamp(520px, 70svh, 680px); background: #000; }
 .hero-name-panel { position: relative; width: 100%; height: 100%; min-width: 0; overflow: hidden; background: #6d777d; }
 .hero-name-image { position: absolute; inset: 0; display: block; }
 .hero-name-image::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(0deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 48%, transparent 72%); }
@@ -65,7 +65,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .image-placeholder { position: relative; overflow: hidden; background: #2b2b2b; }
 .image-placeholder::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 60% 30%, rgba(255,255,255,0.16), transparent 32%), linear-gradient(145deg, rgba(255,255,255,0.06), transparent 55%); }
 .image-placeholder::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.65), transparent 42%); }
-.placeholder-cross { position: absolute; z-index: 1; inset: 50% auto auto 50%; width: 64px; height: 64px; transform: translate(-50%, -50%); opacity: 0.38; }
+.placeholder-cross { display: none; }
 .placeholder-cross::before, .placeholder-cross::after { content: ''; position: absolute; background: currentColor; }
 .placeholder-cross::before { width: 1px; height: 100%; left: 50%; }
 .placeholder-cross::after { height: 1px; width: 100%; top: 50%; }
@@ -77,30 +77,34 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .specialty-strip span { flex: 1; text-align: center; }
 
 .about, .photos, .services { padding: 1.9rem 2.2vw; }
-.about { padding-top: 1.9rem; padding-bottom: 1.9rem; }
+.about { padding-top: 4rem; padding-bottom: 4rem; }
 .photos { padding-top: 1.9rem; padding-bottom: 1.9rem; }
 .section-kicker { font-size: 0.62rem; letter-spacing: 0.13em; font-weight: 600; }
 .section-heading h2, .services-intro h2, .contact h2 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; font-size: var(--section-title-size); line-height: 0.88; letter-spacing: -0.055em; margin: 0; }
 .about-media-grid {
   display: grid;
-  grid-template-columns: minmax(0, 49fr) minmax(0, 29fr);
-  column-gap: 22%;
-  align-items: stretch;
-  width: min(78vw, 1180px);
+  grid-template-columns: minmax(0, 43fr) minmax(0, 36fr);
+  column-gap: 21%;
+  align-items: center;
+  width: min(82vw, 1520px);
   margin-inline: auto;
 }
-.profile-panel { padding: 0 1rem 0 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-.about-title { margin: 0 0 0.75rem; font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(1.55rem, 2.2vw, 2.2rem); font-weight: 400; line-height: 1; }
-.about-bio { margin: 0 auto 1rem; max-width: 56ch; font-size: 0.74rem; line-height: 1.45; }
+.profile-panel { padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: stretch; text-align: left; }
+.about-title { margin: 0 0 1rem; font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(2rem, 2.5vw, 2.8rem); font-weight: 400; line-height: 1; }
+.about-bio { margin: 0 0 2.8rem; max-width: 56ch; font-size: clamp(0.82rem, 0.95vw, 0.94rem); line-height: 1.55; }
 .profile-facts { display: grid; grid-template-columns: 1fr; width: 100%; margin: 1.2rem 0 0; }
-.profile-facts div { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 0.75rem; border-top: 1px solid var(--line-light); padding: 0.42rem 0; }
-.profile-facts dt, .profile-facts dd { margin: 0; font-size: 0.58rem; letter-spacing: 0.08em; }
-.profile-facts dt, .profile-facts dd { text-align: center; }
+.profile-facts div { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 0.75rem; border-top: 1px solid var(--line-light); padding: 0.58rem 0; }
+.profile-facts dt, .profile-facts dd { margin: 0; font-size: 0.68rem; letter-spacing: 0.08em; }
+.profile-facts dt { text-align: left; }
+.profile-facts dd { text-align: right; }
 .profile-facts dd { font-weight: 600; }
-.video-intro { border: 1px solid var(--line-light); padding: 0; cursor: pointer; width: 100%; min-height: 0; aspect-ratio: 9 / 16; color: var(--ink); background: #fff; }
-.video-intro::before, .video-intro::after { display: none; }
-.video-intro .play-disc { color: var(--ink); border-color: rgba(0,0,0,0.72); background: transparent; }
-.video-intro .media-label { flex-direction: column; align-items: center; text-align: center; color: var(--ink); }
+.video-intro { border: 0; padding: 0; cursor: pointer; width: 100%; min-height: 0; aspect-ratio: 3 / 4; color: #fff; background: #171717; }
+.video-intro::before { display: block; background: radial-gradient(circle at 48% 48%, rgba(255,255,255,0.12), transparent 34%), linear-gradient(145deg, #3c3c3c, #161616 72%); }
+.video-intro::after { display: none; }
+.video-intro .play-disc { color: #fff; border-color: rgba(255,255,255,0.72); background: transparent; }
+.video-intro .media-label { flex-direction: row; align-items: end; text-align: left; color: #fff; }
+.video-intro .media-label strong { max-width: 13ch; }
+.video-intro .media-label small { margin-left: auto; }
 .play-disc, .reel-play { position: absolute; z-index: 3; display: grid; place-items: center; border: 1px solid rgba(255,255,255,0.72); border-radius: 50%; background: rgba(10,10,10,0.12); }
 .play-disc { width: 58px; height: 58px; left: 50%; top: 50%; transform: translate(-50%, -50%); }
 
@@ -214,7 +218,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .topbar { grid-template-columns: 1fr auto; }
   .desktop-nav { display: none; }
   .header-actions { grid-column: 2; }
-  .hero-showcase { height: clamp(560px, 72vw, 720px); }
+  .hero-showcase { height: clamp(480px, 62vw, 620px); }
   .hero-name-copy h1 { font-size: clamp(2.9rem, 6vw, 4.8rem); }
   .about-media-grid {
     grid-template-columns: minmax(0, 49fr) minmax(210px, 29fr);
@@ -232,7 +236,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   body { padding-bottom: 62px; }
   .topbar { display: none; }
   .hero { padding: 0; }
-  .hero-showcase { height: min(135vw, 650px); }
+  .hero-showcase { height: min(112vw, 540px); }
   .hero-name-panel { min-height: 100%; }
   .hero-name-image img { object-position: center 42%; }
   .hero-name-copy h1 { font-size: clamp(2.75rem, 12.5vw, 4rem); }
@@ -247,7 +251,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .about-media-grid { display: flex; flex-direction: column; gap: 1rem; width: 100%; margin-inline: 0; }
   .section-heading h2, .services-intro h2 { font-size: var(--section-title-size); }
   .profile-panel { order: 1; width: 100%; justify-content: flex-start; }
-  .video-intro { order: 2; width: 100%; min-height: auto; aspect-ratio: 9 / 16; }
+  .video-intro { order: 2; width: 100%; min-height: auto; aspect-ratio: 3 / 4; }
   .profile-facts { grid-template-columns: 1fr; }
   .profile-facts div { grid-template-columns: 0.8fr 1.2fr; }
   .section-heading { flex-direction: column; align-items: start; gap: 0.9rem; }
