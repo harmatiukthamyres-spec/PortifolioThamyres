@@ -182,18 +182,28 @@ function App() {
 
       <main>
         <section className="hero dark-section" id="inicio">
-          <div className="hero-media hero-cover">
-            <picture className="hero-picture">
-              <img
-                src="/images/hero-thamyres-cover.webp"
-                alt="Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza"
-                width="1672"
-                height="941"
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-              />
-            </picture>
+          <div className="hero-showcase">
+            <div className="hero-name-panel">
+              <picture className="hero-name-image">
+                <img
+                  src="/images/hero-thamyres-new.webp"
+                  alt="Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza"
+                  width="1800"
+                  height="3200"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                />
+              </picture>
+              <div className="hero-name-copy">
+                <h1>Thamyres <em>Harmatiuk</em></h1>
+                <p>UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.</p>
+              </div>
+            </div>
+
+            <div className="hero-video-slot" role="img" aria-label="Espaço reservado para o vídeo principal">
+              <span className="play-disc" aria-hidden="true"><Play fill="currentColor" size={18} /></span>
+            </div>
           </div>
           <div className="specialty-strip" aria-label="Especialidades">
             <span>HAIRCARE</span>
@@ -286,7 +296,7 @@ function App() {
         </section>
 
         <section className="about paper-section" id="sobre">
-          <div className="about-media-grid">
+          <div className="about-media-grid about-copy-only">
             <div className="profile-panel">
               <h2 className="about-title">Sobre mim</h2>
               <p className="about-bio">
@@ -301,12 +311,6 @@ function App() {
                 ))}
               </dl>
             </div>
-
-            <button className="video-intro image-placeholder tone-1" type="button" aria-label="Adicionar vídeo de apresentação">
-              <span className="image-index">02</span>
-              <span className="play-disc"><Play fill="currentColor" size={17} /></span>
-              <span className="media-label"><strong>VÍDEO DE APRESENTAÇÃO</strong><small>FORMATO 9:16 · 30 A 60 SEGUNDOS</small></span>
-            </button>
           </div>
         </section>
 
