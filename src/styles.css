@@ -267,7 +267,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .portfolio-photos { margin-top: 1.2rem; }
   .photo-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .photo-item { flex: 0 0 84%; scroll-snap-align: start; }
-  .metrics-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .metrics-grid { display: flex; justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .metric-document { flex: 0 0 84%; scroll-snap-align: start; }
   .compact-process > div { flex-wrap: wrap; gap: 0.45rem 0.65rem; }
   .services-intro > p { font-size: 0.88rem; line-height: 1.55; }
