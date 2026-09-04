@@ -186,10 +186,10 @@ function App() {
             <div className="hero-name-panel">
               <picture className="hero-name-image">
                 <img
-                  src="/images/hero-thamyres-new.webp"
+                  src="/images/hero-thamyres-wide.png"
                   alt="Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza"
-                  width="1800"
-                  height="3200"
+                  width="1536"
+                  height="864"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
@@ -308,10 +308,10 @@ function App() {
                 ))}
               </dl>
             </div>
-            <button className="video-intro image-placeholder" type="button" aria-label="Adicionar vídeo de apresentação">
+            <div className="video-intro image-placeholder" role="img" aria-label="Vídeo de apresentação em formato Reels">
               <span className="play-disc"><Play fill="currentColor" size={17} /></span>
-              <span className="media-label"><strong>VÍDEO DE APRESENTAÇÃO</strong><small>FORMATO VERTICAL</small></span>
-            </button>
+              <span className="media-label"><strong>VÍDEO DE APRESENTAÇÃO</strong><small>FORMATO REELS · 9:16</small></span>
+            </div>
           </div>
         </section>
 
@@ -376,7 +376,7 @@ function App() {
           </div>
           <div className="social-row">
             <a href="https://www.instagram.com/thamyresharmatiuk" target="_blank" rel="noreferrer"><FaInstagram size={17} /> Instagram · @thamyresharmatiuk</a>
-            <a href="https://www.tiktok.com/@thamyres.harmatiu" target="_blank" rel="noreferrer"><FaTiktok size={17} /> TikTok · @thamyres.harmatiu</a>
+            <a href="https://www.tiktok.com/@thamyres.harmatiuk" target="_blank" rel="noreferrer"><FaTiktok size={17} /> TikTok · @thamyres.harmatiuk</a>
           </div>
           <footer>
             <span>© {new Date().getFullYear()} THAMYRES HARMATIUK</span>
