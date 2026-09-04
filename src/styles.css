@@ -53,7 +53,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 
 .hero { padding: 52px 0 0; }
 .hero-showcase { height: clamp(620px, calc(100svh - 90px), 820px); background: #000; }
-.hero-name-panel { position: relative; min-width: 0; overflow: hidden; background: #6d777d; }
+.hero-name-panel { position: relative; width: 100%; height: 100%; min-width: 0; overflow: hidden; background: #6d777d; }
 .hero-name-image { position: absolute; inset: 0; display: block; }
 .hero-name-image::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(0deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 48%, transparent 72%); }
 .hero-name-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 43%; }
