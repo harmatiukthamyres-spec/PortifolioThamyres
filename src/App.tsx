@@ -30,27 +30,27 @@ const categoryBlueprints = [
   {
     name: 'HAIRCARE',
     description: 'Loiro natural, textura, movimento e performance',
-    formats: ['Demonstração', 'Rotina real', 'Tutorial narrado', 'Antes e depois'],
+    formats: ['Demonstração', 'Rotina real', 'Tutorial narrado'],
   },
   {
     name: 'SKINCARE',
     description: 'Aplicação, textura, acabamento e experiência',
-    formats: ['Rotina', 'Demonstração', 'Review narrado', 'Tutorial'],
+    formats: ['Rotina', 'Demonstração', 'Review narrado'],
   },
   {
     name: 'BODYCARE',
     description: 'Sensorial, ritual de cuidado e acabamento de pele',
-    formats: ['Rotina sensorial', 'Demonstração', 'ASMR', 'Lifestyle'],
+    formats: ['Rotina sensorial', 'Demonstração', 'ASMR'],
   },
   {
     name: 'BEAUTY',
     description: 'Maquiagem elegante, detalhes e transformação',
-    formats: ['GRWM', 'Tutorial', 'Aplicação', 'Conceito editorial'],
+    formats: ['GRWM', 'Tutorial', 'Aplicação'],
   },
   {
-    name: 'ADS',
-    description: 'Ganchos claros, prova visual e intenção comercial',
-    formats: ['Dor e solução', 'Prova de uso', 'Gancho direto', 'UGC narrado'],
+    name: 'ASMR',
+    description: 'Som, textura, embalagem e presença do produto',
+    formats: ['Unboxing sonoro', 'Detalhes de produto', 'Aplicação'],
   },
 ]
 
@@ -91,6 +91,31 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
     format: 'Apresentação de produto',
     title: 'Amêndoa L’Occitane: um toque de perfume na rotina',
     description: 'O mist perfumado da linha Amêndoa, da L’Occitane, é apresentado em uma conversa próxima, com o frasco e seus detalhes em destaque. Um conteúdo que conecta a descoberta do produto ao gesto cotidiano de se perfumar, valorizando a experiência pessoal e o universo de cuidado da marca.',
+  },
+  'skincare-2': {
+    sourceParts: ['/videos/skincare-protecao.mp4'],
+    poster: '/images/skincare-protecao-capa.webp',
+    duration: '00:49',
+    format: 'Aplicação de skincare',
+    title: 'Proteção que se espalha com leveza',
+    description: 'Uma demonstração próxima da aplicação de um protetor solar facial, com textura, espalhabilidade e acabamento acompanhados na pele. O conteúdo traduz o cuidado diário em um gesto simples e visual, ideal para apresentar o produto com naturalidade e clareza.',
+  },
+  'asmr-2': {
+    sourceParts: ['/videos/asmr-vyta.mp4'],
+    poster: '/images/asmr-vyta-capa.webp',
+    duration: '00:07',
+    brand: 'Pacco',
+    format: 'Unboxing sonoro',
+    title: 'Vyta Pacco: o som de uma descoberta',
+    description: 'Uma abertura guiada pelos sons da embalagem e pela reação à descoberta do Vyta, da Pacco. O ritmo curto valoriza o momento de revelar o produto e cria uma experiência sensorial limpa, com foco em textura, presença e expectativa.',
+  },
+  'asmr-3': {
+    sourceParts: ['/videos/asmr-joia.mp4'],
+    poster: '/images/asmr-joia-capa.webp',
+    duration: '00:16',
+    format: 'Detalhes de produto',
+    title: 'Brilho em close: um detalhe que prende o olhar',
+    description: 'Um close silencioso e delicado que aproxima o espectador dos detalhes de uma peça brilhante. A composição valoriza reflexos, movimento e acabamento para transformar a apresentação do produto em uma pequena experiência visual.',
   },
 }
 
@@ -250,7 +275,7 @@ function App() {
             <span>SKINCARE</span>
             <span>BODYCARE</span>
             <span>BEAUTY</span>
-            <span>ADS</span>
+            <span>ASMR</span>
           </div>
         </section>
 
