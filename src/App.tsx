@@ -51,7 +51,13 @@ const categoryBlueprints = [
   },
 ]
 
-const portfolioMedia: Record<string, Pick<PortfolioVideo, 'sourceParts' | 'poster' | 'duration'>> = {}
+const portfolioMedia: Record<string, Pick<PortfolioVideo, 'sourceParts' | 'poster' | 'duration'>> = {
+  'bodycare-1': {
+    sourceParts: ['/videos/bodycare-rotina.mp4'],
+    poster: '/images/bodycare-rotina-poster.webp',
+    duration: '00:24',
+  },
+}
 
 const categories: Category[] = categoryBlueprints.map((category, categoryIndex) => ({
   name: category.name,
@@ -409,7 +415,7 @@ function App() {
             <div className="modal-info">
               <span>{activeVideo.category}</span>
               <h2 id="video-modal-title">{activeVideo.format}</h2>
-              <p>{activeVideo.sourceParts ? 'Demonstração de skincare em formato vertical.' : 'Este espaço está preparado para receber o arquivo final do Reel sem alterar o layout.'}</p>
+              <p>{activeVideo.sourceParts ? `Vídeo de ${activeVideo.category.toLowerCase()} em formato vertical.` : 'Este espaço está preparado para receber o arquivo final do Reel sem alterar o layout.'}</p>
               <span className="sound-label"><Volume2 size={15} /> ASSISTIR COM SOM</span>
             </div>
           </section>
