@@ -7,7 +7,6 @@ import {
   X,
 } from 'lucide-react'
 import { FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa6'
-import skincareDemonstracaoPoster from './assets/skincare-demonstracao-poster.webp'
 
 type PortfolioVideo = {
   id: string
@@ -52,13 +51,7 @@ const categoryBlueprints = [
   },
 ]
 
-const portfolioMedia: Record<string, Pick<PortfolioVideo, 'sourceParts' | 'poster' | 'duration'>> = {
-  'skincare-2': {
-    sourceParts: Array.from({ length: 7 }, (_, index) => `/videos/skincare-demonstracao.mp4.part-${String(index).padStart(2, '0')}`),
-    poster: skincareDemonstracaoPoster,
-    duration: '00:24',
-  },
-}
+const portfolioMedia: Record<string, Pick<PortfolioVideo, 'sourceParts' | 'poster' | 'duration'>> = {}
 
 const categories: Category[] = categoryBlueprints.map((category, categoryIndex) => ({
   name: category.name,
