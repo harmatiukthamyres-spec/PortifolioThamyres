@@ -16,6 +16,9 @@ type PortfolioVideo = {
   tone: string
   sourceParts?: string[]
   poster?: string
+  title?: string
+  brand?: string
+  description?: string
 }
 
 type Category = {
@@ -51,11 +54,16 @@ const categoryBlueprints = [
   },
 ]
 
-const portfolioMedia: Record<string, Pick<PortfolioVideo, 'sourceParts' | 'poster' | 'duration'>> = {
+// Cada vídeo publicado tem sua própria capa, marca, formato e apresentação.
+const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts' | 'poster' | 'duration' | 'title' | 'brand' | 'description' | 'format'>>> = {
   'bodycare-1': {
     sourceParts: ['/videos/bodycare-rotina.mp4'],
-    poster: '/images/bodycare-rotina-poster.webp',
+    poster: '/images/bodycare-granado-capa.jpg',
     duration: '00:24',
+    brand: 'Granado',
+    format: 'Unboxing sensorial',
+    title: 'Granado: um presente para os sentidos',
+    description: 'Da caixa estampada à descoberta dos sabonetes, um unboxing que valoriza as cores, as embalagens e a experiência de explorar as fragrâncias. Os detalhes em destaque e as reações diante da câmera aproximam o produto de quem assiste e apresentam o cuidado como um gesto de presente.',
   },
 }
 
@@ -67,7 +75,10 @@ const categories: Category[] = categoryBlueprints.map((category, categoryIndex) 
     return {
       id,
       category: category.name,
-      format,
+      format: media?.format ?? format,
+      title: media?.title,
+      brand: media?.brand,
+      description: media?.description,
       duration: media?.duration ?? ['00:30', '00:45', '00:35', '00:60'][videoIndex],
       tone: `tone-${(categoryIndex + videoIndex) % 5}`,
       sourceParts: media?.sourceParts,
@@ -133,6 +144,12 @@ function App() {
     setPlaybackSource(null)
     setVideoLoadError(false)
     if (!activeVideo?.sourceParts) return
+
+    // Arquivos completos são reproduzidos diretamente, com carregamento progressivo.
+    if (activeVideo.sourceParts.length === 1) {
+      setPlaybackSource(activeVideo.sourceParts[0])
+      return
+    }
 
     const controller = new AbortController()
     let objectUrl: string | null = null
@@ -231,7 +248,7 @@ function App() {
                       type="button"
                       key={video.id}
                       onClick={() => setActiveVideo(video)}
-                      aria-label={`Abrir ${video.format} de ${video.category}`}
+                      aria-label={`Abrir ${video.title ?? `${video.format} de ${video.category}`}`}
                     >
                       <span className="reel-visual">
                         {video.poster ? (
@@ -243,7 +260,7 @@ function App() {
                       <span className="reel-play"><Play fill="currentColor" size={14} /></span>
                       <span className="reel-meta">
                         <strong>{video.format}</strong>
-                        <small>{video.category}</small>
+                        <small>{video.brand ? `${video.brand} · ${video.category}` : video.category}</small>
                       </span>
                     </button>
                   ))}
@@ -395,8 +412,8 @@ function App() {
             <button className="modal-close" type="button" onClick={() => setActiveVideo(null)} aria-label="Fechar vídeo"><X size={20} /></button>
             {activeVideo.sourceParts ? (
               <div className="modal-video-player">
-                {playbackSource ? (
-                  <video src={playbackSource} controls autoPlay playsInline preload="metadata" poster={activeVideo.poster}>
+                {playbackSource && !videoLoadError ? (
+                  <video key={activeVideo.id} src={playbackSource} controls autoPlay playsInline preload="metadata" poster={activeVideo.poster} onError={() => setVideoLoadError(true)}>
                     Seu navegador não oferece suporte à reprodução deste vídeo.
                   </video>
                 ) : (
@@ -413,9 +430,10 @@ function App() {
               </div>
             )}
             <div className="modal-info">
-              <span>{activeVideo.category}</span>
-              <h2 id="video-modal-title">{activeVideo.format}</h2>
-              <p>{activeVideo.sourceParts ? `Vídeo de ${activeVideo.category.toLowerCase()} em formato vertical.` : 'Este espaço está preparado para receber o arquivo final do Reel sem alterar o layout.'}</p>
+              <span>{activeVideo.brand ? `${activeVideo.brand} · ${activeVideo.category}` : activeVideo.category}</span>
+              <h2 id="video-modal-title">{activeVideo.title ?? activeVideo.format}</h2>
+              {activeVideo.sourceParts && <div className="video-details"><span>{activeVideo.format}</span><span>{activeVideo.duration}</span></div>}
+              <p>{activeVideo.description ?? 'Novo conteúdo em breve.'}</p>
               <span className="sound-label"><Volume2 size={15} /> ASSISTIR COM SOM</span>
             </div>
           </section>
