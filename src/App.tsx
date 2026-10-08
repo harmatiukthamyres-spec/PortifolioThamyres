@@ -55,7 +55,7 @@ const categoryBlueprints = [
 ]
 
 // Cada vídeo publicado tem sua própria capa, marca, formato e apresentação.
-const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts' | 'poster' | 'duration' | 'title' | 'brand' | 'description' | 'format'>>> = {
+const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts' | 'poster' | 'duration' | 'title' | 'description' | 'format'>> & Pick<PortfolioVideo, 'brand'>> = {
   'bodycare-1': {
     sourceParts: ['/videos/bodycare-rotina.mp4'],
     poster: '/images/bodycare-granado-capa.jpg',
@@ -64,6 +64,33 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
     format: 'Unboxing sensorial',
     title: 'Granado: um presente para os sentidos',
     description: 'Da caixa estampada à descoberta dos sabonetes, um unboxing que valoriza as cores, as embalagens e a experiência de explorar as fragrâncias. Os detalhes em destaque e as reações diante da câmera aproximam o produto de quem assiste e apresentam o cuidado como um gesto de presente.',
+  },
+  'bodycare-2': {
+    sourceParts: ['/videos/bodycare-fragrancias.mp4'],
+    poster: '/images/bodycare-fragrancias-capa.webp',
+    duration: '00:43',
+    brand: 'Bath & Body Works',
+    format: 'Rotina de perfumação',
+    title: 'Duas fragrâncias, um ritual de cuidado',
+    description: 'In the Stars e Into the Night entram em cena em uma apresentação próxima, com os frascos em destaque e a aplicação do cuidado corporal nas mãos. Um conteúdo que combina descoberta de fragrâncias, detalhes das embalagens e gestos de uso para trazer os produtos para a rotina.',
+  },
+  'bodycare-3': {
+    sourceParts: ['/videos/bodycare-brilho.mp4'],
+    poster: '/images/bodycare-brilho-capa.webp',
+    duration: '00:43',
+    brand: 'Skelt',
+    format: 'Demonstração de acabamento',
+    title: 'Skelt: pele iluminada em movimento',
+    description: 'O iluminador corporal da Skelt ganha destaque em uma demonstração no braço, com movimentos que revelam o reflexo da luz natural sobre a pele. A aplicação e os detalhes do acabamento mostram o brilho em uso real, aproximando a apresentação do produto do resultado que se vê na pele.',
+  },
+  'bodycare-4': {
+    sourceParts: ['/videos/bodycare-perfumacao.mp4'],
+    poster: '/images/bodycare-perfumacao-capa.webp',
+    duration: '00:24',
+    brand: 'L’Occitane',
+    format: 'Apresentação de produto',
+    title: 'Amêndoa L’Occitane: um toque de perfume na rotina',
+    description: 'O mist perfumado da linha Amêndoa, da L’Occitane, é apresentado em uma conversa próxima, com o frasco e seus detalhes em destaque. Um conteúdo que conecta a descoberta do produto ao gesto cotidiano de se perfumar, valorizando a experiência pessoal e o universo de cuidado da marca.',
   },
 }
 
