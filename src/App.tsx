@@ -3,7 +3,6 @@ import {
   ArrowUpRight,
   Mail,
   Play,
-  Volume2,
   X,
 } from 'lucide-react'
 import { FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa6'
@@ -121,7 +120,10 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
 
 const categories: Category[] = categoryBlueprints.map((category, categoryIndex) => ({
   name: category.name,
-  videos: category.formats.map((format, videoIndex) => {
+  videos: Array.from({ length: Math.max(3, ...Object.keys(portfolioMedia)
+    .filter((id) => id.startsWith(`${category.name.toLowerCase()}-`))
+    .map((id) => Number(id.split('-').pop()))) }, (_, videoIndex) => {
+    const format = category.formats[videoIndex] ?? 'Vídeo'
     const id = `${category.name.toLowerCase()}-${videoIndex + 1}`
     const media = portfolioMedia[id]
     return {
@@ -293,13 +295,14 @@ function App() {
                 <header className="category-header">
                   <h3>{category.name}</h3>
                 </header>
-                <div className="reel-stack">
+                <div className="reel-stack" aria-label={`Vídeos de ${category.name}`}>
                   {category.videos.map((video) => (
                     <button
                       className={`reel-card ${video.tone}`}
                       type="button"
                       key={video.id}
                       onClick={() => setActiveVideo(video)}
+                      disabled={!video.sourceParts}
                       aria-label={`Abrir ${video.title ?? `${video.format} de ${video.category}`}`}
                     >
                       <span className="reel-visual">
@@ -309,7 +312,7 @@ function App() {
                           <span className="placeholder-cross" />
                         )}
                       </span>
-                      <span className="reel-play"><Play fill="currentColor" size={14} /></span>
+                      {video.sourceParts && <span className="reel-play"><Play fill="currentColor" size={14} /></span>}
                       <span className="reel-meta">
                         <strong>{video.format}</strong>
                         <small>{video.brand ? `${video.brand} · ${video.category}` : video.category}</small>
@@ -376,10 +379,7 @@ function App() {
                 ))}
               </dl>
             </div>
-            <div className="video-intro image-placeholder" role="img" aria-label="Vídeo de apresentação em formato Reels">
-              <span className="play-disc"><Play fill="currentColor" size={17} /></span>
-              <span className="media-label"><strong>VÍDEO DE APRESENTAÇÃO</strong><small>FORMATO REELS · 9:16</small></span>
-            </div>
+            <div className="video-intro-blank" aria-hidden="true" />
           </div>
         </section>
 
@@ -460,7 +460,7 @@ function App() {
 
       {activeVideo && (
         <div className="modal-backdrop" role="presentation" onMouseDown={() => setActiveVideo(null)}>
-          <section className="video-modal" role="dialog" aria-modal="true" aria-labelledby="video-modal-title" onMouseDown={(event) => event.stopPropagation()}>
+          <section className="video-modal" role="dialog" aria-modal="true" aria-label={activeVideo.title ?? `Vídeo de ${activeVideo.category}`} onMouseDown={(event) => event.stopPropagation()}>
             <button className="modal-close" type="button" onClick={() => setActiveVideo(null)} aria-label="Fechar vídeo"><X size={20} /></button>
             {activeVideo.sourceParts ? (
               <div className="modal-video-player">
@@ -481,13 +481,6 @@ function App() {
                 <span>INSERIR VÍDEO REAL</span>
               </div>
             )}
-            <div className="modal-info">
-              <span>{activeVideo.brand ? `${activeVideo.brand} · ${activeVideo.category}` : activeVideo.category}</span>
-              <h2 id="video-modal-title">{activeVideo.title ?? activeVideo.format}</h2>
-              {activeVideo.sourceParts && <div className="video-details"><span>{activeVideo.format}</span><span>{activeVideo.duration}</span></div>}
-              <p>{activeVideo.description ?? 'Novo conteúdo em breve.'}</p>
-              <span className="sound-label"><Volume2 size={15} /> ASSISTIR COM SOM</span>
-            </div>
           </section>
         </div>
       )}
