@@ -187,6 +187,15 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     title: 'Máscara de cílios: definição em foco',
     description: 'Da escovinha à aplicação, o vídeo acompanha a máscara de cílios Detoni em uso, com movimentos precisos que destacam a definição dos fios. A câmera se aproxima dos olhos para mostrar a aplicação e o resultado de um jeito claro, direto e natural.',
   },
+  'makeup-4': {
+    sourceParts: ['/videos/makeup-rare-beauty.mp4'],
+    poster: '/images/makeup-rare-beauty-capa.webp',
+    duration: '00:15',
+    brand: 'Rare Beauty',
+    format: 'Aplicação de maquiagem',
+    title: 'Rare Beauty: cor e luminosidade em foco',
+    description: 'A aplicação de um produto compacto da Rare Beauty ganha destaque em uma demonstração próxima, da apresentação da embalagem ao esfumado nas maçãs do rosto. Os movimentos do pincel e o resultado luminoso aparecem em detalhe, valorizando a textura e o acabamento da maquiagem na pele.',
+  },
   'asmr-1': {
     sourceParts: ['/videos/asmr-joia.mp4'],
     poster: '/images/asmr-pacco-icloud.webp',
@@ -197,8 +206,8 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'Uma abertura guiada pelos sons da embalagem e pela reação à descoberta do Vyta, da Pacco. O ritmo curto valoriza o momento de revelar o produto e cria uma experiência sensorial limpa, com foco em textura, presença e expectativa.',
   },
   'asmr-2': {
-    sourceParts: ['/videos/asmr-vyta.mp4'],
-    poster: '/images/asmr-brinco-capa.webp',
+    sourceParts: ['/videos/asmr-brinco.mp4'],
+    poster: '/images/asmr-brinco-capa-atualizada.webp',
     duration: '00:07',
     format: 'Detalhes de produto',
     title: 'Brilho em close: um detalhe que prende o olhar',
