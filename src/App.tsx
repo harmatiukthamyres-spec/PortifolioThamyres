@@ -377,7 +377,7 @@ function App() {
                       </button>
                     ))}
                   </div>
-                  {category.videos.filter((video) => video.sourceParts).length > 3 && (
+                  {category.videos.length > 3 && (
                     <button
                       className="carousel-next"
                       type="button"
@@ -387,7 +387,11 @@ function App() {
                         const firstCard = track?.querySelector('.reel-card')
                         if (track && firstCard) {
                           const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0
-                          track.scrollBy({ left: firstCard.getBoundingClientRect().width + gap, behavior: 'smooth' })
+                          const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2
+                          track.scrollTo({
+                            left: atEnd ? 0 : track.scrollLeft + firstCard.getBoundingClientRect().width + gap,
+                            behavior: 'smooth',
+                          })
                         }
                       }}
                     >
