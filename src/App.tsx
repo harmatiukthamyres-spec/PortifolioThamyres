@@ -229,7 +229,7 @@ const prices = [
   ['05', 'CONTRATO MENSAL', 'UGC + REDES SOCIAIS', 'SOB CONSULTA'],
 ]
 
-const process = ['Briefing', 'Estratégia e roteiro', 'Gravação', 'Edição e revisão', 'Entrega']
+const process = ['Briefing', 'Estratégia e roteiro', 'Gravação', 'Edição e finalização', 'Entrega com excelência']
 
 function App() {
   const [activeVideo, setActiveVideo] = useState<PortfolioVideo | null>(null)
@@ -467,7 +467,7 @@ function App() {
             <span className="section-kicker">SERVIÇOS E INVESTIMENTO</span>
             <h2>Do conceito à <em>entrega</em></h2>
             <p>
-              Os valores apresentados correspondem aos pacotes descritos e incluem roteiro, gravação, edição, legenda e uma rodada de ajustes. Direitos de uso para mídia paga e períodos de veiculação são definidos separadamente. Custos adicionais de produção, deslocamento ou locação, quando necessários, são orçados à parte. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
+              Os pacotes incluem roteiro, gravação com a câmera traseira em 4K a 30 fps, edição e legendas. Cada vídeo é finalizado com excelência para atender ao que foi proposto no briefing aprovado. Direitos de uso para mídia paga e períodos de veiculação são definidos separadamente. Custos adicionais de produção, deslocamento ou locação, quando necessários, são orçados à parte. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
             </p>
           </div>
 
