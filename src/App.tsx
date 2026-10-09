@@ -84,20 +84,24 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'Uma demonstração direta da Cera Antifrizz Hidratei, da embalagem à aplicação sobre os fios. O formato curto concentra a atenção no gesto de finalizar o penteado e permite acompanhar o acabamento em uso real.',
   },
   'haircare-4': {
-    format: 'Amino da TRUSS',
-    title: 'TRUSS Amino — vídeo em breve',
+    format: 'Protetor Térmico Amino',
+    title: 'Protetor Térmico Amino — vídeo em breve',
+    brand: 'TRUSS',
   },
   'haircare-5': {
-    format: 'Impassable da TRUSS',
-    title: 'TRUSS Impassable — vídeo em breve',
+    format: 'Impassable Blond',
+    title: 'Impassable Blond — vídeo em breve',
+    brand: 'TRUSS',
   },
   'haircare-6': {
-    format: 'Beauty Sleep da BRAÉ',
-    title: 'BRAÉ Beauty Sleep — vídeo em breve',
+    format: 'Beauty Sleep',
+    title: 'Beauty Sleep — vídeo em breve',
+    brand: 'BRAÉ',
   },
   'haircare-7': {
-    format: 'Proteína capilar da BRAÉ',
-    title: 'BRAÉ Proteína Capilar — vídeo em breve',
+    format: 'Proteína capilar',
+    title: 'Proteína capilar — vídeo em breve',
+    brand: 'BRAÉ',
   },
   'bodycare-1': {
     sourceParts: ['/videos/bodycare-rotina.mp4'],
