@@ -156,6 +156,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .photo-item { min-width: 0; }
 .photo-item h3 { margin: 0 0 0.55rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; }
 .photo-card { width: 100%; aspect-ratio: 4 / 5; scroll-snap-align: start; color: var(--paper); }
+.photo-card img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
 .metrics-title { padding-bottom: 0.45rem; }
 .metrics-grid {

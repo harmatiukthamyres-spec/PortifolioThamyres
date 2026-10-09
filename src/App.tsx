@@ -94,7 +94,7 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
   },
   'bodycare-2': {
     sourceParts: ['/videos/bodycare-fragrancias.mp4'],
-    poster: '/images/bodycare-fragrancias-capa.webp',
+    poster: '/images/bodycare-fragrancias-icloud.webp',
     duration: '00:43',
     brand: 'Bath & Body Works',
     format: 'Rotina de perfumação',
@@ -103,7 +103,7 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
   },
   'bodycare-3': {
     sourceParts: ['/videos/bodycare-perfumacao.mp4'],
-    poster: '/images/bodycare-perfumacao-capa.webp',
+    poster: '/images/bodycare-loccitane-icloud.webp',
     duration: '00:24',
     brand: 'L’Occitane',
     format: 'Apresentação de produto',
@@ -154,6 +154,15 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
     title: 'Benefit: o acabamento da maquiagem em foco',
     description: 'The POREfessional Power Powder ganha destaque em uma demonstração com pincel, da apresentação da embalagem à aplicação no rosto. Os detalhes de cada gesto e do acabamento aproximam o espectador da experiência de finalizar a maquiagem.',
   },
+  'makeup-3': {
+    sourceParts: ['/videos/makeup-mascara.mp4'],
+    poster: '/images/makeup-mascara-icloud.webp',
+    duration: '00:50',
+    brand: 'Detoni',
+    format: 'Aplicação de máscara para cílios',
+    title: 'Máscara de cílios: definição em foco',
+    description: 'Da escovinha à aplicação, o vídeo acompanha a máscara de cílios Detoni em uso, com movimentos precisos que destacam a definição dos fios. A câmera se aproxima dos olhos para mostrar a aplicação e o resultado de um jeito claro, direto e natural.',
+  },
   'asmr-1': {
     sourceParts: ['/videos/asmr-joia.mp4'],
     poster: '/images/asmr-pacco-icloud.webp',
@@ -165,7 +174,7 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
   },
   'asmr-2': {
     sourceParts: ['/videos/asmr-vyta.mp4'],
-    poster: '/images/asmr-vyta-capa.webp',
+    poster: '/images/asmr-brinco-capa.webp',
     duration: '00:07',
     format: 'Detalhes de produto',
     title: 'Brilho em close: um detalhe que prende o olhar',
@@ -405,12 +414,15 @@ function App() {
 
           <div className="portfolio-photos" id="fotografias" aria-label="Fotografias selecionadas">
             <div className="photo-track">
-              {['HAIRCARE', 'SKINCARE', 'MAKEUP'].map((category, index) => (
+              {[
+                { category: 'HAIRCARE', image: '/images/portfolio-haircare.webp', alt: 'Thamyres apresenta o sérum noturno Beauty Sleep da BRAÉ.' },
+                { category: 'SKINCARE', image: '/images/portfolio-skincare.webp', alt: 'Thamyres apresenta o sérum facial Mineral 89 da Vichy.' },
+                { category: 'MAKEUP', image: '/images/portfolio-makeup.webp', alt: 'Thamyres apresenta o pó facial The POREfessional Power Powder da Benefit.' },
+              ].map(({ category, image, alt }) => (
                 <article className="photo-item" key={category}>
                   <h3>{category}</h3>
-                  <div className={`photo-card image-placeholder tone-${index + 1}`} role="img" aria-label={`Espaço reservado para fotografia de ${category.toLowerCase()}`}>
-                    <span className="placeholder-cross" aria-hidden="true" />
-                    <span className="media-label"><strong>INSERIR FOTOGRAFIA</strong><small>PROPORÇÃO 4:5</small></span>
+                  <div className="photo-card">
+                    <img src={image} alt={alt} loading="lazy" decoding="async" />
                   </div>
                 </article>
               ))}
