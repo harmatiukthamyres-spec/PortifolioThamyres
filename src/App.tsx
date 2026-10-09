@@ -376,7 +376,7 @@ function App() {
                   src="/images/hero-thamyres-scene-final.webp"
                   alt="Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza"
                   width="1849"
-                  height="1024"
+                  height="822"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
