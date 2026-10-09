@@ -123,6 +123,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .category-header h3 { margin: 0; font-size: 0.7rem; letter-spacing: 0.14em; }
 .reel-stack { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 24px) / 3); gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #777 transparent; }
 .reel-card { border: 0; padding: 0; aspect-ratio: 0.65; position: relative; overflow: hidden; text-align: left; cursor: pointer; color: var(--white); background: #282828; transition: filter 220ms ease, transform 220ms ease; }
+@media (min-width: 721px) { .reel-stack { width: 80%; margin-inline: auto; } }
 .reel-card { scroll-snap-align: start; filter: none; }
 .reel-card::before { content: none; }
 .reel-card:hover { filter: none; }
