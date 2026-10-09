@@ -193,6 +193,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .price-row strong, .price-row small { font-size: 0.69rem; letter-spacing: 0.065em; }
 .price-row small { display: flex; flex-direction: column; opacity: 0.58; }
 .price-row b { font-family: 'Bodoni Moda', Georgia, serif; font-size: 1.02rem; font-weight: 500; text-align: right; white-space: nowrap; }
+.price-row .price-note { font-family: 'Inter Tight', Arial, sans-serif; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.035em; line-height: 1.2; text-transform: uppercase; white-space: normal; }
 .extra-row strong { grid-column: 2; }
 .availability { padding-top: 0.7rem; }
 .availability p { margin: 0.8rem 0 0; font-size: clamp(0.78rem, 0.88vw, 0.9rem); line-height: 1.55; }

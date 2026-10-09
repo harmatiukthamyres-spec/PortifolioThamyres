@@ -226,7 +226,7 @@ const prices = [
   ['02', 'DUO', '2 VÍDEOS UGC|R$ 230 POR VÍDEO', 'R$ 460'],
   ['03', 'CAMPANHA', '3 VÍDEOS UGC|R$ 210 POR VÍDEO', 'R$ 630'],
   ['04', 'CONTENT PACK', '5 VÍDEOS UGC + 2 FOTOS', 'R$ 1.050'],
-  ['05', 'CONTRATO MENSAL', 'UGC + REDES SOCIAIS', 'SOB CONSULTA'],
+  ['05', 'CONTRATO MENSAL', 'UGC + REDES SOCIAIS', 'PLANO PERSONALIZADO CONFORME A PROPOSTA'],
 ]
 
 const process = ['Briefing', 'Estratégia e roteiro', 'Gravação', 'Edição e finalização', 'Entrega com excelência']
@@ -493,14 +493,14 @@ function App() {
                     <span>{number}</span>
                     <strong>{name}</strong>
                     <small>{detail.split('|').map((line) => <span key={line}>{line}</span>)}</small>
-                    <b>{price}</b>
+                    <b className={price.length > 15 ? 'price-note' : undefined}>{price}</b>
                   </div>
                 ))}
                 <div className="price-row extra-row">
                   <span aria-hidden="true" />
                   <strong>EXTRAS E DIREITOS</strong>
                   <small><span>FOTOS, BRUTOS, GANCHOS E MÍDIA</span></small>
-                  <b>SOB CONSULTA</b>
+                  <b className="price-note">LICENÇA DE USO CONFORME O ESCOPO</b>
                 </div>
               </div>
               <div className="availability">
