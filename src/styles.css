@@ -132,14 +132,19 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .reel-card { scroll-snap-align: start; filter: none; }
 .reel-card::before { content: none; }
 .reel-card:hover { filter: none; }
-.reel-card:disabled { cursor: default; background: transparent; }
-.reel-card:disabled > * { visibility: hidden; }
+.reel-card:disabled { cursor: default; background: transparent; opacity: 1; }
+.reel-card:disabled:not(.reel-card-placeholder) > * { visibility: hidden; }
 .reel-visual { position: absolute; inset: 0; }
 .reel-poster { display: block; width: 100%; height: 100%; object-fit: cover; }
 .reel-play { width: 38px; height: 38px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 .reel-meta { position: absolute; z-index: 3; left: 0.5rem; bottom: 0.5rem; right: 0.5rem; display: flex; flex-direction: column; gap: 0.22rem; padding: 0.4rem; background: rgba(0,0,0,0.72); }
 .reel-meta strong { font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; }
 .reel-meta small { font-size: 0.5rem; letter-spacing: 0.08em; color: #d0d0cd; }
+.reel-card-placeholder { color: #161616; background: #ececea; }
+.reel-card-placeholder .reel-visual { background: #ececea; }
+.reel-card-placeholder .reel-meta { top: 50%; right: 0.7rem; bottom: auto; left: 0.7rem; align-items: center; gap: 0.45rem; padding: 0; color: #161616; text-align: center; background: transparent; transform: translateY(-50%); }
+.reel-card-placeholder .reel-meta strong { font-size: 0.72rem; line-height: 1.35; letter-spacing: 0.075em; }
+.reel-card-placeholder .reel-meta small { color: #686865; font-size: 0.55rem; letter-spacing: 0.1em; }
 .tone-0 { background-color: #252525; }
 .tone-1 { background-color: #343332; }
 .tone-2 { background-color: #1e2121; }
@@ -277,6 +282,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .carousel-next { right: 6px; width: 40px; height: 40px; }
   .reel-card { aspect-ratio: 9 / 16; }
   .reel-meta { display: none; }
+  .reel-card-placeholder .reel-meta { display: flex; }
   .portfolio-photos { margin-top: 1.2rem; }
   .photo-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .photo-item { flex: 0 0 84%; scroll-snap-align: start; }

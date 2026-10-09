@@ -84,24 +84,20 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'Uma demonstração direta da Cera Antifrizz Hidratei, da embalagem à aplicação sobre os fios. O formato curto concentra a atenção no gesto de finalizar o penteado e permite acompanhar o acabamento em uso real.',
   },
   'haircare-4': {
-    format: 'Amino',
+    format: 'Amino da TRUSS',
     title: 'TRUSS Amino — vídeo em breve',
-    brand: 'TRUSS',
   },
   'haircare-5': {
-    format: 'Impassable',
+    format: 'Impassable da TRUSS',
     title: 'TRUSS Impassable — vídeo em breve',
-    brand: 'TRUSS',
   },
   'haircare-6': {
-    format: 'Beauty Sleep',
+    format: 'Beauty Sleep da BRAÉ',
     title: 'BRAÉ Beauty Sleep — vídeo em breve',
-    brand: 'BRAÉ',
   },
   'haircare-7': {
-    format: 'Proteína capilar',
+    format: 'Proteína capilar da BRAÉ',
     title: 'BRAÉ Proteína Capilar — vídeo em breve',
-    brand: 'BRAÉ',
   },
   'bodycare-1': {
     sourceParts: ['/videos/bodycare-rotina.mp4'],
@@ -388,12 +384,14 @@ function App() {
                   <div className="reel-stack" ref={(element) => { reelTracks.current[category.name] = element }} aria-label={`Vídeos de ${category.name}`}>
                     {category.videos.map((video) => (
                       <button
-                        className={`reel-card ${video.tone}`}
+                        className={`reel-card ${video.tone} ${video.sourceParts ? '' : 'reel-card-placeholder'}`}
                         type="button"
                         key={video.id}
                         onClick={() => setActiveVideo(video)}
                         disabled={!video.sourceParts}
-                        aria-label={`Abrir ${video.title ?? `${video.format} de ${video.category}`}`}
+                        aria-label={video.sourceParts
+                          ? `Abrir ${video.title ?? `${video.format} de ${video.category}`}`
+                          : `Espaço reservado: ${video.title ?? `${video.format} de ${video.category}`}`}
                       >
                         <span className="reel-visual">
                           {video.poster ? (
@@ -483,7 +481,7 @@ function App() {
             <div className="profile-panel">
               <h2 className="about-title">Sobre mim</h2>
               <p className="about-bio">
-                Sou Thamyres Harmatiuk, criadora de conteúdo focada em haircare, skincare, bodycare e beauty. Meu trabalho une estética editorial, naturalidade e demonstração de produto para criar conteúdos que parecem parte da rotina e, ao mesmo tempo, despertam desejo e comunicam valor.
+                Sou Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza. Desenvolvo vídeos e fotos de haircare, skincare, bodycare e maquiagem que equilibram estética editorial com demonstrações próximas e naturais. Da textura ao resultado em uso, cada detalhe é pensado para apresentar os diferenciais do produto com clareza, criar identificação e despertar vontade de experimentar. Meu objetivo é entregar conteúdo autêntico, visualmente cuidado e alinhado à proposta de cada marca, fortalecendo sua presença e a conexão com o público.
               </p>
             </div>
             <dl className="profile-facts">
