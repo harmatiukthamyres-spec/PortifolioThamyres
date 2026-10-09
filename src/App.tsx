@@ -373,9 +373,9 @@ function App() {
             <div className="hero-name-panel">
               <picture className="hero-name-image">
                 <img
-                  src="/images/hero-thamyres-wide.png"
+                  src="/images/hero-thamyres-wall-arm.webp"
                   alt="Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza"
-                  width="1536"
+                  width="1692"
                   height="864"
                   loading="eager"
                   decoding="async"
