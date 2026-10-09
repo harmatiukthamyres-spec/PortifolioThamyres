@@ -55,7 +55,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .hero-showcase { height: clamp(520px, 70svh, 680px); background: #000; }
 .hero-name-panel { position: relative; width: 100%; height: 100%; min-width: 0; overflow: hidden; background: #000; }
 .hero-name-image { position: absolute; inset: 0; display: flex; justify-content: center; align-items: stretch; }
-.hero-name-image::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, #000 0%, rgba(0,0,0,0.94) 29%, rgba(0,0,0,0.38) 40%, transparent 46%, transparent 54%, rgba(0,0,0,0.38) 60%, rgba(0,0,0,0.94) 71%, #000 100%), linear-gradient(0deg, #000 0%, rgba(0,0,0,0.86) 10%, transparent 36%); }
+.hero-name-image::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, #000 0%, rgba(0,0,0,0.94) 29%, rgba(0,0,0,0.38) 40%, transparent 46%, transparent 49%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0.22) 61%, rgba(0,0,0,0.44) 68%, rgba(0,0,0,0.7) 76%, rgba(0,0,0,0.9) 86%, #000 96%), linear-gradient(0deg, #000 0%, rgba(0,0,0,0.86) 10%, transparent 36%); }
 .hero-name-image img { display: block; width: auto; max-width: 100%; height: min(100%, 38vw); object-fit: contain; object-position: center; }
 .hero-name-copy { position: absolute; z-index: 2; left: clamp(1.2rem, 3vw, 3.2rem); right: clamp(1.2rem, 3vw, 3.2rem); bottom: clamp(1.5rem, 3vw, 3rem); color: #fff; }
 .hero-name-copy h1 { max-width: 11ch; margin: 0; font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(3rem, 5vw, 5.8rem); font-weight: 400; line-height: 0.82; letter-spacing: -0.055em; }
