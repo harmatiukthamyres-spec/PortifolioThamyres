@@ -255,7 +255,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .hero { padding: 0; }
   .hero-showcase { height: min(112vw, 540px); }
   .hero-name-panel { min-height: 100%; }
-  .hero-name-image img { object-fit: cover; object-position: right center; }
+  .hero-name-image img { object-fit: cover; object-position: 72% center; }
   .hero-name-image::after { background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.45) 26%, transparent 52%), linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.2) 42%, transparent 68%); }
   .hero-name-copy h1 { font-size: clamp(2.75rem, 12.5vw, 4rem); }
   .hero-name-copy p { max-width: 31ch; font-size: 0.76rem; }

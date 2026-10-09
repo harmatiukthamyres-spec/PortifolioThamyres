@@ -89,8 +89,8 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     brand: 'TRUSS',
   },
   'haircare-5': {
-    format: 'Impassable Blond',
-    title: 'Impassable Blond — vídeo em breve',
+    format: 'Demonstração de impermeabilização',
+    title: 'TRUSS Impassable: impermeabilização dos fios',
     brand: 'TRUSS',
   },
   'haircare-6': {
@@ -147,6 +147,15 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     title: 'Proteção que se espalha com leveza',
     description: 'Uma demonstração próxima da aplicação de um protetor solar facial, com textura, espalhabilidade e acabamento acompanhados na pele. O conteúdo traduz o cuidado diário em um gesto simples e visual, ideal para apresentar o produto com naturalidade e clareza.',
   },
+  'skincare-1': {
+    sourceParts: ['/videos/skincare-vichy.mp4'],
+    poster: '/images/skincare-vichy-capa-alta.webp',
+    duration: '00:26',
+    brand: 'Vichy',
+    format: 'Aplicação de skincare',
+    title: 'Minéral 89: hidratação e viço na rotina',
+    description: 'Uma apresentação do Minéral 89, da Vichy, com a textura leve e a aplicação na pele em destaque. O vídeo acompanha o sérum após a limpeza facial e mostra como ele se integra à rotina, inclusive antes da maquiagem, com foco em hidratação, conforto e viço.',
+  },
   'skincare-3': {
     sourceParts: ['/videos/skincare-serum.mp4'],
     poster: '/images/skincare-serum-icloud.webp',
@@ -166,8 +175,18 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'A aplicação do protetor solar em bastão Ollie é acompanhada de perto, com movimentos sobre o rosto que mostram o produto em uso. A demonstração valoriza a praticidade do formato e o acabamento na pele, trazendo a proteção para uma rotina real.',
   },
   'skincare-5': {
-    format: 'Principia',
-    title: 'Principia — vídeo em breve',
+    sourceParts: ['/videos/skincare-creamy.mp4'],
+    poster: '/images/skincare-creamy-rotina-capa.webp',
+    duration: '00:26',
+    brand: 'Creamy',
+    format: 'Rotina de limpeza e tratamento',
+    title: 'Creamy: sabonete facial e retinol na rotina',
+    description: 'Uma rotina de skincare com duas etapas da Creamy: o limpador facial antioxidante e o retinol. O vídeo acompanha a aplicação do sabonete e a limpeza do rosto, depois mostra a distribuição do retinol na pele em closes de textura e acabamento.',
+  },
+  'skincare-6': {
+    format: 'Antes e depois',
+    title: 'Principia: antes e depois — vídeo em breve',
+    brand: 'Principia',
   },
   'makeup-2': {
     sourceParts: ['/videos/makeup-benefit.mp4'],
@@ -187,9 +206,9 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     title: 'Máscara de cílios: definição em foco',
     description: 'Da escovinha à aplicação, o vídeo acompanha a máscara de cílios Detoni em uso, com movimentos precisos que destacam a definição dos fios. A câmera se aproxima dos olhos para mostrar a aplicação e o resultado de um jeito claro, direto e natural.',
   },
-  'makeup-4': {
+  'makeup-1': {
     sourceParts: ['/videos/makeup-rare-beauty.mp4'],
-    poster: '/images/makeup-rare-beauty-capa.webp',
+    poster: '/images/makeup-rare-beauty-capa-alta.webp',
     duration: '00:15',
     brand: 'Rare Beauty',
     format: 'Aplicação de maquiagem',
@@ -207,7 +226,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
   },
   'asmr-2': {
     sourceParts: ['/videos/asmr-brinco.mp4'],
-    poster: '/images/asmr-brinco-capa-atualizada.webp',
+    poster: '/images/asmr-brinco-capa-alta.webp',
     duration: '00:07',
     format: 'Detalhes de produto',
     title: 'Brilho em close: um detalhe que prende o olhar',
@@ -354,10 +373,10 @@ function App() {
             <div className="hero-name-panel">
               <picture className="hero-name-image">
                 <img
-                  src="/images/hero-thamyres-wide.png"
+                  src="/images/hero-thamyres-scene-final.webp"
                   alt="Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza"
-                  width="1536"
-                  height="864"
+                  width="1849"
+                  height="1024"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
