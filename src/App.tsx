@@ -55,7 +55,7 @@ const categoryBlueprints = [
 ]
 
 // Cada vídeo publicado tem sua própria capa, marca, formato e apresentação.
-const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts' | 'poster' | 'duration' | 'title' | 'description' | 'format'>> & Pick<PortfolioVideo, 'brand'>> = {
+const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
   'haircare-1': {
     sourceParts: ['/videos/haircare-loiro.mp4'],
     poster: '/images/haircare-loiro-capa.webp',
@@ -82,6 +82,26 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
     format: 'Aplicação de finalizador',
     title: 'Hidratei: o toque final no penteado',
     description: 'Uma demonstração direta da Cera Antifrizz Hidratei, da embalagem à aplicação sobre os fios. O formato curto concentra a atenção no gesto de finalizar o penteado e permite acompanhar o acabamento em uso real.',
+  },
+  'haircare-4': {
+    format: 'Amino',
+    title: 'TRUSS Amino — vídeo em breve',
+    brand: 'TRUSS',
+  },
+  'haircare-5': {
+    format: 'Impassable',
+    title: 'TRUSS Impassable — vídeo em breve',
+    brand: 'TRUSS',
+  },
+  'haircare-6': {
+    format: 'Beauty Sleep',
+    title: 'BRAÉ Beauty Sleep — vídeo em breve',
+    brand: 'BRAÉ',
+  },
+  'haircare-7': {
+    format: 'Proteína capilar',
+    title: 'BRAÉ Proteína Capilar — vídeo em breve',
+    brand: 'BRAÉ',
   },
   'bodycare-1': {
     sourceParts: ['/videos/bodycare-rotina.mp4'],
@@ -144,6 +164,10 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
     format: 'Demonstração de proteção solar',
     title: 'Ollie: proteção solar em um gesto',
     description: 'A aplicação do protetor solar em bastão Ollie é acompanhada de perto, com movimentos sobre o rosto que mostram o produto em uso. A demonstração valoriza a praticidade do formato e o acabamento na pele, trazendo a proteção para uma rotina real.',
+  },
+  'skincare-5': {
+    format: 'Principia',
+    title: 'Principia — vídeo em breve',
   },
   'makeup-2': {
     sourceParts: ['/videos/makeup-benefit.mp4'],
@@ -415,7 +439,7 @@ function App() {
           <div className="portfolio-photos" id="fotografias" aria-label="Fotografias selecionadas">
             <div className="photo-track">
               {[
-                { category: 'HAIRCARE', image: '/images/portfolio-haircare.webp', alt: 'Thamyres apresenta o sérum noturno Beauty Sleep da BRAÉ.' },
+                { category: 'HAIRCARE', image: '/images/portfolio-haircare.webp', alt: 'Thamyres apresenta produtos Blonde Oil da BRAÉ, incluindo o óleo capilar.' },
                 { category: 'SKINCARE', image: '/images/portfolio-skincare.webp', alt: 'Thamyres apresenta o sérum facial Mineral 89 da Vichy.' },
                 { category: 'MAKEUP', image: '/images/portfolio-makeup.webp', alt: 'Thamyres apresenta o pó facial The POREfessional Power Powder da Benefit.' },
               ].map(({ category, image, alt }) => (
