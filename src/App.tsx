@@ -67,7 +67,7 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
   },
   'haircare-2': {
     sourceParts: ['/videos/haircare-mascaras.mp4'],
-    poster: '/images/haircare-mascaras-capa.webp',
+    poster: '/images/haircare-mascaras-icloud.webp',
     duration: '00:37',
     brand: 'BRAÉ',
     format: 'Apresentação de máscaras',
@@ -76,7 +76,7 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
   },
   'haircare-3': {
     sourceParts: ['/videos/haircare-antifrizz.mp4'],
-    poster: '/images/haircare-antifrizz-capa.webp',
+    poster: '/images/haircare-antifrizz-icloud.webp',
     duration: '00:09',
     brand: 'Hidratei',
     format: 'Aplicação de finalizador',
@@ -85,7 +85,7 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
   },
   'bodycare-1': {
     sourceParts: ['/videos/bodycare-rotina.mp4'],
-    poster: '/images/bodycare-granado-capa.jpg',
+    poster: '/images/bodycare-granado-icloud.webp',
     duration: '00:24',
     brand: 'Granado',
     format: 'Unboxing sensorial',
@@ -102,15 +102,6 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
     description: 'In the Stars e Into the Night entram em cena em uma apresentação próxima, com os frascos em destaque e a aplicação do cuidado corporal nas mãos. Um conteúdo que combina descoberta de fragrâncias, detalhes das embalagens e gestos de uso para trazer os produtos para a rotina.',
   },
   'bodycare-3': {
-    sourceParts: ['/videos/bodycare-brilho.mp4'],
-    poster: '/images/bodycare-brilho-capa.webp',
-    duration: '00:43',
-    brand: 'Skelt',
-    format: 'Demonstração de acabamento',
-    title: 'Skelt: pele iluminada em movimento',
-    description: 'O iluminador corporal da Skelt ganha destaque em uma demonstração no braço, com movimentos que revelam o reflexo da luz natural sobre a pele. A aplicação e os detalhes do acabamento mostram o brilho em uso real, aproximando a apresentação do produto do resultado que se vê na pele.',
-  },
-  'bodycare-4': {
     sourceParts: ['/videos/bodycare-perfumacao.mp4'],
     poster: '/images/bodycare-perfumacao-capa.webp',
     duration: '00:24',
@@ -118,6 +109,15 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
     format: 'Apresentação de produto',
     title: 'Amêndoa L’Occitane: um toque de perfume na rotina',
     description: 'O mist perfumado da linha Amêndoa, da L’Occitane, é apresentado em uma conversa próxima, com o frasco e seus detalhes em destaque. Um conteúdo que conecta a descoberta do produto ao gesto cotidiano de se perfumar, valorizando a experiência pessoal e o universo de cuidado da marca.',
+  },
+  'bodycare-4': {
+    sourceParts: ['/videos/bodycare-brilho.mp4'],
+    poster: '/images/bodycare-brilho-icloud.webp',
+    duration: '00:43',
+    brand: 'Skelt',
+    format: 'Demonstração de acabamento',
+    title: 'Skelt: pele iluminada em movimento',
+    description: 'O iluminador corporal da Skelt ganha destaque em uma demonstração no braço, com movimentos que revelam o reflexo da luz natural sobre a pele. A aplicação e os detalhes do acabamento mostram o brilho em uso real, aproximando a apresentação do produto do resultado que se vê na pele.',
   },
   'skincare-2': {
     sourceParts: ['/videos/skincare-protecao.mp4'],
@@ -129,7 +129,7 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
   },
   'skincare-3': {
     sourceParts: ['/videos/skincare-serum.mp4'],
-    poster: '/images/skincare-serum-capa.webp',
+    poster: '/images/skincare-serum-icloud.webp',
     duration: '00:36',
     brand: 'CARE Natural Beauty',
     format: 'Review de sérum',
@@ -147,7 +147,7 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
   },
   'makeup-2': {
     sourceParts: ['/videos/makeup-benefit.mp4'],
-    poster: '/images/benefit-capa-restaurada.png',
+    poster: '/images/benefit-capa-icloud.webp',
     duration: '00:53',
     brand: 'Benefit Cosmetics',
     format: 'Aplicação de pó facial',
@@ -156,7 +156,7 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
   },
   'asmr-1': {
     sourceParts: ['/videos/asmr-joia.mp4'],
-    poster: '/images/asmr-joia-capa.webp',
+    poster: '/images/asmr-pacco-icloud.webp',
     duration: '00:16',
     brand: 'Pacco',
     format: 'Unboxing sonoro',
