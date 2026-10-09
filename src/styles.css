@@ -112,7 +112,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .section-heading .section-kicker { display: block; margin-bottom: 0.8rem; }
 .section-heading h2 { font-size: var(--section-title-size); }
 .section-heading > p { max-width: 38ch; line-height: 1.45; font-size: 0.82rem; opacity: 0.75; margin: 0 0 0.5rem; }
-.portfolio, .metrics, .contact { padding: 1.9rem 2.2vw; }
+.portfolio, .metrics, .contact { padding: 1.9rem clamp(18px, 1.6vw, 30px); }
 .portfolio { padding-top: 1.9rem; padding-bottom: 1.9rem; }
 .portfolio-heading { padding-bottom: 0.6rem; }
 .portfolio-heading h2 { font-size: var(--section-title-size); }
@@ -121,8 +121,8 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .category-header { border-top: 1px solid var(--line-light); padding: 0.5rem 0 0.55rem; }
 .category-column:first-child .category-header { border-top: 0; }
 .category-header h3 { margin: 0; font-size: 0.7rem; letter-spacing: 0.14em; }
-.reel-stack { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 16px) / 3); gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #777 transparent; }
-.reel-card { border: 0; padding: 0; aspect-ratio: 9 / 16; position: relative; overflow: hidden; text-align: left; cursor: pointer; color: var(--white); background: #282828; transition: filter 220ms ease, transform 220ms ease; }
+.reel-stack { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 24px) / 3); gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #777 transparent; }
+.reel-card { border: 0; padding: 0; aspect-ratio: 0.65; position: relative; overflow: hidden; text-align: left; cursor: pointer; color: var(--white); background: #282828; transition: filter 220ms ease, transform 220ms ease; }
 .reel-card { scroll-snap-align: start; filter: none; }
 .reel-card::before { content: none; }
 .reel-card:hover { filter: none; }
@@ -265,6 +265,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .category-header { padding: 0.45rem 0 0.55rem; }
   .category-header h3 { margin: 0; font-size: 0.7rem; }
   .reel-stack { grid-auto-columns: calc((100% - 12px) / 3); gap: 6px; }
+  .reel-card { aspect-ratio: 9 / 16; }
   .reel-meta { display: none; }
   .portfolio-photos { margin-top: 1.2rem; }
   .photo-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
