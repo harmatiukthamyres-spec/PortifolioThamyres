@@ -463,14 +463,14 @@ function App() {
           </div>
           <div className="metrics-grid">
             {[
-              ['ALCANCE', '/images/metricas-alcance-clean.webp', 'Visualizações dos últimos 30 dias no Instagram'],
+              ['ALCANCE', '', 'Visualizações dos últimos 30 dias no Instagram'],
               ['GÊNERO', '/images/metricas-genero.webp', 'Distribuição por gênero dos seguidores no Instagram'],
               ['FAIXA ETÁRIA', '/images/metricas-faixa-etaria.webp', 'Faixa etária dos seguidores no Instagram'],
-              ['DESEMPENHO', '/images/metricas-desempenho.webp', 'Conteúdos principais e visualizações no Instagram'],
+              ['DESEMPENHO', '', 'Conteúdos principais e visualizações no Instagram'],
             ].map(([label, image, alt]) => (
               <article className="metric-document" key={label}>
                 <div className="metric-placeholder">
-                  <img src={image} alt={alt} loading="lazy" decoding="async" />
+                  {image ? <img src={image} alt={alt} loading="lazy" decoding="async" /> : null}
                 </div>
                 <h3>{label}</h3>
               </article>
@@ -502,7 +502,7 @@ function App() {
             <span className="section-kicker">SERVIÇOS E INVESTIMENTO</span>
             <h2>Do conceito à <em>entrega</em></h2>
             <p>
-              Os pacotes incluem roteiro, gravação com a câmera traseira em 4K a 30 fps, edição e legendas. Cada vídeo é finalizado com excelência conforme o briefing aprovado. Se necessário, serão realizados ajustes para que a entrega atenda ao que foi proposto. Direitos de uso para mídia paga e períodos de veiculação são definidos separadamente. Custos adicionais de produção, deslocamento ou locação, quando necessários, são orçados à parte. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
+              Os pacotes incluem roteiro, gravação com a câmera traseira em 4K a 30 FPS, edição e legendas. Cada vídeo é finalizado com excelência conforme o briefing aprovado. Se necessário, serão realizados ajustes para que a entrega atenda ao que foi proposto. Direitos de uso para mídia paga e períodos de veiculação são definidos separadamente. Custos adicionais de produção, deslocamento ou locação, quando necessários, são orçados à parte. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
             </p>
           </div>
 
