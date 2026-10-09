@@ -204,7 +204,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
 
 const categories: Category[] = categoryBlueprints.map((category, categoryIndex) => ({
   name: category.name,
-  videos: Array.from({ length: Math.max(3, ...Object.keys(portfolioMedia)
+  videos: Array.from({ length: Math.max(category.name === 'ASMR' ? 2 : 3, ...Object.keys(portfolioMedia)
     .filter((id) => id.startsWith(`${category.name.toLowerCase()}-`))
     .map((id) => Number(id.split('-').pop()))) }, (_, videoIndex) => {
     const format = category.formats[videoIndex] ?? 'Vídeo'
@@ -381,7 +381,7 @@ function App() {
                   <h3>{category.name}</h3>
                 </header>
                 <div className="reel-carousel">
-                  <div className="reel-stack" ref={(element) => { reelTracks.current[category.name] = element }} aria-label={`Vídeos de ${category.name}`}>
+                  <div className={`reel-stack ${category.name === 'ASMR' ? 'reel-stack-centered' : ''}`} ref={(element) => { reelTracks.current[category.name] = element }} aria-label={`Vídeos de ${category.name}`}>
                     {category.videos.map((video) => (
                       <button
                         className={`reel-card ${video.tone} ${video.sourceParts ? '' : 'reel-card-placeholder'}`}
