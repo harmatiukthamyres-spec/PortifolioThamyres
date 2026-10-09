@@ -382,6 +382,7 @@ function App() {
                   fetchPriority="high"
                 />
               </picture>
+              <div className="hero-image-fade" aria-hidden="true" />
               <div className="hero-name-copy">
                 <h1>Thamyres <em>Harmatiuk</em></h1>
                 <p>UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.</p>
