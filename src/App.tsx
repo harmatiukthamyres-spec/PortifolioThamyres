@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
+  ArrowRight,
   ArrowUpRight,
   Mail,
   Play,
@@ -234,6 +235,7 @@ function App() {
   const [activeVideo, setActiveVideo] = useState<PortfolioVideo | null>(null)
   const [playbackSource, setPlaybackSource] = useState<string | null>(null)
   const [videoLoadError, setVideoLoadError] = useState(false)
+  const reelTracks = useRef<Record<string, HTMLDivElement | null>>({})
 
   useEffect(() => {
     if (!activeVideo) return
@@ -349,30 +351,49 @@ function App() {
                 <header className="category-header">
                   <h3>{category.name}</h3>
                 </header>
-                <div className="reel-stack" aria-label={`Vídeos de ${category.name}`}>
-                  {category.videos.map((video) => (
+                <div className="reel-carousel">
+                  <div className="reel-stack" ref={(element) => { reelTracks.current[category.name] = element }} aria-label={`Vídeos de ${category.name}`}>
+                    {category.videos.map((video) => (
+                      <button
+                        className={`reel-card ${video.tone}`}
+                        type="button"
+                        key={video.id}
+                        onClick={() => setActiveVideo(video)}
+                        disabled={!video.sourceParts}
+                        aria-label={`Abrir ${video.title ?? `${video.format} de ${video.category}`}`}
+                      >
+                        <span className="reel-visual">
+                          {video.poster ? (
+                            <img className="reel-poster" src={video.poster} alt="" loading="lazy" decoding="async" />
+                          ) : (
+                            <span className="placeholder-cross" />
+                          )}
+                        </span>
+                        {video.sourceParts && <span className="reel-play"><Play fill="currentColor" size={14} /></span>}
+                        <span className="reel-meta">
+                          <strong>{video.format}</strong>
+                          <small>{video.brand ? `${video.brand} · ${video.category}` : video.category}</small>
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                  {category.videos.filter((video) => video.sourceParts).length > 3 && (
                     <button
-                      className={`reel-card ${video.tone}`}
+                      className="carousel-next"
                       type="button"
-                      key={video.id}
-                      onClick={() => setActiveVideo(video)}
-                      disabled={!video.sourceParts}
-                      aria-label={`Abrir ${video.title ?? `${video.format} de ${video.category}`}`}
+                      aria-label={`Ver mais vídeos de ${category.name}`}
+                      onClick={() => {
+                        const track = reelTracks.current[category.name]
+                        const firstCard = track?.querySelector('.reel-card')
+                        if (track && firstCard) {
+                          const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0
+                          track.scrollBy({ left: firstCard.getBoundingClientRect().width + gap, behavior: 'smooth' })
+                        }
+                      }}
                     >
-                      <span className="reel-visual">
-                        {video.poster ? (
-                          <img className="reel-poster" src={video.poster} alt="" loading="lazy" decoding="async" />
-                        ) : (
-                          <span className="placeholder-cross" />
-                        )}
-                      </span>
-                      {video.sourceParts && <span className="reel-play"><Play fill="currentColor" size={14} /></span>}
-                      <span className="reel-meta">
-                        <strong>{video.format}</strong>
-                        <small>{video.brand ? `${video.brand} · ${video.category}` : video.category}</small>
-                      </span>
+                      <ArrowRight size={16} aria-hidden="true" />
                     </button>
-                  ))}
+                  )}
                 </div>
               </article>
             ))}
