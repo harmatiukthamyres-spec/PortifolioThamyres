@@ -147,7 +147,7 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
   },
   'makeup-2': {
     sourceParts: ['/videos/makeup-benefit.mp4'],
-    poster: '/images/benefit-capa-natural.webp',
+    poster: '/images/benefit-capa-restaurada.png',
     duration: '00:53',
     brand: 'Benefit Cosmetics',
     format: 'Aplicação de pó facial',
