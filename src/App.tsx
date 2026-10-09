@@ -167,7 +167,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
   },
   'skincare-4': {
     sourceParts: ['/videos/skincare-bastao.mp4'],
-    poster: '/images/skincare-bastao-capa.webp',
+    poster: '/images/skincare-ollie-capa-alta.webp',
     duration: '00:39',
     brand: 'Ollie',
     format: 'Demonstração de proteção solar',
@@ -176,12 +176,12 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
   },
   'skincare-5': {
     sourceParts: ['/videos/skincare-creamy.mp4'],
-    poster: '/images/skincare-creamy-rotina-capa.webp',
+    poster: '/images/skincare-creamy-rotina-capa-alta.webp',
     duration: '00:26',
     brand: 'Creamy',
-    format: 'Rotina de limpeza e tratamento',
-    title: 'Creamy: sabonete facial e retinol na rotina',
-    description: 'Uma rotina de skincare com duas etapas da Creamy: o limpador facial antioxidante e o retinol. O vídeo acompanha a aplicação do sabonete e a limpeza do rosto, depois mostra a distribuição do retinol na pele em closes de textura e acabamento.',
+    format: 'Skincare sensorial · ASMR',
+    title: 'Creamy: limpeza e retinol em uma rotina sensorial',
+    description: 'Sem fala ou música, o vídeo acompanha a limpeza com o sabonete facial antioxidante da Creamy e a aplicação do retinol em closes de textura e gestos. A ausência de narração e trilha deixa a experiência mais sensorial, quase um ASMR de skincare.',
   },
   'skincare-6': {
     format: 'Antes e depois',
@@ -373,10 +373,10 @@ function App() {
             <div className="hero-name-panel">
               <picture className="hero-name-image">
                 <img
-                  src="/images/hero-thamyres-scene-final.webp"
+                  src="/images/hero-thamyres-wide.png"
                   alt="Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza"
-                  width="1849"
-                  height="822"
+                  width="1536"
+                  height="864"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
