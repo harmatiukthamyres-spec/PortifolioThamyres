@@ -449,16 +449,15 @@ function App() {
               <p className="about-bio">
                 Sou Thamyres Harmatiuk, criadora de conteúdo focada em haircare, skincare, bodycare e beauty. Meu trabalho une estética editorial, naturalidade e demonstração de produto para criar conteúdos que parecem parte da rotina e, ao mesmo tempo, despertam desejo e comunicam valor.
               </p>
-              <dl className="profile-facts">
-                {profileFacts.map(([label, value]) => (
-                  <div key={label}>
-                    <dt>{label}</dt>
-                    <dd>{value}</dd>
-                  </div>
-                ))}
-              </dl>
             </div>
-            <div className="video-intro-blank" aria-hidden="true" />
+            <dl className="profile-facts">
+              {profileFacts.map(([label, value]) => (
+                <div key={label}>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 
