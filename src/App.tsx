@@ -42,7 +42,7 @@ const categoryBlueprints = [
     formats: ['Rotina sensorial', 'Demonstração', 'ASMR'],
   },
   {
-    name: 'BEAUTY',
+    name: 'MAKEUP',
     description: 'Maquiagem elegante, detalhes e transformação',
     formats: ['GRWM', 'Tutorial', 'Aplicação'],
   },
@@ -55,6 +55,33 @@ const categoryBlueprints = [
 
 // Cada vídeo publicado tem sua própria capa, marca, formato e apresentação.
 const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts' | 'poster' | 'duration' | 'title' | 'description' | 'format'>> & Pick<PortfolioVideo, 'brand'>> = {
+  'haircare-1': {
+    sourceParts: ['/videos/haircare-loiro.mp4'],
+    poster: '/images/haircare-loiro-capa.webp',
+    duration: '01:04',
+    brand: 'BRAÉ',
+    format: 'Review de cuidado capilar',
+    title: 'Blonde Oil: cuidado em foco para os fios loiros',
+    description: 'Uma apresentação da linha Blonde Oil, da BRAÉ, com a máscara e o óleo em destaque. A conversa diante da câmera aproxima o cuidado capilar da rotina e valoriza os detalhes dos produtos, com uma linguagem pessoal e acessível.',
+  },
+  'haircare-2': {
+    sourceParts: ['/videos/haircare-mascaras.mp4'],
+    poster: '/images/haircare-mascaras-capa.webp',
+    duration: '00:37',
+    brand: 'BRAÉ',
+    format: 'Apresentação de máscaras',
+    title: 'BRAÉ: três máscaras na rotina de cuidado',
+    description: 'Blonde Oil, Fiber Mask e Essential se encontram em uma apresentação que destaca as embalagens e a experiência de incluir máscaras no cuidado dos fios. Um conteúdo próximo que transforma a seleção de produtos em uma conversa sobre a rotina capilar.',
+  },
+  'haircare-3': {
+    sourceParts: ['/videos/haircare-antifrizz.mp4'],
+    poster: '/images/haircare-antifrizz-capa.webp',
+    duration: '00:09',
+    brand: 'Hidratei',
+    format: 'Aplicação de finalizador',
+    title: 'Hidratei: o toque final no penteado',
+    description: 'Uma demonstração direta da Cera Antifrizz Hidratei, da embalagem à aplicação sobre os fios. O formato curto concentra a atenção no gesto de finalizar o penteado e permite acompanhar o acabamento em uso real.',
+  },
   'bodycare-1': {
     sourceParts: ['/videos/bodycare-rotina.mp4'],
     poster: '/images/bodycare-granado-capa.jpg',
@@ -99,19 +126,46 @@ const portfolioMedia: Record<string, Required<Pick<PortfolioVideo, 'sourceParts'
     title: 'Proteção que se espalha com leveza',
     description: 'Uma demonstração próxima da aplicação de um protetor solar facial, com textura, espalhabilidade e acabamento acompanhados na pele. O conteúdo traduz o cuidado diário em um gesto simples e visual, ideal para apresentar o produto com naturalidade e clareza.',
   },
-  'asmr-2': {
-    sourceParts: ['/videos/asmr-vyta.mp4'],
-    poster: '/images/asmr-vyta-capa.webp',
-    duration: '00:07',
+  'skincare-3': {
+    sourceParts: ['/videos/skincare-serum.mp4'],
+    poster: '/images/skincare-serum-capa.webp',
+    duration: '00:36',
+    brand: 'CARE Natural Beauty',
+    format: 'Review de sérum',
+    title: 'CARE: o glow como parte do cuidado',
+    description: 'O sérum facial hidratante e iluminador Skindrops é apresentado em uma conversa próxima, com o frasco e o acabamento luminoso da pele em destaque. Um conteúdo que conecta textura, experiência pessoal e cuidado diário, valorizando o produto sem perder a naturalidade.',
+  },
+  'skincare-4': {
+    sourceParts: ['/videos/skincare-bastao.mp4'],
+    poster: '/images/skincare-bastao-capa.webp',
+    duration: '00:39',
+    brand: 'Ollie',
+    format: 'Demonstração de proteção solar',
+    title: 'Ollie: proteção solar em um gesto',
+    description: 'A aplicação do protetor solar em bastão Ollie é acompanhada de perto, com movimentos sobre o rosto que mostram o produto em uso. A demonstração valoriza a praticidade do formato e o acabamento na pele, trazendo a proteção para uma rotina real.',
+  },
+  'makeup-2': {
+    sourceParts: ['/videos/makeup-benefit.mp4'],
+    poster: '/images/benefit-capa.jpeg',
+    duration: '00:53',
+    brand: 'Benefit Cosmetics',
+    format: 'Aplicação de pó facial',
+    title: 'Benefit: o acabamento da maquiagem em foco',
+    description: 'The POREfessional Power Powder ganha destaque em uma demonstração com pincel, da apresentação da embalagem à aplicação no rosto. Os detalhes de cada gesto e do acabamento aproximam o espectador da experiência de finalizar a maquiagem.',
+  },
+  'asmr-1': {
+    sourceParts: ['/videos/asmr-joia.mp4'],
+    poster: '/images/asmr-joia-capa.webp',
+    duration: '00:16',
     brand: 'Pacco',
     format: 'Unboxing sonoro',
     title: 'Vyta Pacco: o som de uma descoberta',
     description: 'Uma abertura guiada pelos sons da embalagem e pela reação à descoberta do Vyta, da Pacco. O ritmo curto valoriza o momento de revelar o produto e cria uma experiência sensorial limpa, com foco em textura, presença e expectativa.',
   },
-  'asmr-3': {
-    sourceParts: ['/videos/asmr-joia.mp4'],
-    poster: '/images/asmr-joia-capa.webp',
-    duration: '00:16',
+  'asmr-2': {
+    sourceParts: ['/videos/asmr-vyta.mp4'],
+    poster: '/images/asmr-vyta-capa.webp',
+    duration: '00:07',
     format: 'Detalhes de produto',
     title: 'Brilho em close: um detalhe que prende o olhar',
     description: 'Um close silencioso e delicado que aproxima o espectador dos detalhes de uma peça brilhante. A composição valoriza reflexos, movimento e acabamento para transformar a apresentação do produto em uma pequena experiência visual.',
@@ -276,7 +330,7 @@ function App() {
             <span>HAIRCARE</span>
             <span>SKINCARE</span>
             <span>BODYCARE</span>
-            <span>BEAUTY</span>
+            <span>MAKEUP</span>
             <span>ASMR</span>
           </div>
         </section>
@@ -326,7 +380,7 @@ function App() {
 
           <div className="portfolio-photos" id="fotografias" aria-label="Fotografias selecionadas">
             <div className="photo-track">
-              {['HAIRCARE', 'SKINCARE', 'BEAUTY'].map((category, index) => (
+              {['HAIRCARE', 'SKINCARE', 'MAKEUP'].map((category, index) => (
                 <article className="photo-item" key={category}>
                   <h3>{category}</h3>
                   <div className={`photo-card image-placeholder tone-${index + 1}`} role="img" aria-label={`Espaço reservado para fotografia de ${category.toLowerCase()}`}>
