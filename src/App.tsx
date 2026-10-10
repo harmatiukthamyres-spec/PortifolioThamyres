@@ -140,7 +140,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
   },
   'skincare-1': {
     sourceParts: ['/videos/skincare-vichy.mp4'],
-    poster: '/images/asmr-pacco-icloud.webp',
+    poster: '/images/skincare-vichy-capa-alta.webp',
     duration: '00:26',
     brand: 'Vichy',
     format: 'Aplicação de skincare',
@@ -199,7 +199,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
   },
   'asmr-2': {
     sourceParts: ['/videos/asmr-joia.mp4'],
-    poster: '/images/asmr-vyta-capa.webp',
+    poster: '/images/asmr-pacco-icloud.webp',
     duration: '00:16',
     brand: 'Pacco',
     format: 'Unboxing sonoro',
@@ -462,7 +462,7 @@ function App() {
             <div className="photo-track">
               {[
                 { category: 'HAIRCARE', image: '/images/portfolio-haircare.webp', alt: 'Thamyres apresenta produtos Blonde Oil da BRAÉ, incluindo o óleo capilar.' },
-                { category: 'SKINCARE', image: '/images/asmr-pacco-icloud.webp', alt: 'Thamyres apresenta o sérum facial Mineral 89 da Vichy.' },
+                { category: 'SKINCARE', image: '/images/skincare-vichy-capa-alta.webp', alt: 'Thamyres apresenta o sérum facial Mineral 89 da Vichy.' },
                 { category: 'MAKEUP', image: '/images/portfolio-makeup.webp', alt: 'Thamyres apresenta o pó facial The POREfessional Power Powder da Benefit.' },
               ].map(({ category, image, alt }) => (
                 <article className={`photo-item photo-item-${category.toLowerCase()}`} key={category}>
