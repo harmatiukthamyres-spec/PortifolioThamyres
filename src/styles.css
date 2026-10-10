@@ -326,6 +326,10 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   }
 }
 
+@media (max-width: 480px) {
+  .hero-name-image img { width: 100%; object-fit: cover; object-position: center 12%; }
+}
+
 .about.dark-section .profile-facts div { border-color: var(--line-dark); }
 .video-intro-blank { width: min(100%, 400px); aspect-ratio: 9 / 16; justify-self: end; }
 
