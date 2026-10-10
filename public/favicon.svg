@@ -1,16 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <clipPath id="round">
-      <circle cx="32" cy="32" r="31" />
-    </clipPath>
-    <filter id="ink" color-interpolation-filters="sRGB">
-      <feComponentTransfer>
-        <feFuncR type="table" tableValues="1 0" />
-        <feFuncG type="table" tableValues="1 0" />
-        <feFuncB type="table" tableValues="1 0" />
-      </feComponentTransfer>
-    </filter>
-  </defs>
   <circle cx="32" cy="32" r="31" fill="#fff" />
-  <image href="/images/favicon-th-reference.png" x="16" y="1" width="32" height="62" filter="url(#ink)" clip-path="url(#round)" />
+  <text x="32" y="46" text-anchor="middle" fill="#000"
+    font-family="Bodoni Moda, Georgia, 'Times New Roman', serif"
+    font-size="43" font-weight="400" letter-spacing="-7">T<tspan font-style="italic">H</tspan></text>
 </svg>
