@@ -75,7 +75,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'Blonde Oil, Fiber Mask e Essential se encontram em uma apresentação que destaca as embalagens e a experiência de incluir máscaras no cuidado dos fios. Um conteúdo próximo que transforma a seleção de produtos em uma conversa sobre a rotina capilar.',
   },
   'haircare-3': {
-    sourceParts: ['/videos/haircare-antifrizz.mp4'],
+    sourceParts: ['/videos/haircare-antifrizz.mp4?v=20261010'],
     poster: '/images/haircare-antifrizz-icloud.webp',
     duration: '00:09',
     brand: 'Hidratei',
@@ -104,7 +104,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     brand: 'BRAÉ',
   },
   'bodycare-1': {
-    sourceParts: ['/videos/bodycare-fragrancias.mp4'],
+    sourceParts: ['/videos/bodycare-fragrancias.mp4?v=20261010'],
     poster: '/images/bodycare-fragrancias-icloud.webp',
     duration: '00:43',
     brand: 'Bath & Body Works',
@@ -139,7 +139,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'Uma demonstração próxima da aplicação de um protetor solar facial, com textura, espalhabilidade e acabamento acompanhados na pele. O conteúdo traduz o cuidado diário em um gesto simples e visual, ideal para apresentar o produto com naturalidade e clareza.',
   },
   'skincare-1': {
-    sourceParts: ['/videos/skincare-vichy.mp4'],
+    sourceParts: ['/videos/skincare-vichy.mp4?v=20261010'],
     poster: '/images/skincare-vichy-mineral89-atualizada.webp',
     duration: '00:26',
     brand: 'Vichy',
@@ -157,7 +157,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'O sérum facial hidratante e iluminador Skindrops é apresentado em uma conversa próxima, com o frasco e o acabamento luminoso da pele em destaque. Um conteúdo que conecta textura, experiência pessoal e cuidado diário, valorizando o produto sem perder a naturalidade.',
   },
   'skincare-4': {
-    sourceParts: ['/videos/skincare-bastao.mp4'],
+    sourceParts: ['/videos/skincare-bastao.mp4?v=20261010'],
     poster: '/images/skincare-ollie-capa-alta.webp',
     duration: '00:39',
     brand: 'Ollie',
@@ -166,6 +166,15 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'A aplicação do protetor solar em bastão Ollie é acompanhada de perto, com movimentos sobre o rosto que mostram o produto em uso. A demonstração valoriza a praticidade do formato e o acabamento na pele, trazendo a proteção para uma rotina real.',
   },
   'skincare-5': {
+    sourceParts: ['/videos/skincare-creamy-sabonete.mp4?v=20261010'],
+    poster: '/images/skincare-creamy-sabonete-icloud.webp',
+    duration: '00:26',
+    brand: 'Creamy',
+    format: 'Rotina de limpeza facial',
+    title: 'Creamy: limpeza facial na rotina de skincare',
+    description: 'Uma demonstração do limpador facial da Creamy, da textura à aplicação e ao enxágue. Os gestos de cuidado e os detalhes do produto aproximam a limpeza facial de uma rotina real.',
+  },
+  'skincare-6': {
     format: 'Antes e depois',
     title: 'Principia: antes e depois — vídeo em breve',
     brand: 'Principia',
@@ -180,7 +189,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'The POREfessional Power Powder ganha destaque em uma demonstração com pincel, da apresentação da embalagem à aplicação no rosto. Os detalhes de cada gesto e do acabamento aproximam o espectador da experiência de finalizar a maquiagem.',
   },
   'makeup-3': {
-    sourceParts: ['/videos/makeup-mascara.mp4'],
+    sourceParts: ['/videos/makeup-mascara.mp4?v=20261010'],
     poster: '/images/makeup-mascara-icloud.webp',
     duration: '00:50',
     brand: 'Detoni',
@@ -189,7 +198,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'Da escovinha à aplicação, o vídeo acompanha a máscara de cílios Detoni em uso, com movimentos precisos que destacam a definição dos fios. A câmera se aproxima dos olhos para mostrar a aplicação e o resultado de um jeito claro, direto e natural.',
   },
   'makeup-1': {
-    sourceParts: ['/videos/makeup-rare-beauty.mp4'],
+    sourceParts: ['/videos/makeup-rare-beauty.mp4?v=20261010'],
     poster: '/images/makeup-rare-beauty-capa-alta.webp',
     duration: '00:15',
     brand: 'Rare Beauty',
