@@ -66,7 +66,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'Uma apresentação da linha Blonde Oil, da BRAÉ, com a máscara e o óleo em destaque. A conversa diante da câmera aproxima o cuidado capilar da rotina e valoriza os detalhes dos produtos, com uma linguagem pessoal e acessível.',
   },
   'haircare-2': {
-    sourceParts: ['/videos/haircare-mascaras.mp4'],
+    sourceParts: ['/videos/haircare-mascaras.mp4?v=20261010-r2'],
     poster: '/images/haircare-mascaras-icloud.webp',
     duration: '00:37',
     brand: 'BRAÉ',
@@ -148,7 +148,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'Uma apresentação do Minéral 89, da Vichy, com a textura leve e a aplicação na pele em destaque. O vídeo acompanha o sérum após a limpeza facial e mostra como ele se integra à rotina, inclusive antes da maquiagem, com foco em hidratação, conforto e viço.',
   },
   'skincare-3': {
-    sourceParts: ['/videos/skincare-serum.mp4'],
+    sourceParts: ['/videos/skincare-serum.mp4?v=20261010-r2'],
     poster: '/images/skincare-serum-icloud.webp',
     duration: '00:36',
     brand: 'CARE Natural Beauty',
@@ -224,7 +224,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'Um close silencioso e delicado que aproxima o espectador dos detalhes de uma peça brilhante. A composição valoriza reflexos, movimento e acabamento para transformar a apresentação do produto em uma pequena experiência visual.',
   },
   'asmr-1': {
-    sourceParts: ['/videos/bodycare-rotina.mp4'],
+    sourceParts: ['/videos/bodycare-rotina.mp4?v=20261010-r2'],
     poster: '/images/bodycare-granado-icloud.webp',
     duration: '00:24',
     brand: 'Granado',
