@@ -103,15 +103,6 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     title: 'Proteína capilar — vídeo em breve',
     brand: 'BRAÉ',
   },
-  'bodycare-1': {
-    sourceParts: ['/videos/bodycare-rotina.mp4'],
-    poster: '/images/bodycare-granado-icloud.webp',
-    duration: '00:24',
-    brand: 'Granado',
-    format: 'Unboxing sensorial',
-    title: 'Granado: um presente para os sentidos',
-    description: 'Da caixa estampada à descoberta dos sabonetes, um unboxing que valoriza as cores, as embalagens e a experiência de explorar as fragrâncias. Os detalhes em destaque e as reações diante da câmera aproximam o produto de quem assiste e apresentam o cuidado como um gesto de presente.',
-  },
   'bodycare-2': {
     sourceParts: ['/videos/bodycare-fragrancias.mp4'],
     poster: '/images/bodycare-fragrancias-icloud.webp',
@@ -222,6 +213,15 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     format: 'Detalhes de produto',
     title: 'Brilho em close: um detalhe que prende o olhar',
     description: 'Um close silencioso e delicado que aproxima o espectador dos detalhes de uma peça brilhante. A composição valoriza reflexos, movimento e acabamento para transformar a apresentação do produto em uma pequena experiência visual.',
+  },
+  'asmr-3': {
+    sourceParts: ['/videos/bodycare-rotina.mp4'],
+    poster: '/images/bodycare-granado-icloud.webp',
+    duration: '00:24',
+    brand: 'Granado',
+    format: 'Unboxing sonoro',
+    title: 'Granado: um presente para os sentidos',
+    description: 'Os sons da abertura da caixa, do manuseio da embalagem e da descoberta dos sabonetes conduzem este unboxing da Granado. Um vídeo sem narração, com ritmo tranquilo e atenção às texturas, aos detalhes e à experiência sensorial do produto.',
   },
 }
 

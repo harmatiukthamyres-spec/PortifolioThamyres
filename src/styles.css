@@ -163,7 +163,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .photo-item h3 { margin: 0 0 0.55rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; }
 .photo-card { width: 100%; aspect-ratio: 4 / 5; scroll-snap-align: start; color: var(--paper); background: var(--paper); overflow: hidden; }
 .photo-card img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.photo-item-makeup .photo-card img { transform: scale(0.92); }
+.photo-item-haircare .photo-card img, .photo-item-skincare .photo-card img { transform: scale(1.04); }
 
 .metrics-title { padding-bottom: 0.45rem; }
 .metrics-grid {
@@ -263,8 +263,8 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .hero-showcase { height: min(112vw, 540px); }
   .hero-name-panel { min-height: 100%; }
   .hero-name-image img { max-width: none; height: 100%; object-fit: contain; object-position: center; }
-  .hero-name-image img { -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 78%, rgba(0,0,0,0.86) 84%, rgba(0,0,0,0.55) 91%, transparent 100%); mask-image: linear-gradient(90deg, #000 0%, #000 78%, rgba(0,0,0,0.86) 84%, rgba(0,0,0,0.55) 91%, transparent 100%); }
-  .hero-image-fade { background: linear-gradient(90deg, #000 0%, rgba(0,0,0,0.9) 18%, rgba(0,0,0,0.3) 31%, transparent 42%, transparent 58%, rgba(0,0,0,0.14) 62%, rgba(0,0,0,0.58) 66%, rgba(0,0,0,0.9) 71%, #000 78%), linear-gradient(0deg, #000 0%, rgba(0,0,0,0.82) 9%, transparent 34%); }
+  .hero-name-image img { -webkit-mask-image: none; mask-image: none; }
+  .hero-image-fade { background: linear-gradient(90deg, #000 0%, rgba(0,0,0,0.9) 18%, rgba(0,0,0,0.3) 31%, transparent 42%), linear-gradient(0deg, #000 0%, rgba(0,0,0,0.82) 9%, transparent 34%); }
   .hero-name-copy h1 { font-size: clamp(2.75rem, 12.5vw, 4rem); }
   .hero-name-copy p { max-width: 31ch; font-size: 0.76rem; }
   .placeholder-label { flex-direction: column; align-items: flex-start; }
