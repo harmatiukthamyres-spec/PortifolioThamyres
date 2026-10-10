@@ -465,7 +465,7 @@ function App() {
                 { category: 'SKINCARE', image: '/images/portfolio-skincare.webp', alt: 'Thamyres apresenta o sérum facial Mineral 89 da Vichy.' },
                 { category: 'MAKEUP', image: '/images/portfolio-makeup.webp', alt: 'Thamyres apresenta o pó facial The POREfessional Power Powder da Benefit.' },
               ].map(({ category, image, alt }) => (
-                <article className="photo-item" key={category}>
+                <article className={`photo-item photo-item-${category.toLowerCase()}`} key={category}>
                   <h3>{category}</h3>
                   <div className="photo-card">
                     <img src={image} alt={alt} loading="lazy" decoding="async" />
