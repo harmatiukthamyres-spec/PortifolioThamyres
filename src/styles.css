@@ -289,7 +289,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .category-header h3 { margin: 0; font-size: 0.7rem; }
   .reel-carousel { width: 100%; }
   .reel-stack { gap: 8px; }
-  .reel-meta { display: none; }
+  .reel-meta { display: flex; }
   .reel-card-placeholder .reel-meta { display: flex; }
   .portfolio-photos { margin-top: 1.2rem; }
   .photo-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
