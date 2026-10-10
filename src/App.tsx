@@ -197,7 +197,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     title: 'Rare Beauty: cor e luminosidade em foco',
     description: 'A aplicação de um produto compacto da Rare Beauty ganha destaque em uma demonstração próxima, da apresentação da embalagem ao esfumado nas maçãs do rosto. Os movimentos do pincel e o resultado luminoso aparecem em detalhe, valorizando a textura e o acabamento da maquiagem na pele.',
   },
-  'asmr-1': {
+  'asmr-2': {
     sourceParts: ['/videos/asmr-joia.mp4'],
     poster: '/images/asmr-pacco-icloud.webp',
     duration: '00:16',
@@ -206,7 +206,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     title: 'Vyta Pacco: o som de uma descoberta',
     description: 'Uma abertura guiada pelos sons da embalagem e pela reação à descoberta do Vyta, da Pacco. O ritmo curto valoriza o momento de revelar o produto e cria uma experiência sensorial limpa, com foco em textura, presença e expectativa.',
   },
-  'asmr-2': {
+  'asmr-3': {
     sourceParts: ['/videos/asmr-brinco.mp4'],
     poster: '/images/asmr-brinco-capa-alta.webp',
     duration: '00:07',
@@ -214,7 +214,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     title: 'Brilho em close: um detalhe que prende o olhar',
     description: 'Um close silencioso e delicado que aproxima o espectador dos detalhes de uma peça brilhante. A composição valoriza reflexos, movimento e acabamento para transformar a apresentação do produto em uma pequena experiência visual.',
   },
-  'asmr-3': {
+  'asmr-1': {
     sourceParts: ['/videos/bodycare-rotina.mp4'],
     poster: '/images/bodycare-granado-icloud.webp',
     duration: '00:24',
