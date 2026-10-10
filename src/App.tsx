@@ -175,15 +175,6 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     description: 'A aplicação do protetor solar em bastão Ollie é acompanhada de perto, com movimentos sobre o rosto que mostram o produto em uso. A demonstração valoriza a praticidade do formato e o acabamento na pele, trazendo a proteção para uma rotina real.',
   },
   'skincare-5': {
-    sourceParts: ['/videos/skincare-creamy.mp4'],
-    poster: '/images/skincare-creamy-rotina-capa-alta.webp',
-    duration: '00:26',
-    brand: 'Creamy',
-    format: 'Skincare sensorial · ASMR',
-    title: 'Creamy: limpeza e retinol em uma rotina sensorial',
-    description: 'Sem fala ou música, o vídeo acompanha a limpeza com o sabonete facial antioxidante da Creamy e a aplicação do retinol em closes de textura e gestos. A ausência de narração e trilha deixa a experiência mais sensorial, quase um ASMR de skincare.',
-  },
-  'skincare-6': {
     format: 'Antes e depois',
     title: 'Principia: antes e depois — vídeo em breve',
     brand: 'Principia',
