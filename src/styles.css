@@ -317,6 +317,13 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .modal-info h2 { margin-top: 1.2rem; }
 }
 
+@media (min-width: 481px) and (max-width: 720px) {
+  .hero-name-image img { -webkit-mask-image: none; mask-image: none; }
+  .hero-image-fade {
+    background: linear-gradient(90deg, #000 0%, rgba(0,0,0,0.84) 12%, rgba(0,0,0,0.3) 27%, transparent 42%, transparent 67%, rgba(0,0,0,0.12) 77%, rgba(0,0,0,0.5) 90%, #000 100%), linear-gradient(0deg, #000 0%, rgba(0,0,0,0.82) 9%, transparent 34%);
+  }
+}
+
 .about.dark-section .profile-facts div { border-color: var(--line-dark); }
 .video-intro-blank { width: min(100%, 400px); aspect-ratio: 9 / 16; justify-self: end; }
 
