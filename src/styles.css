@@ -265,7 +265,8 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .hero-name-image img { width: 100%; max-width: none; height: 100%; object-fit: cover; object-position: 76% 12%; transform: none; }
   .hero-name-image img { -webkit-mask-image: none; mask-image: none; }
   .hero-image-fade { background: linear-gradient(90deg, #000 0%, rgba(0,0,0,0.9) 18%, rgba(0,0,0,0.3) 31%, transparent 42%), linear-gradient(90deg, transparent 81%, rgba(0,0,0,0.05) 86%, rgba(0,0,0,0.16) 92%, rgba(0,0,0,0.38) 97%, rgba(0,0,0,0.62) 100%), linear-gradient(0deg, #000 0%, rgba(0,0,0,0.82) 9%, transparent 34%); }
-  .hero-name-copy h1 { font-size: clamp(2.75rem, 12.5vw, 4rem); }
+  .hero-name-copy h1 { max-width: none; font-size: clamp(1.35rem, 7.4vw, 2.3rem); line-height: 1; letter-spacing: -0.045em; white-space: nowrap; }
+  .hero-name-copy h1 em { display: inline; }
   .hero-name-copy p { max-width: 31ch; font-size: 0.76rem; }
   .placeholder-label { flex-direction: column; align-items: flex-start; }
   .specialty-strip { overflow-x: auto; gap: 1.5rem; padding: 0 16px; min-height: 38px; }
