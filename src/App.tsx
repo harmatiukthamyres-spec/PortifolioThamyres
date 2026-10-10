@@ -103,7 +103,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     title: 'Proteína capilar — vídeo em breve',
     brand: 'BRAÉ',
   },
-  'bodycare-2': {
+  'bodycare-1': {
     sourceParts: ['/videos/bodycare-fragrancias.mp4'],
     poster: '/images/bodycare-fragrancias-icloud.webp',
     duration: '00:43',
@@ -112,7 +112,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     title: 'Duas fragrâncias, um ritual de cuidado',
     description: 'In the Stars e Into the Night entram em cena em uma apresentação próxima, com os frascos em destaque e a aplicação do cuidado corporal nas mãos. Um conteúdo que combina descoberta de fragrâncias, detalhes das embalagens e gestos de uso para trazer os produtos para a rotina.',
   },
-  'bodycare-3': {
+  'bodycare-2': {
     sourceParts: ['/videos/bodycare-perfumacao.mp4'],
     poster: '/images/bodycare-loccitane-icloud.webp',
     duration: '00:24',
@@ -121,7 +121,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
     title: 'Amêndoa L’Occitane: um toque de perfume na rotina',
     description: 'O mist perfumado da linha Amêndoa, da L’Occitane, é apresentado em uma conversa próxima, com o frasco e seus detalhes em destaque. Um conteúdo que conecta a descoberta do produto ao gesto cotidiano de se perfumar, valorizando a experiência pessoal e o universo de cuidado da marca.',
   },
-  'bodycare-4': {
+  'bodycare-3': {
     sourceParts: ['/videos/bodycare-brilho.mp4'],
     poster: '/images/bodycare-brilho-icloud.webp',
     duration: '00:43',
