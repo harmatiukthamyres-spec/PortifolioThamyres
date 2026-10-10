@@ -199,7 +199,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
   },
   'asmr-2': {
     sourceParts: ['/videos/asmr-joia.mp4'],
-    poster: '/images/asmr-pacco-icloud.webp',
+    poster: '/images/asmr-pacco-capa-cortada.webp',
     duration: '00:16',
     brand: 'Pacco',
     format: 'Unboxing sonoro',
