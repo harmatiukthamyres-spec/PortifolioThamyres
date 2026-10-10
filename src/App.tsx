@@ -405,7 +405,7 @@ function App() {
                   <h3>{category.name}</h3>
                 </header>
                 <div className="reel-carousel">
-                  <div className={`reel-stack ${category.name === 'ASMR' ? 'reel-stack-centered' : ''}`} ref={(element) => { reelTracks.current[category.name] = element }} aria-label={`Vídeos de ${category.name}`}>
+                  <div className="reel-stack" ref={(element) => { reelTracks.current[category.name] = element }} aria-label={`Vídeos de ${category.name}`}>
                     {category.videos.map((video) => (
                       <button
                         className={`reel-card ${video.tone} ${video.sourceParts ? '' : 'reel-card-placeholder'}`}
