@@ -365,10 +365,10 @@ function App() {
               <picture className="hero-name-image">
                 <source media="(max-width: 720px)" srcSet="/images/hero-thamyres-scene-continued.webp" />
                 <img
-                  src="/images/hero-thamyres-wide.png"
+                  src="/images/hero-thamyres-scene-continued.webp"
                   alt="Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza"
-                  width="1536"
-                  height="864"
+                  width="1672"
+                  height="941"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
