@@ -74,7 +74,9 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .placeholder-label span, .media-label small { font-size: 0.52rem; letter-spacing: 0.1em; opacity: 0.7; }
 
 .specialty-strip { min-height: 38px; background: #000; color: #fff; display: flex; align-items: center; padding: 0 2.2vw; font-size: var(--micro-type); letter-spacing: 0.16em; white-space: nowrap; }
-.specialty-strip span { flex: 1; text-align: center; }
+.specialty-strip a { flex: 1; text-align: center; transition: opacity 180ms ease; }
+.specialty-strip a:hover { opacity: 0.62; }
+.category-column { scroll-margin-top: 68px; }
 
 .about, .photos, .services { padding: 1.9rem 2.2vw; }
 .about { padding-top: 3rem; padding-bottom: 3rem; }
@@ -267,7 +269,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   .hero-name-copy p { max-width: 31ch; font-size: 0.76rem; }
   .placeholder-label { flex-direction: column; align-items: flex-start; }
   .specialty-strip { overflow-x: auto; gap: 1.5rem; padding: 0 16px; min-height: 38px; }
-  .specialty-strip span { flex: 0 0 auto; }
+  .specialty-strip a { flex: 0 0 auto; }
   .about, .photos, .services, .portfolio, .metrics, .contact { padding: 1.55rem 16px; }
   .portfolio { padding-top: 1.55rem; padding-bottom: 1.55rem; }
   .about { padding-top: 1.55rem; padding-bottom: 1.55rem; }

@@ -382,11 +382,11 @@ function App() {
 
           </div>
           <div className="specialty-strip" aria-label="Especialidades">
-            <span>HAIRCARE</span>
-            <span>SKINCARE</span>
-            <span>BODYCARE</span>
-            <span>MAKEUP</span>
-            <span>ASMR</span>
+            <a href="#haircare">HAIRCARE</a>
+            <a href="#skincare">SKINCARE</a>
+            <a href="#bodycare">BODYCARE</a>
+            <a href="#makeup">MAKEUP</a>
+            <a href="#asmr">ASMR</a>
           </div>
         </section>
 
