@@ -505,7 +505,7 @@ function App() {
             <div className="profile-panel">
               <h2 className="about-title">Sobre mim</h2>
               <p className="about-bio">
-                Sou Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza. Desenvolvo vídeos e fotos de haircare, skincare, bodycare e maquiagem que equilibram estética editorial com demonstrações próximas e naturais. Da textura ao resultado em uso, cada detalhe é pensado para apresentar os diferenciais do produto com clareza, criar identificação e despertar vontade de experimentar. Meu objetivo é entregar conteúdo autêntico, visualmente cuidado e alinhado à proposta de cada marca, fortalecendo sua presença e a conexão com o público.
+                Sou Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza. Desenvolvo vídeos e fotos de Haircare, skincare, bodycare, makeup e ASMR, equilibrando estética editorial com demonstrações próximas e naturais. Da textura ao resultado em uso, cada detalhe é pensado para apresentar os diferenciais do produto com clareza, criar identificação e despertar vontade de experimentar. Meu objetivo é entregar conteúdo autêntico, visualmente cuidado e alinhado à proposta de cada marca, fortalecendo sua presença e a conexão com o público.
               </p>
             </div>
             <dl className="profile-facts">
