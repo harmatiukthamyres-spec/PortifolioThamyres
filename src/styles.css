@@ -164,7 +164,7 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 .photo-item h3 { margin: 0 0 0.55rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; }
 .photo-card { width: 100%; aspect-ratio: 4 / 5; scroll-snap-align: start; color: var(--paper); background: var(--paper); overflow: hidden; }
 .photo-card img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.photo-item-haircare .photo-card img, .photo-item-skincare .photo-card img { transform: scale(1.04); }
+.photo-item-haircare .photo-card img { transform: scale(1.04); }
 
 .metrics-title { padding-bottom: 0.45rem; }
 .metrics-grid {
@@ -332,6 +332,11 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
 
 .about.dark-section .profile-facts div { border-color: var(--line-dark); }
 .video-intro-blank { width: min(100%, 400px); aspect-ratio: 9 / 16; justify-self: end; }
+
+@media (min-width: 721px) {
+  .hero-name-image img { width: 100%; height: 100%; object-fit: contain; object-position: right center; -webkit-mask-image: none; mask-image: none; }
+  .hero-image-fade { background: linear-gradient(90deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.76) 30%, rgba(0,0,0,0.18) 58%, transparent 78%), linear-gradient(90deg, transparent 83%, rgba(0,0,0,0.1) 87%, rgba(0,0,0,0.38) 92%, rgba(0,0,0,0.74) 97%, #000 100%), linear-gradient(0deg, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.28) 40%, transparent 72%); }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

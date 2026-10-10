@@ -140,7 +140,7 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
   },
   'skincare-1': {
     sourceParts: ['/videos/skincare-vichy.mp4'],
-    poster: '/images/skincare-vichy-capa-alta.webp',
+    poster: '/images/skincare-vichy-mineral89-atualizada.webp',
     duration: '00:26',
     brand: 'Vichy',
     format: 'Aplicação de skincare',
@@ -365,10 +365,10 @@ function App() {
               <picture className="hero-name-image">
                 <source media="(max-width: 720px)" srcSet="/images/hero-thamyres-scene-continued.webp" />
                 <img
-                  src="/images/hero-thamyres-center-original.png"
+                  src="/images/hero-thamyres-wide.png"
                   alt="Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza"
-                  width="496"
-                  height="620"
+                  width="1536"
+                  height="864"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
@@ -463,7 +463,7 @@ function App() {
             <div className="photo-track">
               {[
                 { category: 'HAIRCARE', image: '/images/portfolio-haircare.webp', alt: 'Thamyres apresenta produtos Blonde Oil da BRAÉ, incluindo o óleo capilar.' },
-                { category: 'SKINCARE', image: '/images/skincare-vichy-capa-alta.webp', alt: 'Thamyres apresenta o sérum facial Mineral 89 da Vichy.' },
+                { category: 'SKINCARE', image: '/images/skincare-vichy-mineral89-atualizada.webp', alt: 'Thamyres apresenta o sérum facial Mineral 89 da Vichy.' },
                 { category: 'MAKEUP', image: '/images/portfolio-makeup.webp', alt: 'Thamyres apresenta o pó facial The POREfessional Power Powder da Benefit.' },
               ].map(({ category, image, alt }) => (
                 <article className={`photo-item photo-item-${category.toLowerCase()}`} key={category}>
