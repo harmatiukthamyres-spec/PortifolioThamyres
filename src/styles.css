@@ -342,3 +342,50 @@ em { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 400; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
+
+/* Solicitação de proposta, carrosséis e contexto dos projetos. */
+.proposal-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0.8rem 1rem; border: 1px solid #000; color: #fff; background: #000; font-size: 0.76rem; letter-spacing: 0.045em; text-transform: uppercase; line-height: 1.4; white-space: nowrap; }
+.proposal-button:hover { background: #333; }
+.proposal-button:focus-visible { outline: 2px solid #000; outline-offset: 3px; }
+.proposal-button-light { background: #fff; color: #000; border-color: #fff; }
+.proposal-button-light:hover { background: #e9e8e4; }
+.proposal-button-light:focus-visible { outline-color: #fff; }
+.proposal-action { margin: 1rem 0; }
+.gallery-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 0.7rem; }
+.gallery-controls > p { margin: 0; font-size: 0.75rem; line-height: 1.4; color: #555550; }
+.gallery-buttons { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.gallery-buttons button { width: 44px; height: 44px; padding: 0; display: grid; place-items: center; border: 1px solid #aaa9a2; border-radius: 50%; color: #000; background: transparent; cursor: pointer; }
+.gallery-buttons button:hover:not(:disabled) { background: #e4e3de; }
+.gallery-buttons button:disabled { color: #888780; border-color: #d0cfc8; cursor: default; }
+.gallery-buttons span { min-width: 40px; text-align: center; font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+.reel-card:focus-visible { outline-offset: -4px; outline-width: 3px; }
+.video-modal { position: fixed; inset: 0; width: min(960px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); margin: auto; padding: 0; border: 0; overflow: auto; overscroll-behavior: contain; }
+.video-modal::backdrop { background: rgba(0,0,0,0.88); }
+.modal-dismiss { position: sticky; z-index: 4; top: 0; height: 0; display: flex; justify-content: flex-end; pointer-events: none; }
+.modal-dismiss .modal-close { position: static; flex-shrink: 0; width: 44px; height: 44px; margin: 12px; pointer-events: auto; cursor: pointer; }
+.modal-close:focus-visible { outline: 2px solid #fff; outline-offset: 2px; box-shadow: 0 0 0 5px #111; }
+.modal-content { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: stretch; }
+.modal-video-player { max-height: calc(100dvh - 32px); }
+.modal-info { background: #fff; color: #000; padding: 4rem 2rem 2rem; }
+.modal-info .project-kicker { font-size: 0.68rem; line-height: 1.4; letter-spacing: 0.06em; text-transform: uppercase; }
+.modal-info h2 { font-size: clamp(1.7rem, 2.8vw, 2.3rem); margin: 0.8rem 0 1.15rem; }
+.project-facts { margin: 0 0 1rem; }
+.project-facts > div { border-top: 1px solid #deddd7; padding: 0.75rem 0; }
+.project-facts dt { margin-bottom: 0.3rem; font-size: 0.68rem; font-weight: 600; line-height: 1.4; letter-spacing: 0.045em; text-transform: uppercase; }
+.project-facts dd { margin: 0; font-size: 0.88rem; line-height: 1.55; }
+.modal-info .proposal-button { align-self: flex-start; }
+
+@media (max-width: 720px) {
+  .proposal-action .proposal-button { width: 100%; }
+  .gallery-controls { gap: 8px; }
+  .gallery-controls > p { font-size: 0.73rem; }
+  .gallery-buttons { gap: 4px; }
+  .gallery-buttons span { min-width: 36px; }
+  .video-modal { width: calc(100vw - 20px); max-height: calc(100dvh - 20px); }
+  .modal-content { display: flex; flex-direction: column; }
+  .modal-video-player { width: 100%; height: min(55dvh, 520px); max-height: none; aspect-ratio: auto; }
+  .modal-info { width: 100%; padding: 1.5rem; }
+  .modal-info h2 { font-size: 1.7rem; }
+  .modal-info .proposal-button { width: 100%; }
+  .mobile-contact-dock a:first-child { font-size: 0.66rem; letter-spacing: 0.04em; }
+}

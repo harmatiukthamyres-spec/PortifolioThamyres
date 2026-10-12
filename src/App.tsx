@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
+import type { KeyboardEvent as ReactKeyboardEvent, ReactNode } from 'react'
 import {
+  ArrowLeft,
   ArrowRight,
   ArrowUpRight,
   Mail,
@@ -234,6 +236,26 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
   },
 }
 
+const projectContext: Record<string, { product: string; objective: string; format?: string }> = {
+  'haircare-1': { product: 'Máscara e óleo Blonde Oil, da BRAÉ', objective: 'Apresentar os produtos e mostrar como entram no cuidado dos fios loiros.' },
+  'haircare-2': { product: 'Máscaras Blonde Oil, Fiber Mask e Essential, da BRAÉ', objective: 'Apresentar as três máscaras e aproximar os produtos de uma rotina de cuidado capilar.' },
+  'haircare-3': { product: 'Cera Antifrizz Hidratei', objective: 'Mostrar a embalagem, a aplicação e o acabamento do finalizador no penteado.' },
+  'bodycare-1': { product: 'In the Stars e Into the Night, da Bath & Body Works', objective: 'Apresentar as duas fragrâncias com detalhes dos frascos e gestos de aplicação.' },
+  'bodycare-2': { product: 'Mist perfumado Amêndoa, da L’Occitane', objective: 'Apresentar o produto e mostrar o gesto de perfumação na rotina.' },
+  'bodycare-3': { product: 'Iluminador corporal Skelt', objective: 'Mostrar a aplicação no braço e o reflexo da luz sobre o acabamento da pele.' },
+  'skincare-1': { product: 'Minéral 89, da Vichy', objective: 'Mostrar a textura do sérum e sua aplicação como etapa da rotina de skincare.' },
+  'skincare-2': { product: 'Protetor solar facial', objective: 'Demonstrar a aplicação, a espalhabilidade e o acabamento na pele.' },
+  'skincare-3': { product: 'Sérum Skindrops, da CARE Natural Beauty', objective: 'Apresentar o sérum e mostrar seu acabamento luminoso na pele.' },
+  'skincare-4': { product: 'Protetor solar em bastão Ollie', objective: 'Demonstrar o uso do bastão diretamente no rosto e a praticidade da aplicação.' },
+  'skincare-5': { product: 'Limpador facial Creamy', objective: 'Mostrar a textura, a aplicação e o enxágue do produto na limpeza facial.' },
+  'makeup-1': { product: 'Compacto Rare Beauty', objective: 'Mostrar o produto, a aplicação com pincel e o acabamento nas maçãs do rosto.' },
+  'makeup-2': { product: 'The POREfessional Power Powder, da Benefit Cosmetics', objective: 'Demonstrar a aplicação do pó com pincel e o acabamento da maquiagem.' },
+  'makeup-3': { product: 'Máscara de cílios Detoni', objective: 'Mostrar a escovinha, a aplicação e a definição dos cílios em close.' },
+  'asmr-1': { product: 'Kit de sabonetes Granado', objective: 'Apresentar a abertura da caixa e os detalhes dos sabonetes e da embalagem.', format: 'Unboxing de produto' },
+  'asmr-2': { product: 'Vyta, da Pacco', objective: 'Valorizar os sons da abertura da embalagem e o momento de revelar o produto.' },
+  'asmr-3': { product: 'Brinco com detalhes brilhantes', objective: 'Apresentar os reflexos, o movimento e o acabamento da peça em close.' },
+}
+
 const categories: Category[] = categoryBlueprints.map((category, categoryIndex) => ({
   name: category.name,
   videos: Array.from({ length: Math.max(category.name === 'ASMR' ? 2 : 3, ...Object.keys(portfolioMedia)
@@ -292,22 +314,72 @@ const prices = [
 
 const process = ['Briefing', 'Estratégia e roteiro', 'Gravação', 'Edição e finalização', 'Entrega']
 
+const proposalUrl = 'https://wa.me/5511988242425?text=' + encodeURIComponent('Olá, Thamyres! Gostaria de solicitar uma proposta de vídeos ou fotos para minha marca.')
+
+function ScrollGallery({ id, label, trackClass, itemSelector, itemCount, children }: { id: string; label: string; trackClass: string; itemSelector: string; itemCount: number; children: ReactNode }) {
+  const trackRef = useRef<HTMLDivElement>(null)
+  const [position, setPosition] = useState({ index: 0, previous: false, next: false, scrollable: false })
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return
+    const update = () => {
+      const item = track.querySelector<HTMLElement>(itemSelector)
+      if (!item) return
+      const step = item.getBoundingClientRect().width + (Number.parseFloat(getComputedStyle(track).columnGap) || 0)
+      const max = track.scrollWidth - track.clientWidth
+      setPosition({ index: Math.min(itemCount - 1, Math.max(0, Math.round(track.scrollLeft / step))), previous: track.scrollLeft > 2, next: track.scrollLeft < max - 2, scrollable: max > 2 })
+    }
+    const observer = new ResizeObserver(update)
+    observer.observe(track)
+    track.addEventListener('scroll', update, { passive: true })
+    update()
+    return () => { observer.disconnect(); track.removeEventListener('scroll', update) }
+  }, [itemCount, itemSelector])
+  const move = (direction: number, edge?: 'start' | 'end') => {
+    const track = trackRef.current
+    const item = track?.querySelector<HTMLElement>(itemSelector)
+    if (!track || !item) return
+    const step = item.getBoundingClientRect().width + (Number.parseFloat(getComputedStyle(track).columnGap) || 0)
+    track.scrollTo({ left: edge === 'start' ? 0 : edge === 'end' ? track.scrollWidth - track.clientWidth : track.scrollLeft + direction * step, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+  }
+  const onKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    if (event.target !== event.currentTarget || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return
+    event.preventDefault()
+    if (event.key === 'Home') move(0, 'start')
+    else if (event.key === 'End') move(0, 'end')
+    else move(event.key === 'ArrowRight' ? 1 : -1)
+  }
+  return (
+    <>
+      {position.scrollable && <div className="gallery-controls">
+        <p id={id + '-hint'}>Deslize ou use as setas para ver mais.</p>
+        <div className="gallery-buttons">
+          <button type="button" onClick={() => move(-1)} disabled={!position.previous} aria-label={'Voltar em ' + label} aria-controls={id}><ArrowLeft size={18} aria-hidden="true" /></button>
+          <span aria-live="polite" aria-atomic="true">{position.index + 1} / {itemCount}</span>
+          <button type="button" onClick={() => move(1)} disabled={!position.next} aria-label={'Avançar em ' + label} aria-controls={id}><ArrowRight size={18} aria-hidden="true" /></button>
+        </div>
+      </div>}
+      <div className={trackClass} id={id} ref={trackRef} role="region" aria-roledescription="carrossel" aria-label={label} aria-describedby={position.scrollable ? id + '-hint' : undefined} tabIndex={position.scrollable ? 0 : undefined} onKeyDown={onKeyDown}>{children}</div>
+    </>
+  )
+}
+
 function App() {
   const [activeVideo, setActiveVideo] = useState<PortfolioVideo | null>(null)
   const [playbackSource, setPlaybackSource] = useState<string | null>(null)
   const [videoLoadError, setVideoLoadError] = useState(false)
-  const reelTracks = useRef<Record<string, HTMLDivElement | null>>({})
+  const dialogRef = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
-    if (!activeVideo) return
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setActiveVideo(null)
-    }
+    const dialog = dialogRef.current
+    if (!activeVideo || !dialog) return
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null
     document.body.classList.add('modal-open')
-    window.addEventListener('keydown', closeOnEscape)
+    if (!dialog.open) dialog.showModal()
     return () => {
       document.body.classList.remove('modal-open')
-      window.removeEventListener('keydown', closeOnEscape)
+      if (dialog.open) dialog.close()
+      previousFocus?.focus({ preventScroll: true })
     }
   }, [activeVideo])
 
@@ -406,6 +478,7 @@ function App() {
               <span className="section-kicker">PORTFÓLIO</span>
               <h2>Trabalhos <em>selecionados</em></h2>
             </div>
+            <a className="proposal-button" href={proposalUrl} target="_blank" rel="noreferrer">Solicitar proposta <ArrowUpRight size={16} aria-hidden="true" /></a>
           </div>
 
           <div className="portfolio-grid">
@@ -415,7 +488,7 @@ function App() {
                   <h3>{category.name}</h3>
                 </header>
                 <div className="reel-carousel">
-                  <div className="reel-stack" ref={(element) => { reelTracks.current[category.name] = element }} aria-label={`Vídeos de ${category.name}`}>
+                  <ScrollGallery id={`videos-${category.name.toLowerCase()}`} label={`Vídeos de ${category.name}`} trackClass="reel-stack" itemSelector=".reel-card" itemCount={category.videos.length}>
                     {category.videos.map((video) => (
                       <button
                         className={`reel-card ${video.tone} ${video.sourceParts ? '' : 'reel-card-placeholder'}`}
@@ -423,6 +496,7 @@ function App() {
                         key={video.id}
                         onClick={() => setActiveVideo(video)}
                         disabled={!video.sourceParts}
+                        aria-haspopup={video.sourceParts ? 'dialog' : undefined}
                         aria-label={video.sourceParts
                           ? `Abrir ${video.title ?? `${video.format} de ${video.category}`}`
                           : `Espaço reservado: ${video.title ?? `${video.format} de ${video.category}`}`}
@@ -441,35 +515,14 @@ function App() {
                         </span>
                       </button>
                     ))}
-                  </div>
-                  {category.videos.length > 3 && (
-                    <button
-                      className="carousel-next"
-                      type="button"
-                      aria-label={`Ver mais vídeos de ${category.name}`}
-                      onClick={() => {
-                        const track = reelTracks.current[category.name]
-                        const firstCard = track?.querySelector('.reel-card')
-                        if (track && firstCard) {
-                          const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0
-                          const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2
-                          track.scrollTo({
-                            left: atEnd ? 0 : track.scrollLeft + firstCard.getBoundingClientRect().width + gap,
-                            behavior: 'smooth',
-                          })
-                        }
-                      }}
-                    >
-                      <ArrowRight size={16} aria-hidden="true" />
-                    </button>
-                  )}
+                  </ScrollGallery>
                 </div>
               </article>
             ))}
           </div>
 
           <div className="portfolio-photos" id="fotografias" aria-label="Fotografias selecionadas">
-            <div className="photo-track">
+            <ScrollGallery id="photos-list" label="Fotografias selecionadas" trackClass="photo-track" itemSelector=".photo-item" itemCount={3}>
               {[
                 { category: 'HAIRCARE', image: '/images/portfolio-haircare.webp', alt: 'Thamyres apresenta produtos Blonde Oil da BRAÉ, incluindo o óleo capilar.' },
                 { category: 'SKINCARE', image: '/images/skincare-vichy-mineral89-atualizada.webp', alt: 'Thamyres apresenta o sérum facial Mineral 89 da Vichy.' },
@@ -482,7 +535,7 @@ function App() {
                   </div>
                 </article>
               ))}
-            </div>
+            </ScrollGallery>
           </div>
         </section>
 
@@ -493,7 +546,7 @@ function App() {
               <h2>Dados da <em>audiência</em></h2>
             </div>
           </div>
-          <div className="metrics-grid">
+          <ScrollGallery id="audience-list" label="Dados de audiência" trackClass="metrics-grid" itemSelector=".metric-document" itemCount={4}>
             {[
               ['ALCANCE', '', 'Visualizações dos últimos 30 dias no Instagram'],
               ['GÊNERO', '/images/metricas-genero.webp', 'Distribuição por gênero dos seguidores no Instagram'],
@@ -507,7 +560,7 @@ function App() {
                 <h3>{label}</h3>
               </article>
             ))}
-          </div>
+          </ScrollGallery>
         </section>
 
         <section className="about paper-section" id="sobre">
@@ -534,7 +587,7 @@ function App() {
             <span className="section-kicker">SERVIÇOS E INVESTIMENTO</span>
             <h2>Do conceito à <em>entrega</em></h2>
             <p>
-              Os pacotes incluem roteiro, gravação com a câmera traseira em 4K a 30 FPS, edição e legendas. Cada vídeo é finalizado com excelência conforme o briefing aprovado. Se necessário, serão realizados ajustes para que a entrega atenda ao que foi proposto. Direitos de uso para mídia paga e períodos de veiculação são definidos separadamente. Custos adicionais de produção, deslocamento ou locação, quando necessários, são orçados à parte. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
+              Os pacotes incluem roteiro, gravação com a câmera traseira em 4K a 30 FPS, edição e legendas. A apresentação do produto, as cenas de uso e os detalhes de textura e acabamento seguem o briefing aprovado. Se necessário, serão realizados ajustes para que a entrega atenda ao que foi proposto. Direitos de uso para mídia paga e períodos de veiculação são definidos separadamente. Custos adicionais de produção, deslocamento ou locação, quando necessários, são orçados à parte. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
             </p>
           </div>
 
@@ -570,6 +623,7 @@ function App() {
                   <b className="price-note">LICENÇA DE USO CONFORME O ESCOPO</b>
                 </div>
               </div>
+              <div className="proposal-action"><a className="proposal-button" href={proposalUrl} target="_blank" rel="noreferrer">Solicitar proposta <ArrowUpRight size={16} aria-hidden="true" /></a></div>
               <div className="availability">
                 <h3>BASES E DISPONIBILIDADE</h3>
                 <p>Resido em Alphaville, SP e Curitiba, PR. Disponibilidade para viagens.</p>
@@ -580,6 +634,7 @@ function App() {
 
         <section className="contact dark-section" id="contato">
           <h2>Vamos criar algo<br /><em>excepcional juntos?</em></h2>
+          <div className="proposal-action"><a className="proposal-button proposal-button-light" href={proposalUrl} target="_blank" rel="noreferrer">Solicitar proposta <ArrowUpRight size={16} aria-hidden="true" /></a></div>
           <div className="contact-links">
             <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
               <span>WHATSAPP COMERCIAL</span><strong>(11) 98824 2425</strong>
@@ -600,35 +655,38 @@ function App() {
       </main>
 
       <div className="mobile-contact-dock" aria-label="Contato rápido">
-        <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer"><FaWhatsapp size={18} /> WhatsApp</a>
+        <a href={proposalUrl} target="_blank" rel="noreferrer"><FaWhatsapp size={18} aria-hidden="true" /> Solicitar proposta</a>
         <a href="mailto:contato@thamyresharmatiuk.com"><Mail size={18} /> E-mail</a>
       </div>
 
       {activeVideo && (
-        <div className="modal-backdrop" role="presentation" onMouseDown={() => setActiveVideo(null)}>
-          <section className="video-modal" role="dialog" aria-modal="true" aria-label={activeVideo.title ?? `Vídeo de ${activeVideo.category}`} onMouseDown={(event) => event.stopPropagation()}>
-            <button className="modal-close" type="button" onClick={() => setActiveVideo(null)} aria-label="Fechar vídeo"><X size={20} /></button>
-            {activeVideo.sourceParts ? (
-              <div className="modal-video-player">
-                {playbackSource && !videoLoadError ? (
-                  <video key={activeVideo.id} src={playbackSource} controls autoPlay playsInline preload="metadata" poster={activeVideo.poster} onError={() => setVideoLoadError(true)}>
-                    Seu navegador não oferece suporte à reprodução deste vídeo.
-                  </video>
-                ) : (
-                  <div className="video-loading" role="status">
-                    <Play fill="currentColor" size={24} />
-                    <span>{videoLoadError ? 'NÃO FOI POSSÍVEL CARREGAR' : 'CARREGANDO VÍDEO'}</span>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className={`modal-video-placeholder ${activeVideo.tone}`}>
-                <Play fill="currentColor" size={26} />
-                <span>INSERIR VÍDEO REAL</span>
-              </div>
-            )}
-          </section>
-        </div>
+        <dialog ref={dialogRef} className="video-modal" aria-labelledby="project-title" onCancel={(event) => { event.preventDefault(); setActiveVideo(null) }} onClick={(event) => {
+          if (event.target !== event.currentTarget) return
+          const bounds = event.currentTarget.getBoundingClientRect()
+          if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) setActiveVideo(null)
+        }}>
+          <div className="modal-dismiss"><button className="modal-close" type="button" autoFocus onClick={() => setActiveVideo(null)} aria-label="Fechar vídeo"><X size={22} aria-hidden="true" /></button></div>
+          <div className="modal-content">
+            <div className="modal-video-player">
+              {playbackSource && !videoLoadError ? (
+                <video key={activeVideo.id} src={playbackSource} controls autoPlay playsInline preload="metadata" poster={activeVideo.poster} aria-label={activeVideo.title} onError={() => setVideoLoadError(true)}>Seu navegador não oferece suporte à reprodução deste vídeo.</video>
+              ) : (
+                <div className="video-loading" role="status"><Play fill="currentColor" size={24} aria-hidden="true" /><span>{videoLoadError ? 'Não foi possível carregar o vídeo.' : 'Carregando vídeo…'}</span></div>
+              )}
+            </div>
+            <div className="modal-info">
+              <span className="project-kicker">{activeVideo.brand ? activeVideo.brand + ' · ' : ''}{activeVideo.category} · Produção autoral</span>
+              <h2 id="project-title">{activeVideo.title}</h2>
+              <dl className="project-facts">
+                <div><dt>Produto</dt><dd>{projectContext[activeVideo.id]?.product}</dd></div>
+                <div><dt>Formato</dt><dd>{projectContext[activeVideo.id]?.format ?? activeVideo.format} · {activeVideo.duration}</dd></div>
+                <div><dt>Objetivo do conteúdo</dt><dd>{projectContext[activeVideo.id]?.objective}</dd></div>
+                <div><dt>Minha participação</dt><dd>Produção autoral: roteiro, apresentação, gravação e edição.</dd></div>
+              </dl>
+              <a className="proposal-button" href={proposalUrl} target="_blank" rel="noreferrer">Solicitar proposta <ArrowUpRight size={16} aria-hidden="true" /></a>
+            </div>
+          </div>
+        </dialog>
       )}
     </div>
   )
