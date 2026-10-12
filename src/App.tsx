@@ -1,12 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import type { KeyboardEvent as ReactKeyboardEvent } from 'react'
 import {
-  ArrowLeft,
   ArrowRight,
   ArrowUpRight,
-  Briefcase,
   Mail,
-  MessageCircle,
   Play,
   X,
 } from 'lucide-react'
@@ -23,8 +19,6 @@ type PortfolioVideo = {
   title?: string
   brand?: string
   description?: string
-  product?: string
-  objective?: string
 }
 
 type Category = {
@@ -240,26 +234,6 @@ const portfolioMedia: Record<string, Partial<PortfolioVideo>> = {
   },
 }
 
-const projectContext: Record<string, { product: string; objective: string; format?: string }> = {
-  'haircare-1': { product: 'Máscara e óleo Blonde Oil, da BRAÉ', objective: 'Apresentar os produtos e mostrar como entram no cuidado dos fios loiros.' },
-  'haircare-2': { product: 'Máscaras Blonde Oil, Fiber Mask e Essential, da BRAÉ', objective: 'Apresentar as três máscaras e aproximar os produtos de uma rotina de cuidado capilar.' },
-  'haircare-3': { product: 'Cera Antifrizz Hidratei', objective: 'Mostrar a embalagem, a aplicação e o acabamento do finalizador no penteado.' },
-  'bodycare-1': { product: 'In the Stars e Into the Night, da Bath & Body Works', objective: 'Apresentar as duas fragrâncias com detalhes dos frascos e gestos de aplicação.' },
-  'bodycare-2': { product: 'Mist perfumado Amêndoa, da L’Occitane', objective: 'Apresentar o produto e mostrar o gesto de perfumação na rotina.' },
-  'bodycare-3': { product: 'Iluminador corporal Skelt', objective: 'Mostrar a aplicação no braço e o reflexo da luz sobre o acabamento da pele.' },
-  'skincare-1': { product: 'Minéral 89, da Vichy', objective: 'Mostrar a textura do sérum e sua aplicação como etapa da rotina de skincare.' },
-  'skincare-2': { product: 'Protetor solar facial', objective: 'Demonstrar a aplicação, a espalhabilidade e o acabamento na pele.' },
-  'skincare-3': { product: 'Sérum Skindrops, da CARE Natural Beauty', objective: 'Apresentar o sérum e mostrar seu acabamento luminoso na pele.' },
-  'skincare-4': { product: 'Protetor solar em bastão Ollie', objective: 'Demonstrar o uso do bastão diretamente no rosto e a praticidade da aplicação.' },
-  'skincare-5': { product: 'Limpador facial Creamy', objective: 'Mostrar a textura, a aplicação e o enxágue do produto na limpeza facial.' },
-  'makeup-1': { product: 'Compacto Rare Beauty', objective: 'Mostrar o produto, a aplicação com pincel e o acabamento nas maçãs do rosto.' },
-  'makeup-2': { product: 'The POREfessional Power Powder, da Benefit Cosmetics', objective: 'Demonstrar a aplicação do pó com pincel e o acabamento da maquiagem.' },
-  'makeup-3': { product: 'Máscara de cílios Detoni', objective: 'Mostrar a escovinha, a aplicação e a definição dos cílios em close.' },
-  'asmr-1': { product: 'Kit de sabonetes Granado', objective: 'Apresentar a abertura da caixa e os detalhes dos sabonetes e da embalagem.', format: 'Unboxing de produto' },
-  'asmr-2': { product: 'Vyta, da Pacco', objective: 'Valorizar os sons da abertura da embalagem e o momento de revelar o produto.' },
-  'asmr-3': { product: 'Brinco com detalhes brilhantes', objective: 'Apresentar os reflexos, o movimento e o acabamento da peça em close.' },
-}
-
 const categories: Category[] = categoryBlueprints.map((category, categoryIndex) => ({
   name: category.name,
   videos: Array.from({ length: Math.max(category.name === 'ASMR' ? 2 : 3, ...Object.keys(portfolioMedia)
@@ -271,12 +245,10 @@ const categories: Category[] = categoryBlueprints.map((category, categoryIndex) 
     return {
       id,
       category: category.name,
-      format: projectContext[id]?.format ?? media?.format ?? format,
+      format: media?.format ?? format,
       title: media?.title,
       brand: media?.brand,
       description: media?.description,
-      product: projectContext[id]?.product,
-      objective: projectContext[id]?.objective,
       duration: media?.duration ?? ['00:30', '00:45', '00:35', '00:60'][videoIndex],
       tone: `tone-${(categoryIndex + videoIndex) % 5}`,
       sourceParts: media?.sourceParts,
@@ -286,6 +258,11 @@ const categories: Category[] = categoryBlueprints.map((category, categoryIndex) 
 }))
 
 const profileFacts = [
+  ['ALTURA', 'A INSERIR'],
+  ['PESO', 'A INSERIR'],
+  ['BUSTO', 'A INSERIR'],
+  ['CINTURA', 'A INSERIR'],
+  ['QUADRIL', 'A INSERIR'],
   ['MANEQUIM', 'P'],
   ['CALÇADO', '36 · 37 EM FORMAS MENORES'],
   ['CABELO', 'NATURALMENTE LOIRO'],
@@ -306,107 +283,31 @@ const services = [
 ]
 
 const prices = [
-  { name: 'Essencial', videos: '1 vídeo UGC', photos: 'Fotos avulsas sob orçamento', price: 'R$ 250', unit: '' },
-  { name: 'Duo', videos: '2 vídeos UGC', photos: 'Fotos avulsas sob orçamento', price: 'R$ 460', unit: 'R$ 230 por vídeo' },
-  { name: 'Campanha', videos: '3 vídeos UGC', photos: 'Fotos avulsas sob orçamento', price: 'R$ 630', unit: 'R$ 210 por vídeo' },
-  { name: 'Content Pack', videos: '5 vídeos UGC', photos: '2 fotos incluídas', price: 'R$ 1.050', unit: '' },
+  ['01', 'ESSENCIAL', '1 VÍDEO UGC', 'R$ 250'],
+  ['02', 'DUO', '2 VÍDEOS UGC|R$ 230 POR VÍDEO', 'R$ 460'],
+  ['03', 'CAMPANHA', '3 VÍDEOS UGC|R$ 210 POR VÍDEO', 'R$ 630'],
+  ['04', 'CONTENT PACK', '5 VÍDEOS UGC + 2 FOTOS', 'R$ 1.050'],
+  ['05', 'CONTRATO MENSAL', 'UGC + REDES SOCIAIS', 'PLANO PERSONALIZADO CONFORME A PROPOSTA'],
 ]
 
 const process = ['Briefing', 'Estratégia e roteiro', 'Gravação', 'Edição e finalização', 'Entrega']
-const proposalUrl = 'https://wa.me/5511988242425?text=' + encodeURIComponent('Olá, Thamyres! Gostaria de solicitar uma proposta para produção de conteúdo para minha marca.')
-
-function CategoryReels({ category, onOpen }: { category: Category; onOpen: (video: PortfolioVideo) => void }) {
-  const trackRef = useRef<HTMLDivElement>(null)
-  const [position, setPosition] = useState({ index: 0, previous: false, next: false, scrollable: false })
-  const trackId = `videos-${category.name.toLowerCase()}`
-  const hintId = `${trackId}-hint`
-  const published = category.videos.filter((video) => video.sourceParts).length
-  const upcoming = category.videos.length - published
-
-  useEffect(() => {
-    const track = trackRef.current
-    if (!track) return
-    const update = () => {
-      const card = track.querySelector<HTMLElement>('.reel-card')
-      if (!card) return
-      const step = card.getBoundingClientRect().width + (Number.parseFloat(getComputedStyle(track).columnGap) || 0)
-      const max = track.scrollWidth - track.clientWidth
-      setPosition({
-        index: Math.min(category.videos.length - 1, Math.max(0, Math.round(track.scrollLeft / step))),
-        previous: track.scrollLeft > 2,
-        next: track.scrollLeft < max - 2,
-        scrollable: max > 2,
-      })
-    }
-    const observer = new ResizeObserver(update)
-    observer.observe(track)
-    track.addEventListener('scroll', update, { passive: true })
-    update()
-    return () => { observer.disconnect(); track.removeEventListener('scroll', update) }
-  }, [category])
-
-  const move = (direction: number, edge?: 'start' | 'end') => {
-    const track = trackRef.current
-    const card = track?.querySelector<HTMLElement>('.reel-card')
-    if (!track || !card) return
-    const step = card.getBoundingClientRect().width + (Number.parseFloat(getComputedStyle(track).columnGap) || 0)
-    track.scrollTo({
-      left: edge === 'start' ? 0 : edge === 'end' ? track.scrollWidth - track.clientWidth : track.scrollLeft + direction * step,
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-    })
-  }
-
-  const onTrackKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
-    if (event.target !== event.currentTarget) return
-    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return
-    event.preventDefault()
-    if (event.key === 'Home') move(0, 'start')
-    else if (event.key === 'End') move(0, 'end')
-    else move(event.key === 'ArrowRight' ? 1 : -1)
-  }
-
-  return (
-    <article className="category-column" id={category.name.toLowerCase()}>
-      <header className="category-header">
-        <div><h3>{category.name}</h3><p>{published} vídeos{upcoming > 0 ? ` · ${upcoming} em breve` : ''}</p></div>
-        <div className="reel-controls" aria-label={`Controles de ${category.name}`}>
-          <button type="button" onClick={() => move(-1)} disabled={!position.previous} aria-label={`Vídeos anteriores de ${category.name}`} aria-controls={trackId}><ArrowLeft size={18} aria-hidden="true" /></button>
-          <span className="reel-position" aria-live="polite" aria-atomic="true">{position.scrollable ? `${position.index + 1} / ${category.videos.length}` : `${category.videos.length} itens`}</span>
-          <button type="button" onClick={() => move(1)} disabled={!position.next} aria-label={`Próximos vídeos de ${category.name}`} aria-controls={trackId}><ArrowRight size={18} aria-hidden="true" /></button>
-        </div>
-      </header>
-      <p className="reel-hint" id={hintId}>{position.scrollable ? 'Deslize ou use as setas para ver mais.' : 'Abra um vídeo para conhecer a produção.'}<span className="sr-only"> Use as setas do teclado, Home e End quando a lista estiver em foco.</span></p>
-      <div className="reel-carousel">
-        <div className="reel-stack" id={trackId} ref={trackRef} role="region" aria-roledescription="carrossel" aria-label={`Vídeos de ${category.name}`} aria-describedby={hintId} tabIndex={0} onKeyDown={onTrackKeyDown}>
-          {category.videos.map((video) => (
-            <button className={`reel-card ${video.tone} ${video.sourceParts ? '' : 'reel-card-placeholder'}`} type="button" key={video.id} onClick={() => onOpen(video)} disabled={!video.sourceParts} aria-label={video.sourceParts ? `Abrir ${video.title ?? video.format}` : `Espaço reservado: ${video.title ?? video.format}`} aria-haspopup={video.sourceParts ? 'dialog' : undefined}>
-              <span className="reel-visual">{video.poster ? <img className="reel-poster" src={video.poster} alt="" loading="lazy" decoding="async" /> : null}</span>
-              {video.sourceParts && <span className="reel-play"><Play fill="currentColor" size={14} aria-hidden="true" /></span>}
-              <span className="reel-meta"><strong>{video.format}</strong><small>{video.brand ? `${video.brand} · ${video.category}` : video.category}</small>{!video.sourceParts && <span className="placeholder-status">Vídeo em breve</span>}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-    </article>
-  )
-}
 
 function App() {
   const [activeVideo, setActiveVideo] = useState<PortfolioVideo | null>(null)
   const [playbackSource, setPlaybackSource] = useState<string | null>(null)
   const [videoLoadError, setVideoLoadError] = useState(false)
-  const dialogRef = useRef<HTMLDialogElement>(null)
+  const reelTracks = useRef<Record<string, HTMLDivElement | null>>({})
 
   useEffect(() => {
-    const dialog = dialogRef.current
-    if (!activeVideo || !dialog) return
-    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null
+    if (!activeVideo) return
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setActiveVideo(null)
+    }
     document.body.classList.add('modal-open')
-    if (!dialog.open) dialog.showModal()
+    window.addEventListener('keydown', closeOnEscape)
     return () => {
       document.body.classList.remove('modal-open')
-      if (dialog.open) dialog.close()
-      previousFocus?.focus({ preventScroll: true })
+      window.removeEventListener('keydown', closeOnEscape)
     }
   }, [activeVideo])
 
@@ -447,14 +348,12 @@ function App() {
 
   return (
     <div className="site-shell">
-      <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <header className="topbar">
         <nav className="desktop-nav" aria-label="Navegação principal">
           <a href="#portfolio">Portfólio</a>
           <a href="#metricas">Métricas</a>
           <a href="#servicos">Serviços</a>
           <a href="#sobre">Sobre</a>
-          <a href="#contato">Contato</a>
         </nav>
         <div className="header-actions">
           <a href="mailto:contato@thamyresharmatiuk.com" aria-label="Enviar e-mail">
@@ -468,7 +367,7 @@ function App() {
         </div>
       </header>
 
-      <main id="conteudo" tabIndex={-1}>
+      <main>
         <section className="hero dark-section" id="inicio">
           <div className="hero-showcase">
             <div className="hero-name-panel">
@@ -487,7 +386,7 @@ function App() {
               <div className="hero-image-fade" aria-hidden="true" />
               <div className="hero-name-copy">
                 <h1>Thamyres <em>Harmatiuk</em></h1>
-                <p>Vídeos e fotos de beleza: roteiro, demonstração de produto e edição para os canais da sua marca.</p>
+                <p>UGC com estética editorial, demonstração real e intenção comercial para marcas de beleza.</p>
               </div>
             </div>
 
@@ -509,9 +408,64 @@ function App() {
             </div>
           </div>
 
-          <p className="portfolio-note">Produções autorais. Abra cada vídeo para ver o produto, a proposta do conteúdo e minha participação.</p>
           <div className="portfolio-grid">
-            {categories.map((category) => <CategoryReels key={category.name} category={category} onOpen={setActiveVideo} />)}
+            {categories.map((category) => (
+              <article className="category-column" id={category.name.toLowerCase()} key={category.name}>
+                <header className="category-header">
+                  <h3>{category.name}</h3>
+                </header>
+                <div className="reel-carousel">
+                  <div className="reel-stack" ref={(element) => { reelTracks.current[category.name] = element }} aria-label={`Vídeos de ${category.name}`}>
+                    {category.videos.map((video) => (
+                      <button
+                        className={`reel-card ${video.tone} ${video.sourceParts ? '' : 'reel-card-placeholder'}`}
+                        type="button"
+                        key={video.id}
+                        onClick={() => setActiveVideo(video)}
+                        disabled={!video.sourceParts}
+                        aria-label={video.sourceParts
+                          ? `Abrir ${video.title ?? `${video.format} de ${video.category}`}`
+                          : `Espaço reservado: ${video.title ?? `${video.format} de ${video.category}`}`}
+                      >
+                        <span className="reel-visual">
+                          {video.poster ? (
+                            <img className="reel-poster" src={video.poster} alt="" loading="lazy" decoding="async" />
+                          ) : (
+                            <span className="placeholder-cross" />
+                          )}
+                        </span>
+                        {video.sourceParts && <span className="reel-play"><Play fill="currentColor" size={14} /></span>}
+                        <span className="reel-meta">
+                          <strong>{video.format}</strong>
+                          <small>{video.brand ? `${video.brand} · ${video.category}` : video.category}</small>
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                  {category.videos.length > 3 && (
+                    <button
+                      className="carousel-next"
+                      type="button"
+                      aria-label={`Ver mais vídeos de ${category.name}`}
+                      onClick={() => {
+                        const track = reelTracks.current[category.name]
+                        const firstCard = track?.querySelector('.reel-card')
+                        if (track && firstCard) {
+                          const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0
+                          const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2
+                          track.scrollTo({
+                            left: atEnd ? 0 : track.scrollLeft + firstCard.getBoundingClientRect().width + gap,
+                            behavior: 'smooth',
+                          })
+                        }
+                      }}
+                    >
+                      <ArrowRight size={16} aria-hidden="true" />
+                    </button>
+                  )}
+                </div>
+              </article>
+            ))}
           </div>
 
           <div className="portfolio-photos" id="fotografias" aria-label="Fotografias selecionadas">
@@ -545,7 +499,7 @@ function App() {
               ['GÊNERO', '/images/metricas-genero.webp', 'Distribuição por gênero dos seguidores no Instagram'],
               ['FAIXA ETÁRIA', '/images/metricas-faixa-etaria.webp', 'Faixa etária dos seguidores no Instagram'],
               ['DESEMPENHO', '', 'Conteúdos principais e visualizações no Instagram'],
-            ].filter(([, image]) => image).map(([label, image, alt]) => (
+            ].map(([label, image, alt]) => (
               <article className="metric-document" key={label}>
                 <div className="metric-placeholder">
                   {image ? <img src={image} alt={alt} loading="lazy" decoding="async" /> : null}
@@ -560,75 +514,72 @@ function App() {
           <div className="about-media-grid">
             <div className="profile-panel">
               <h2 className="about-title">Sobre mim</h2>
-              <p className="about-bio">Minha experiência em beleza reúne reviews, demonstrações e unboxings. Trabalho com textura, aplicação e acabamento em rotinas de cabelo, pele, maquiagem e cuidados corporais, adaptando cada conteúdo ao briefing.</p>
-              <p className="about-bio">Assino roteiro, apresentação, gravação e edição. Cuido da iluminação, dos enquadramentos, do som e das legendas para que o produto e seu uso apareçam com clareza.</p>
+              <p className="about-bio">
+                Sou Thamyres Harmatiuk, criadora de conteúdo UGC para marcas de beleza. Desenvolvo vídeos e fotos de Haircare, skincare, bodycare, makeup e ASMR, equilibrando estética editorial com demonstrações próximas e naturais. Da textura ao resultado em uso, cada detalhe é pensado para apresentar os diferenciais do produto com clareza, criar identificação e despertar vontade de experimentar. Meu objetivo é entregar conteúdo autêntico, visualmente cuidado e alinhado à proposta de cada marca, fortalecendo sua presença e a conexão com o público.
+              </p>
             </div>
-            <div className="about-practical">
-              <h3>Localização e disponibilidade</h3>
-              <p>Alphaville, SP e Curitiba, PR.</p>
-              <p>Disponibilidade para viagens.</p>
-              <details className="model-profile">
-                <summary>Perfil para trabalhos como modelo</summary>
-                <p>Informações para produções em que o perfil físico é relevante.</p>
-                <dl className="profile-facts">{profileFacts.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
-              </details>
-            </div>
+            <dl className="profile-facts">
+              {profileFacts.map(([label, value]) => (
+                <div key={label}>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 
         <section className="services paper-section" id="servicos">
           <div className="services-intro">
             <span className="section-kicker">SERVIÇOS E INVESTIMENTO</span>
-            <h2>Conteúdo para <em>sua marca</em></h2>
-            <p>Produção autoral de vídeos e fotos de beleza, com roteiro, apresentação do produto, gravação e edição conforme o briefing aprovado.</p>
-          </div>
-
-          <div className="service-types">
-            <article>
-              <h3>Produção UGC para os canais da marca</h3>
-              <p>Conteúdo entregue para a marca publicar em seus canais. A produção inclui captação com a câmera traseira em 4K a 30 FPS, edição e legendas, com atenção à luz, ao som, ao enquadramento e à demonstração do produto.</p>
-            </article>
-            <article>
-              <h3>Conteúdo para redes sociais</h3>
-              <p>Projetos recorrentes com entregas e frequência definidas na proposta. O escopo de conteúdo para redes sociais é apresentado separadamente da produção UGC.</p>
-            </article>
+            <h2>Do conceito à <em>entrega</em></h2>
+            <p>
+              Os pacotes incluem roteiro, gravação com a câmera traseira em 4K a 30 FPS, edição e legendas. Cada vídeo é finalizado com excelência conforme o briefing aprovado. Se necessário, serão realizados ajustes para que a entrega atenda ao que foi proposto. Direitos de uso para mídia paga e períodos de veiculação são definidos separadamente. Custos adicionais de produção, deslocamento ou locação, quando necessários, são orçados à parte. Prazo padrão de até 7 dias corridos após aprovação do briefing e recebimento do produto.
+            </p>
           </div>
 
           <div className="compact-process">
-            <span className="section-kicker">ETAPAS DA PRODUÇÃO</span>
+            <span className="section-kicker">PROCESSO</span>
             <div>{process.map((item, index) => <span key={item}>{item}{index < process.length - 1 && <b aria-hidden="true">›</b>}</span>)}</div>
           </div>
 
-          <div className="service-formats"><h3>Formatos que produzo</h3><ul>{services.map((service) => <li key={service}>{service}</li>)}</ul></div>
-
-          <div className="package-heading" id="pacotes"><div><h3>Pacotes de produção UGC</h3><p>Cada vídeo inclui uma versão. Duração e revisões são definidas na proposta antes da produção; novos ganchos são orçados à parte.</p></div><a className="project-proposal" href={proposalUrl} target="_blank" rel="noreferrer">Solicitar proposta <ArrowUpRight size={16} aria-hidden="true" /></a></div>
-          <div className="package-list">
-            {prices.map((pack) => (
-              <article className="package-card" key={pack.name}>
-                <header><h4>{pack.name}</h4><strong>{pack.price}</strong></header>
-                <p className="package-quantity">{pack.videos}</p>
-                <p className="package-photos">{pack.photos}{pack.unit && <span>{pack.unit}</span>}</p>
-                <dl className="package-details">
-                  <div><dt>Duração prevista</dt><dd>Definida na proposta</dd></div>
-                  <div><dt>Versões entregues</dt><dd>1 versão por vídeo</dd></div>
-                  <div><dt>Revisões</dt><dd>Ajustes ao briefing aprovado; rodadas definidas na proposta</dd></div>
-                  <div><dt>Prazo</dt><dd>Até 7 dias corridos após aprovação do briefing e recebimento do produto</dd></div>
-                </dl>
-              </article>
-            ))}
+          <div className="services-grid">
+            <div className="service-column">
+              <h3>FORMATOS</h3>
+              <div className="service-list">
+                {services.map((service, index) => (
+                  <div key={service}><span>{String(index + 1).padStart(2, '0')}</span><p>{service}</p></div>
+                ))}
+              </div>
+            </div>
+            <div className="package-column">
+              <h3>PACOTES</h3>
+              <div className="price-table">
+                {prices.map(([number, name, detail, price]) => (
+                  <div className="price-row" key={number}>
+                    <span>{number}</span>
+                    <strong>{name}</strong>
+                    <small>{detail.split('|').map((line) => <span key={line}>{line}</span>)}</small>
+                    <b className={price.length > 15 ? 'price-note' : undefined}>{price}</b>
+                  </div>
+                ))}
+                <div className="price-row extra-row">
+                  <span aria-hidden="true" />
+                  <strong>EXTRAS E DIREITOS</strong>
+                  <small><span>FOTOS, BRUTOS, GANCHOS E MÍDIA</span></small>
+                  <b className="price-note">LICENÇA DE USO CONFORME O ESCOPO</b>
+                </div>
+              </div>
+              <div className="availability">
+                <h3>BASES E DISPONIBILIDADE</h3>
+                <p>Resido em Alphaville, SP e Curitiba, PR. Disponibilidade para viagens.</p>
+              </div>
+            </div>
           </div>
-
-          <div className="delivery-scope">
-            <article><h3>O que está incluído</h3><ul><li>Roteiro conforme o briefing aprovado.</li><li>Gravação com a câmera traseira em 4K a 30 FPS.</li><li>Edição e legendas.</li><li>Ajustes para que a entrega atenda ao briefing, conforme as revisões combinadas.</li></ul></article>
-            <article><h3>O que é orçado separadamente</h3><ul><li>Fotos extras, arquivos brutos e ganchos adicionais.</li><li>Direitos de uso para mídia paga e períodos de veiculação.</li><li>Custos adicionais de produção, deslocamento e locação, quando necessários.</li></ul></article>
-          </div>
-
-          <article className="monthly-offer"><div><h3>Contrato mensal</h3><p>Plano personalizado conforme a proposta.</p></div><p>Quantidade de vídeos e fotos, duração, revisões e cronograma são definidos para cada projeto. Cada vídeo UGC inclui uma versão; novos ganchos são orçados à parte. Produção UGC e conteúdo para redes sociais têm seus escopos identificados na proposta.</p></article>
-          <div className="proposal-callout"><div><h3>Vamos definir as entregas para sua marca?</h3><p>Conte o produto, os canais de publicação e o que você precisa produzir.</p></div><a className="action-link" href={proposalUrl} target="_blank" rel="noreferrer">Solicitar proposta <ArrowUpRight size={18} aria-hidden="true" /></a></div>
         </section>
 
         <section className="contact dark-section" id="contato">
-          <h2>Vamos planejar seu<br /><em>próximo conteúdo?</em></h2>
+          <h2>Vamos criar algo<br /><em>excepcional juntos?</em></h2>
           <div className="contact-links">
             <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer">
               <span>WHATSAPP COMERCIAL</span><strong>(11) 98824 2425</strong>
@@ -648,39 +599,36 @@ function App() {
         </section>
       </main>
 
-      <nav className="mobile-contact-dock" aria-label="Navegação rápida">
-        <a href="#portfolio"><Play size={18} aria-hidden="true" /> Trabalhos</a>
-        <a href="#servicos"><Briefcase size={18} aria-hidden="true" /> Serviços</a>
-        <a href="#contato"><MessageCircle size={18} aria-hidden="true" /> Contato</a>
-      </nav>
+      <div className="mobile-contact-dock" aria-label="Contato rápido">
+        <a href="https://wa.me/5511988242425" target="_blank" rel="noreferrer"><FaWhatsapp size={18} /> WhatsApp</a>
+        <a href="mailto:contato@thamyresharmatiuk.com"><Mail size={18} /> E-mail</a>
+      </div>
 
       {activeVideo && (
-        <dialog ref={dialogRef} className="video-modal" aria-labelledby="project-title" onCancel={(event) => { event.preventDefault(); setActiveVideo(null) }} onClick={(event) => {
-          if (event.target !== event.currentTarget) return
-          const bounds = event.currentTarget.getBoundingClientRect()
-          if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) setActiveVideo(null)
-        }}>
-          <header className="modal-header"><span>Projeto autoral · {activeVideo.category}</span><button className="modal-close" type="button" autoFocus onClick={() => setActiveVideo(null)} aria-label="Fechar vídeo"><X size={22} aria-hidden="true" /></button></header>
-          <div className="modal-content">
-            <div className="modal-video-player">
-              {playbackSource && !videoLoadError ? (
-                <video key={activeVideo.id} src={playbackSource} controls autoPlay playsInline preload="metadata" poster={activeVideo.poster} aria-label={activeVideo.title} onError={() => setVideoLoadError(true)}>Seu navegador não oferece suporte à reprodução deste vídeo.</video>
-              ) : (
-                <div className="video-loading" role="status"><Play fill="currentColor" size={24} aria-hidden="true" /><span>{videoLoadError ? 'Não foi possível carregar o vídeo.' : 'Carregando vídeo…'}</span>{videoLoadError && <a href={activeVideo.sourceParts?.[0]} target="_blank" rel="noreferrer">Abrir o arquivo do vídeo</a>}</div>
-              )}
-            </div>
-            <div className="modal-info">
-              <h2 id="project-title">{activeVideo.title}</h2>
-              <dl className="project-facts">
-                <div><dt>Produto</dt><dd>{activeVideo.product}</dd></div>
-                <div><dt>Formato</dt><dd>{activeVideo.format} · {activeVideo.duration}</dd></div>
-                <div><dt>Objetivo do conteúdo</dt><dd>{activeVideo.objective}</dd></div>
-                <div><dt>Minha participação</dt><dd>Produção autoral: concepção, roteiro, apresentação, gravação e edição.</dd></div>
-              </dl>
-              <a className="project-proposal" href={proposalUrl} target="_blank" rel="noreferrer">Produzir um conteúdo para minha marca <ArrowUpRight size={16} aria-hidden="true" /></a>
-            </div>
-          </div>
-        </dialog>
+        <div className="modal-backdrop" role="presentation" onMouseDown={() => setActiveVideo(null)}>
+          <section className="video-modal" role="dialog" aria-modal="true" aria-label={activeVideo.title ?? `Vídeo de ${activeVideo.category}`} onMouseDown={(event) => event.stopPropagation()}>
+            <button className="modal-close" type="button" onClick={() => setActiveVideo(null)} aria-label="Fechar vídeo"><X size={20} /></button>
+            {activeVideo.sourceParts ? (
+              <div className="modal-video-player">
+                {playbackSource && !videoLoadError ? (
+                  <video key={activeVideo.id} src={playbackSource} controls autoPlay playsInline preload="metadata" poster={activeVideo.poster} onError={() => setVideoLoadError(true)}>
+                    Seu navegador não oferece suporte à reprodução deste vídeo.
+                  </video>
+                ) : (
+                  <div className="video-loading" role="status">
+                    <Play fill="currentColor" size={24} />
+                    <span>{videoLoadError ? 'NÃO FOI POSSÍVEL CARREGAR' : 'CARREGANDO VÍDEO'}</span>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className={`modal-video-placeholder ${activeVideo.tone}`}>
+                <Play fill="currentColor" size={26} />
+                <span>INSERIR VÍDEO REAL</span>
+              </div>
+            )}
+          </section>
+        </div>
       )}
     </div>
   )
